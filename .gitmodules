@@ -1,0 +1,6 @@
+[submodule "themes/terminal"]
+	path = themes/terminal
+	url = https://github.com/digitalcraftsman/hugo-type-theme.git
+[submodule "themes/terminal-theme"]
+	path = themes/terminal-theme
+	url = https://github.com/panr/hugo-theme-terminal
