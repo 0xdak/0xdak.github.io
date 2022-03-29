@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://0xdak.github.io"
 languageCode = "tr"
 theme = "terminal-theme"
 paginate = 5
