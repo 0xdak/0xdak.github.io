@@ -1,6 +1,6 @@
 ---
 title: "Hakkımda"
-draft: true
+draft: false
 ---
 
 İsmim Ali. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde 3. sınıfım.
