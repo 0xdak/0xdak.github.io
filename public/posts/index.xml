@@ -2,19 +2,78 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 0xdak</title>
-    <link>http://example.org/posts/</link>
+    <link>/posts/</link>
     <description>Recent content in Posts on 0xdak</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tr</language>
-    <lastBuildDate>Tue, 29 Mar 2022 17:24:58 +0300</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Mar 2022 17:24:58 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ilk Yazi</title>
-      <link>http://example.org/posts/ilk-yazi/</link>
+      <title>A1 2017 - Injection | Türkçe Çeviri</title>
+      <link>/posts/a1-2017-baa5b/</link>
       <pubDate>Tue, 29 Mar 2022 17:24:58 +0300</pubDate>
       
-      <guid>http://example.org/posts/ilk-yazi/</guid>
-      <description></description>
-      <content></content>
+      <guid>/posts/a1-2017-baa5b/</guid>
+      <description>Bu içerik, OWASP topluluğunun 2017 senesinde tüm açıkları bir puana göre sıraladığı ilk 10 listede 1. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde açıkladığı Injection açığının Türkçe çevirisidir.
+Orijinal yazıyı okumak isteyenler için orijinal yazının linki:
+https://owasp.org/www-project-top-ten/2017/A1_2017-Injection
+Anlamını bilmediğiniz veya benim Türkçe&amp;rsquo;ye bilerek çevirmediğim terimlerin anlamı için, kendi dilimde açıkladığım terimler sayfasına gidebilirsiniz.
+Tehdit Aktörleri/ Saldırı Vektörleri Kırılabilirlik: 3
+Hemen hemen herhangi bir veri kaynağı; bir injection vektörü, çevre değişkenleri, parametreler, private ve public web servisleri veya tüm kullanıcı türleri olabilir.</description>
+      <content>&lt;p&gt;Bu içerik, OWASP topluluğunun 2017 senesinde tüm açıkları bir puana göre sıraladığı ilk 10 listede 1. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde
+açıkladığı Injection açığının Türkçe çevirisidir.&lt;/p&gt;
+&lt;p&gt;Orijinal yazıyı okumak isteyenler için orijinal yazının linki:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://owasp.org/www-project-top-ten/2017/A1_2017-Injection&#34;&gt;https://owasp.org/www-project-top-ten/2017/A1_2017-Injection&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Anlamını bilmediğiniz veya benim Türkçe&amp;rsquo;ye bilerek çevirmediğim terimlerin anlamı için, kendi dilimde açıkladığım terimler sayfasına gidebilirsiniz.&lt;/p&gt;
+&lt;h3 id=&#34;emtehdit-aktörleriem--emsaldırı-vektörleriem&#34;&gt;&lt;!-- raw HTML omitted --&gt;Tehdit Aktörleri&lt;!-- raw HTML omitted --&gt; / &lt;!-- raw HTML omitted --&gt;Saldırı Vektörleri&lt;!-- raw HTML omitted --&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Kırılabilirlik: 3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Hemen hemen herhangi bir veri kaynağı; bir injection vektörü, çevre değişkenleri, parametreler, private ve public web servisleri veya tüm kullanıcı türleri olabilir. Injection açıkları, saldırgan; yorumlayıcıya tehditvari bir veri gönderebildiğinde meydana gelir.&lt;/p&gt;
+&lt;h3 id=&#34;güvenlik-zayıflığı&#34;&gt;Güvenlik Zayıflığı&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Yaygınlık: 2 | Tespit Edilebilirlik: 3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Injection açıkları aslında çok yaygındır, özellikle de tarihi geçmiş kodlarda (deprecated). Injection açıkları genellikle SQL, LDAP, XPath, NoSQL sorguları, işletim sistemi komutları, XML-parserlar, SMTP header&amp;rsquo;ları, expression programlama dilleri ve ORM sorgularında bulunur.&lt;/p&gt;
+&lt;p&gt;Kodu incelerken injection açıklarını keşfetmek kolaydır. Scanner&amp;rsquo;lar ve fuzzer&amp;rsquo;lar, saldırganların injection açıklarını bulmalarında yardımcı olurlar.&lt;/p&gt;
+&lt;h3 id=&#34;etkiler&#34;&gt;Etkiler&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Teknik: 3 | İş Hayatına Etkisi ?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Injection veri kaybına, yolsuzluğa veya illegal partilerin ifşalanmasına, bir partinin suçlanılabilirliğinin kaybına, veya sisteme erişimin reddedilmesine yol açabilir. Injection, bazen host makinanın  devralınmasına neden olabilir.
+Injection&amp;rsquo;ın iş hayatına etkisi, uygulama ve veri ihtiyaçlarına göre değişkenlik gösterebilir.&lt;/p&gt;
+&lt;h3 id=&#34;uygulamanız-savunmasız-mı&#34;&gt;Uygulamanız Savunmasız mı?&lt;/h3&gt;
+&lt;p&gt;Bir uygulama şu nedenlerden dolayı saldırıya açıktır:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kullanıcı tarafından girilen veri uygulama tarafından onaylanmaz, filtrelemez veya işleme tabi tutulmamazsa&lt;/li&gt;
+&lt;li&gt;Dinamik sorgular veya [context-aware escaping]&amp;lsquo;siz parametresiz çağrılar direkt olarak yorumlayıcıda kullanılırsa&lt;/li&gt;
+&lt;li&gt;Tehditvari veriler, sorguya ek bir şekilde hassas kayıtları elde etme amacıyla, ORM&amp;rsquo;de arama parametreleri içinde kullanılırsa&lt;/li&gt;
+&lt;li&gt;Tehditvari veriler, dinamik sorgular, komutlar veya stored procedur&amp;rsquo;ler, hem yapı hem de düşmanca veriler içerek şekilde, SQL veya komut gibi direkt olarak
+veya birleştirilerek kullanılırsa&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En yaygın injection&amp;rsquo;lardan bazıları SQL, NoSQL, işletim sistemi komutları, ORM, LDAP ve Expression dili ve OGNL injection&amp;rsquo;larıdır. Tüm yorumlayıcılarda konsept birebir aynıdır. Kaynak kodun gözden geçirilmesi, bütün parametrelerin, header&amp;rsquo;ların, URL&amp;rsquo;lerin, cookie&amp;rsquo;lerin, JSON, SOAP ve XML veri girdilerinin otomatik teste tabi tutulması, uygulamaların injection zaafiyetleri olup olmadığını saptamak için en iyi yöntemdir.
+Kurumlar, ürünün dağıtımıdan önce yeni çıkan injection açıklarını saptamak için,statik kod ve dinamik uygulama test araçlarını CI/CD pipeline&amp;rsquo;a dahil edebilirler.&lt;/p&gt;
+&lt;h3 id=&#34;nasıl-önlenir&#34;&gt;Nasıl Önlenir?&lt;/h3&gt;
+&lt;p&gt;Injection&amp;rsquo;ı önlemek, veriyi komutlardan ve sorgulardan ayrı tutmayı gerektirir.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Tercih edilen seçenek, yorumlayıcıyı baştan sona kullanmaktan kaçınan veya parametrize edilmiş bir arayüz sunan veya ORM araçlarını kullanmak için geçiş sunan güvenli bir API kullanmaktır.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Not&lt;/strong&gt;: Parametrize edilse bile, [stored procedure]&amp;rsquo;ler, eğer PL/SQL veya T-SQL; sorgu ile veriyi birleştiriyorsa veya tehditvari veriyi EXECUTE IMMEDIATE veya exec() ile kullanıyorsa hala SQL injection&amp;rsquo;a sebep olabilir.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Server tarafında pozitif veya [whitelist] girdi kontrolü (input validation) kullanın. Pek çok uygulama [special characters] gerektirdiğinden, bu önlem tam savunma
+sağlamayabilir.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bahsetmediğimiz diğer dinamik sorgular için, kullandığınız yorumlayıcıya özel escape syntax kullanarak special characters kullanmaktan kaçının.
+&lt;strong&gt;Not&lt;/strong&gt;: Tablo isimleri, column isimleri ve benzerleri gibi SQL yapıları kullanmaktan mecburen kaçınamayız, bu yüzden kullanıcı tarafından sağlanan yapı isimleri tehlikelidir. Bu yazılımı kodlarken yapılan genel bir hatadır.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SQL Injection durumunda kayıtların toplu olarak açığa çıkarılmasını önlemek için, sorgularda LIMIT ve diğer SQL kontrollerini kullanın.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;örnek-saldırı-senaryoları&#34;&gt;Örnek Saldırı Senaryoları&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Senaryo #1:&lt;/strong&gt; Bir uygulama, aşağıdaki zaafiyetli SQL sorgusunu oluştururken güvenilmeyen veriyi birleştiriyor.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;String query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SELECT * FROM accounts WHERE custID=&amp;#39;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; request.getParameter(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Senaryo #2:&lt;/strong&gt; Benzer bir şekilde, bir uygulamanın framework&amp;rsquo;lere körü körüne güvenmesi hala zaafiyetli olan sorgulara neden olabilir. (örneğin Hibernate Query Language (HQL)) :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Query HQLQuery &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;session&lt;/span&gt;.createQuery(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;FROM accounts WHERE custID=&amp;#39;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; request.getParameter(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#39;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Her iki durumda da, saldırgan &amp;lsquo;id&amp;rsquo; parametre yerine tarayıcıdan şu değeri girebilir: ‘ or ‘1’=’1. Örneğin;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;http:&lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt;example.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;app&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;accountView&lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt;id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; or &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;=&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Bu değişikler, kayıtların tutulduğu tablodan tüm kayıtları çekmek için, her iki sorgunun da anlamını değiştirir. Daha tehlikeli saldırılar veriyi değiştirmek veya silmek ve hatta &amp;lsquo;stored procedure&amp;rsquo;leri bile çağırmak olabilir.&lt;/p&gt;
+</content>
     </item>
     
   </channel>
