@@ -56,4 +56,22 @@ sağlamayabilir.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>Query HQLQuery &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">session&lt;/span>.createQuery(&lt;span style="color:#e6db74">&amp;#34;FROM accounts WHERE custID=&amp;#39;&amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> request.getParameter(&lt;span style="color:#e6db74">&amp;#34;id&amp;#34;&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#39;&amp;#34;&lt;/span>);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Her iki durumda da, saldırgan &amp;lsquo;id&amp;rsquo; parametre yerine tarayıcıdan şu değeri girebilir: ‘ or ‘1’=’1. Örneğin;&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>http:&lt;span style="color:#f92672">//&lt;/span>example.com&lt;span style="color:#f92672">/&lt;/span>app&lt;span style="color:#f92672">/&lt;/span>accountView&lt;span style="color:#f92672">?&lt;/span>id&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39; or &amp;#39;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#e6db74">&amp;#39;=&amp;#39;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bu değişikler, kayıtların tutulduğu tablodan tüm kayıtları çekmek için, her iki sorgunun da anlamını değiştirir. Daha tehlikeli saldırılar veriyi değiştirmek veya silmek ve hatta &amp;lsquo;stored procedure&amp;rsquo;leri bile çağırmak olabilir.&lt;/p></content></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bu değişikler, kayıtların tutulduğu tablodan tüm kayıtları çekmek için, her iki sorgunun da anlamını değiştirir. Daha tehlikeli saldırılar veriyi değiştirmek veya silmek ve hatta &amp;lsquo;stored procedure&amp;rsquo;leri bile çağırmak olabilir.&lt;/p></content></item><item><title>Hakkımda</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>İsmim Ali. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde 3. sınıfım.
+Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
+Benle ilgili bilmeniz gereken tek şey, zaman yönetimimin olağanüstü olduğudur.
+Neler Yapıyorum? TryHackMe’de kendimi geliştiriyorum. (https://tryhackme.com/p/0a1bc123) Kali Linux’ta, Vulnhub’dan zaafiyetli makinaları sanal bilgisayara kurup sızmaya çalışıyorum. S3328-TPEI Quidway Switch’i configure ederek; ağ trafiğini Raspberry Pi’nin üzerinden yönlendirecek ve Pi’de çalışan packet tracer’la trafikteki paketlerin kodlarını çözecek bir proje yapıyorum.</description><content>&lt;p>İsmim Ali. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde 3. sınıfım.&lt;/p>
+&lt;p>Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.&lt;/p>
+&lt;p>Benle ilgili bilmeniz gereken tek şey, zaman yönetimimin olağanüstü olduğudur.&lt;/p>
+&lt;h3 id="neler-yapıyorum">Neler Yapıyorum?&lt;/h3>
+&lt;ul>
+&lt;li>TryHackMe’de kendimi geliştiriyorum. (&lt;a href="https://tryhackme.com/p/0a1bc123">https://tryhackme.com/p/0a1bc123&lt;/a>)&lt;/li>
+&lt;li>Kali Linux’ta, Vulnhub’dan zaafiyetli makinaları sanal bilgisayara kurup sızmaya çalışıyorum.&lt;/li>
+&lt;li>S3328-TPEI Quidway Switch’i configure ederek; ağ trafiğini Raspberry Pi’nin üzerinden yönlendirecek ve Pi’de çalışan packet tracer’la trafikteki paketlerin kodlarını çözecek bir proje yapıyorum.&lt;/li>
+&lt;li>CTFLearn’den challenge’lar çözüyorum. (&lt;a href="https://ctflearn.com/user/0a1bc123">https://ctflearn.com/user/0a1bc123&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="neler-yaptım">Neler Yaptım?&lt;/h3>
+&lt;ul>
+&lt;li>PuanHarca adlı Android uygulamasında, Android Studio-Java ile outsource olarak çalıştım.&lt;/li>
+&lt;li>Taxisst adlı henüz canlıya çıkmayan Android uygulamasında, freelancer olarak Android Studio-Kotlin ile Backend’i hazır olan uygulamanın Frontend’ini geliştirdim.&lt;/li>
+&lt;li>Bionluk’ta bir süre freelancer olarak çalıştım. (&lt;a href="https://bionluk.com/yuznumara">https://bionluk.com/yuznumara&lt;/a>)&lt;/li>
+&lt;/ul></content></item></channel></rss>
