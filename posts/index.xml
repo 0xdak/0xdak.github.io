@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 0xdak</title><link>/posts/</link><description>Recent content in Posts on 0xdak</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Tue, 29 Mar 2022 17:24:58 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>A1 2017 - Injection | Türkçe Çeviri</title><link>/posts/a1-2017-baa5b/</link><pubDate>Tue, 29 Mar 2022 17:24:58 +0300</pubDate><guid>/posts/a1-2017-baa5b/</guid><description>Bu içerik, OWASP topluluğunun 2017 senesinde en çok karşılaşılan açıkları bir puana göre sıraladığı ilk 10 listede 1. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde açıkladığı Injection açığının Türkçe çevirisidir.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 0xdak</title><link>/posts/</link><description>Recent content in Posts on 0xdak</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Fri, 08 Apr 2022 19:22:53 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>A2 2017 - Broken Authentication | Türkçe Çeviri</title><link>/posts/a2-2017-5c716/</link><pubDate>Fri, 08 Apr 2022 19:22:53 +0300</pubDate><guid>/posts/a2-2017-5c716/</guid><description>Bu içerik, OWASP topluluğunun 2017 senesinde en çok karşılaşılan açıkları bir puana göre sıraladığı ilk 10 listede 2. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde açıkladığı Broken Authentication açığının Türkçe çevirisidir.
+Orijinal yazıyı okumak isteyenler için link:
+https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication.html
+Anlamını bilmediğiniz veya benim Türkçe&amp;rsquo;ye bilerek çevirmediğim terimlerin anlamı için, belki bulmak umuduyla, kendi dilimde açıkladığım terimler sayfasına gidebilirsiniz.
+[Tehdit Aktörleri] / [Saldırı Vektörleri] Kırılabilirlik: 3
+Saldırganların, kimlik bilgisi hırsızlığı, varsayılan yönetici hesap listeleri, otomatize edilmiş bruteforce’lar ve dictionary attack uygulamaları için milyonlarca geçerli kullanıcı adı ve parola kombinasyonlarına erişimleri vardır.</description><content>&lt;p>Bu içerik, OWASP topluluğunun 2017 senesinde en çok karşılaşılan açıkları bir puana göre sıraladığı ilk 10 listede 2. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde
+açıkladığı Broken Authentication açığının Türkçe çevirisidir.&lt;/p>
+&lt;p>Orijinal yazıyı okumak isteyenler için link:&lt;/p>
+&lt;p>&lt;a href="https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication.html">https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication.html&lt;/a>&lt;/p>
+&lt;p>Anlamını bilmediğiniz veya benim Türkçe&amp;rsquo;ye bilerek çevirmediğim terimlerin anlamı için, belki bulmak umuduyla, kendi dilimde açıkladığım terimler sayfasına gidebilirsiniz.&lt;/p>
+&lt;h3 id="tehdit-aktörleri--saldırı-vektörleri">[Tehdit Aktörleri] / [Saldırı Vektörleri]&lt;/h3>
+&lt;p>&lt;strong>Kırılabilirlik: 3&lt;/strong>&lt;/p>
+&lt;p>Saldırganların, kimlik bilgisi hırsızlığı, varsayılan yönetici hesap listeleri, otomatize edilmiş bruteforce’lar ve dictionary attack uygulamaları için milyonlarca geçerli kullanıcı adı ve parola kombinasyonlarına erişimleri vardır. Oturum yönetimi saldırıları, özellikle süresi dolmamış session token’larla ilgili olduğu için iyi anlaşılır.&lt;/p>
+&lt;h3 id="güvenlik-zayıflığı">Güvenlik Zayıflığı&lt;/h3>
+&lt;p>&lt;strong>Yaygınlık: 2 | Tespit Edilebilirlik: 2&lt;/strong>&lt;/p>
+&lt;p>Yanlış kimlik doğrulama, çoğu kimlik ve erişim denetiminin tasarlanması ve uygulanması nedeniyle hayli yaygındır. Oturum yönetimi, kimlik doğrulama ve erişim denetiminin temelini oluşturur ve tüm stateful uygulamalarda bulunur.&lt;/p>
+&lt;p>Saldırganlar, çeşitli araçlar kullanarak broken authentication’ı tespit edebilir ve otomatize edilmiş araçları bi’dolu parola listeleriyle ve dictionary attack’larla kullanarak sistemi istismar edebilirler.&lt;/p>
+&lt;h3 id="etkiler">Etkiler&lt;/h3>
+&lt;p>&lt;strong>Teknik: 3 | İş Hayatına Etkisi ?&lt;/strong>&lt;/p>
+&lt;p>Saldırganların sistemi tehlikeye atması için yalnızca bir kaç hesaba ya da bir admin hesabına erişim kazanmaları gereklidir. Uygulamanın etki alanına bağlı olarak, bu tehlike kara para aklama, kimlik dolandırıcılığı ve kimlik hırsızlığı veya yasal olarak korunan yüksek derecede hassas verilerin ifşa edilmesi olabilir.&lt;/p>
+&lt;h3 id="uygulamanız-savunmasız-mı">Uygulamanız Savunmasız mı?&lt;/h3>
+&lt;p>Kullanıcının kimliğinin, kimlik doğrulamasının ve oturum yönetiminin doğrulanması kimlik-doğrulama-bazlı saldırıların önüne geçilmesi açısından kritiktir. Eğer uygulama:&lt;/p>
+&lt;ul>
+&lt;li>Saldırganın geçerli kullanıcı adı ve parolalarla dolu bir listeye sahip olduğu, credential stuffing gibi otomatik saldırılara izin veriyorsa,&lt;/li>
+&lt;li>Brute force ya da diğer otomatik saldırılara izin veriyorsa,&lt;/li>
+&lt;li>Varsayılan, zayıf ya da çok bilinen parolalara - “Parola1” veya “admin/admin” gibi - izin veriyorsa,&lt;/li>
+&lt;li>Hiçbir şekilde güvenli olmayan, “bilgiye dayalı cevaplar” gibi zayıf veya etkisiz kimlik bilgisi kurtarma ve şifremi-unuttum işlemleri kullanıyorsa,&lt;/li>
+&lt;li>Düz metin veya zayıf hash’lenmiş parolalar kullanıyorsa, (bkz: &lt;a href="https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure">A3:2017-Sensitive Data Exposure&lt;/a>).&lt;/li>
+&lt;li>Etkisiz bir çok faktörlü kimlik doğrulaması varsa veya hiç yoksa,&lt;/li>
+&lt;li>URL’de Session ID’leri gösteriyorsa, (örneğin, URL Rewriting)&lt;/li>
+&lt;li>Başarılı login’den sonra Session ID’leri geri döndürmüyorsa,&lt;/li>
+&lt;li>Session ID’leri uygun bir şekilde geçersiz kılmıyorsa, Kullanıcı oturumları veya kimlik doğrulama token’ları, logout veya benzer bir durumda uygun bir şekilde geçersiz hale getirilmiyorsa,&lt;/li>
+&lt;/ul>
+&lt;p>o uygulamada kimlik doğrulama zaafiyetleri olabilir.&lt;/p>
+&lt;h3 id="nasıl-önlenir">Nasıl Önlenir?&lt;/h3>
+&lt;ul>
+&lt;li>Her nerede mümkünse, otomatikleşmiş, credential stuffing, brute force ve çalınan kimlik bilgilerinin yeniden kullanım ataklarını önlemek için çok faktörlü kimlik doğrulamasını uygulayın.&lt;/li>
+&lt;li>Uygulamanızı herhangi bir varsayılan kimlik bilgisiyle, özellikle admin kullanıcılar için, deploy etmeyin.&lt;/li>
+&lt;li>Yeni veya değiştirilen parolaları en kötü 10000 parola listesiyle kıyaslamak gibi, zayıf-parola kontrolünü uygulayın.&lt;/li>
+&lt;li>&lt;a href="https://pages.nist.gov/800-63-3/sp800-63b.html#memsecret">NIST 800-63 B’nin kılavuzunda 5.1.1 Memorized Secrets&lt;/a> başlığındaki içerikle veya diğer günümüz, örnekleriyle gösterilmiş parola önlemleriyle parola uzunluğunu, karışıklığını hizalayın.&lt;/li>
+&lt;li>Kayıt işlemi, kimlik bilgilerinin geri kurtarılması ve API pathway’lerinin, tüm sonuçlar için aynı mesajları kullanarak, hesap numaralandırma saldırılarına karşı sağlamlaştırıldığından emin olun.&lt;/li>
+&lt;li>Hatalı giriş denemelerini sınırlayın veya artan bir şekilde kullanıcıyı bekletin. Tüm hatalı denemeleri loglayın ve credential stuffing, brute force veya diğer saldırılar algılandığında yöneticileri uyarın.&lt;/li>
+&lt;li>Sunucu tarafında, güvenli, login olayından sonra yüksek entropili yeni, rastgele bir session ID üreten yerleşik bir oturum yöneticisi kullanın. Session ID’ler URL’de olmamalıdır, logout veya timeout durumlarında güvenle saklanmalı ve geçersiz kılınmalıdır.&lt;/li>
+&lt;/ul>
+&lt;h3 id="örnek-saldırı-senaryoları">Örnek Saldırı Senaryoları&lt;/h3>
+&lt;p>&lt;strong>Senaryo #1:&lt;/strong> Credential stuffing, çok bilinen parolaların olduğu listelerin kullanıldığı, genel bir saldırı türüdür. Eğer bir uygulama otomatik tehditlere veya credential stuffing’e karşı bir koruma uygulamıyorsa, uygulama kimlik bilgilerinin geçerli olup olmadığını belirlemek için parola denetleyici olarak kullanılabilir.&lt;/p>
+&lt;p>&lt;strong>Senaryo #2:&lt;/strong> Çoğu kimlik doğrulama saldırıları, parolaların tek faktör olarak kullanılmaya devam edilmesinden dolayı gerçekleşir. Bir zamanlar en iyi çözümler olarak kabul edilen parola yenileme ve kullanıcıdan karışık parola girilmesinin istenmesi, kullanıcıları yeniden ve yeniden zayıf parolalar kullanmaya teşvik ediyor gibi görünüyor. NIST 800-63’e dayanarak, kuruluşların bu yöntemleri kullanmayı durdurmaları ve çok faktörlü kimlik doğrulama kullanmaları önerilir.&lt;/p>
+&lt;p>&lt;strong>Senaryo #3:&lt;/strong> Uygulamaların oturum zaman aşımları düzgün bir şekilde ayarlanmıyor. Bir kullanıcı bir uygulamaya erişmek için umumi bir bilgisayar kullanıyor. Uygulamadan çıkış yapıp çıkmak yerine kullanıcı basitçe tarayıcıdaki tab’ı kapatıyor ve yürüyüp gidiyor. Saldırgan bir saat sonra aynı bilgisayarı kullanıyor, ve kullanıcının oturumu hala açık.&lt;/p></content></item><item><title>A1 2017 - Injection | Türkçe Çeviri</title><link>/posts/a1-2017-baa5b/</link><pubDate>Fri, 01 Apr 2022 17:24:58 +0300</pubDate><guid>/posts/a1-2017-baa5b/</guid><description>Bu içerik, OWASP topluluğunun 2017 senesinde en çok karşılaşılan açıkları bir puana göre sıraladığı ilk 10 listede 1. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde açıkladığı Injection açığının Türkçe çevirisidir.
 Orijinal yazıyı okumak isteyenler için link:
 https://owasp.org/www-project-top-ten/2017/A1_2017-Injection
 Anlamını bilmediğiniz veya benim Türkçe&amp;rsquo;ye bilerek çevirmediğim terimlerin anlamı için, belki bulmak umuduyla, kendi dilimde açıkladığım terimler sayfasına gidebilirsiniz.
