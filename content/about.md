@@ -7,7 +7,6 @@ Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektro
 
 Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
 
-Kalıpları aşmak, öğrenmeyi öğrenmek için burdayım.
 
 Bana Twitter ile ulaşabilirsiniz. [0xdak](https://twitter.com/0x0dak)
 
@@ -17,8 +16,8 @@ Bana Email ile ulaşabilirsiniz. [alidak583@gmail.com](mailto:alidak583@gmail.co
 ### Siber Güvenlikte Ne Konumdayım?
 
 - OWASP Top 10
-- TCP/IP / OSI (OSI 2, 3 ve 7. katmanda çalıştım.)
-- Burp Suit
+- TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım.
+- Burp Suite
 - Linux ve komut satırı yetkinliği
 - Forensics / Kriptografi
 
@@ -35,4 +34,7 @@ Bana Email ile ulaşabilirsiniz. [alidak583@gmail.com](mailto:alidak583@gmail.co
 - Bionluk’ta bir süre freelancer olarak çalıştım. ([https://bionluk.com/0a1bc123](https://bionluk.com/0a1bc123))
 - Tübitak C-Stajyer Programı ile E5000 Tip Elektrikli Lokomotif Geliştirilmesi Projesi'nde stajyer olarak Linux PC'de arayüz programladım. (C++)
 - Desi ölçer bir cihazın denetimini sağlayan mikroservisi yazdım ve buna gereken web arayüzü hazırladım. (Golang)
+- OpenSSL kütüphanesi kullanarak bir Web Crawler yazdım. ([https://github.com/0xdak/query_google](https://github.com/0xdak/query_google)) (C)
+- TCP/IP, server-client uygulaması yazdım. ([https://github.com/0xdak/server-client](https://github.com/0xdak/server-client)) (C)
+- Spotify API'si kullanarak, pyqt ile aradığım şarkının hangi oynatma listelerimde bulunduğunu gösteren bir uygulama yazdım. ([https://github.com/0xdak/search-track-in-playlists](https://github.com/0xdak/search-track-in-playlists)) (Python)
 - STM32, MSP430, Raspberry Pi ve Arduino ile projeler yaptım. (C, Python)
