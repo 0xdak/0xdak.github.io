@@ -179,19 +179,17 @@ sağlamayabilir.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>http:&lt;span style="color:#f92672">//&lt;/span>example.com&lt;span style="color:#f92672">/&lt;/span>app&lt;span style="color:#f92672">/&lt;/span>accountView&lt;span style="color:#f92672">?&lt;/span>id&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39; or &amp;#39;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#e6db74">&amp;#39;=&amp;#39;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Bu değişikler, kayıtların tutulduğu tablodan tüm kayıtları çekmek için, her iki sorgunun da anlamını değiştirir. Daha tehlikeli saldırılar veriyi değiştirmek veya silmek ve hatta &amp;lsquo;stored procedure&amp;rsquo;leri bile çağırmak olabilir.&lt;/p></content></item><item><title>Hakkımda</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.
 Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
-Kalıpları aşmak, öğrenmeyi öğrenmek için burdayım.
 Bana Twitter ile ulaşabilirsiniz. 0xdak
 Bana Email ile ulaşabilirsiniz. alidak583@gmail.com
-Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP / OSI (OSI 2, 3 ve 7.</description><content>&lt;p>Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.&lt;/p>
+Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım. Burp Suite Linux ve komut satırı yetkinliği Forensics / Kriptografi Neler Yapıyorum?</description><content>&lt;p>Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.&lt;/p>
 &lt;p>Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.&lt;/p>
-&lt;p>Kalıpları aşmak, öğrenmeyi öğrenmek için burdayım.&lt;/p>
 &lt;p>Bana Twitter ile ulaşabilirsiniz. &lt;a href="https://twitter.com/0x0dak">0xdak&lt;/a>&lt;/p>
 &lt;p>Bana Email ile ulaşabilirsiniz. &lt;a href="mailto:alidak583@gmail.com">alidak583@gmail.com&lt;/a>&lt;/p>
 &lt;h3 id="siber-güvenlikte-ne-konumdayım">Siber Güvenlikte Ne Konumdayım?&lt;/h3>
 &lt;ul>
 &lt;li>OWASP Top 10&lt;/li>
-&lt;li>TCP/IP / OSI (OSI 2, 3 ve 7. katmanda çalıştım.)&lt;/li>
-&lt;li>Burp Suit&lt;/li>
+&lt;li>TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım.&lt;/li>
+&lt;li>Burp Suite&lt;/li>
 &lt;li>Linux ve komut satırı yetkinliği&lt;/li>
 &lt;li>Forensics / Kriptografi&lt;/li>
 &lt;/ul>
@@ -210,6 +208,9 @@ Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP / OSI (OSI 2, 3 ve 7.</des
 &lt;li>Bionluk’ta bir süre freelancer olarak çalıştım. (&lt;a href="https://bionluk.com/0a1bc123">https://bionluk.com/0a1bc123&lt;/a>)&lt;/li>
 &lt;li>Tübitak C-Stajyer Programı ile E5000 Tip Elektrikli Lokomotif Geliştirilmesi Projesi&amp;rsquo;nde stajyer olarak Linux PC&amp;rsquo;de arayüz programladım. (C++)&lt;/li>
 &lt;li>Desi ölçer bir cihazın denetimini sağlayan mikroservisi yazdım ve buna gereken web arayüzü hazırladım. (Golang)&lt;/li>
+&lt;li>OpenSSL kütüphanesi kullanarak bir Web Crawler yazdım. (&lt;a href="https://github.com/0xdak/query_google">https://github.com/0xdak/query_google&lt;/a>) (C)&lt;/li>
+&lt;li>TCP/IP, server-client uygulaması yazdım. (&lt;a href="https://github.com/0xdak/server-client">https://github.com/0xdak/server-client&lt;/a>) (C)&lt;/li>
+&lt;li>Spotify API&amp;rsquo;si kullanarak, pyqt ile aradığım şarkının hangi oynatma listelerimde bulunduğunu gösteren bir uygulama yazdım. (&lt;a href="https://github.com/0xdak/search-track-in-playlists">https://github.com/0xdak/search-track-in-playlists&lt;/a>) (Python)&lt;/li>
 &lt;li>STM32, MSP430, Raspberry Pi ve Arduino ile projeler yaptım. (C, Python)&lt;/li>
 &lt;/ul></content></item><item><title>Terimler</title><link>/terms/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/terms/</guid><description>Blog yazılarını okurken anlamını bilmediğiniz terimler, İngilizce&amp;rsquo;den çevirmeyip aslını koyduğum kelimeler veya Türkçe&amp;rsquo;ye zorla benimsendirilmiş anlamı olmayan kelimelerle karşılaşırsanız, muhtemelen anlamlarını burda bulabilirsiniz.
 Tehdit Aktörü (Threat Agent) : Bir sistemin siber güvenliğini tehdit eden kişi, kurum, kuruluş veya grup.
