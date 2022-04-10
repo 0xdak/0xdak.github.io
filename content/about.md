@@ -3,7 +3,7 @@ title: "Hakkımda"
 draft: false
 ---
 
-Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde 3. sınıfım.
+Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.
 
 Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
 
