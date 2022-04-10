@@ -7,10 +7,19 @@ Hoşgeldin. İsmim Ali. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik
 
 Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
 
-Benle ilgili bilmeniz gereken tek şey, zaman yönetimimin olağanüstü olduğudur.
+Kalıpları aşmak, öğrenmeyi öğrenmek için burdayım.
 
-Bana Twitter'dan ulaşabilirsiniz.
-[![Twitter URL](github.com)](https://twitter.com/0xdak)
+Bana Twitter ile ulaşabilirsiniz. [0xdak](https://twitter.com/0x0dak)
+
+Bana Email ile ulaşabilirsiniz. [alidak583@gmail.com](mailto:alidak583@gmail.com)
+
+
+### Siber Güvenlikte Ne Konumdayım?
+
+- OWASP 10.
+- TCP/IP
+- Burp Suit
+- Linux ve komut satırı yetkinliği
 
 ### Neler Yapıyorum?
 - TryHackMe’de kendimi geliştiriyorum. ([https://tryhackme.com/p/0a1bc123](https://tryhackme.com/p/0a1bc123))
@@ -20,6 +29,9 @@ Bana Twitter'dan ulaşabilirsiniz.
 
 ### Neler Yaptım?
 
-- PuanHarca adlı Android uygulamasında, Android Studio-Java ile outsource olarak çalıştım.
-- Taxisst adlı henüz canlıya çıkmayan Android uygulamasında, freelancer olarak Android Studio-Kotlin ile Backend’i hazır olan uygulamanın Frontend’ini geliştirdim.
+- PuanHarca adlı Android uygulamasında, Android Studio ile outsource olarak çalıştım. (Java)
+- Taxisst adlı henüz canlıya çıkmayan Android uygulamasında, freelancer olarak Android Studio ile Backend’i hazır olan uygulamanın Frontend’ini geliştirdim. (Kotlin)
 - Bionluk’ta bir süre freelancer olarak çalıştım. ([https://bionluk.com/0a1bc123](https://bionluk.com/0a1bc123))
+- Tübitak C-Stajyer Programı ile E5000 Tip Elektrikli Lokomotif Geliştirilmesi Projesi'nde stajyer olarak Linux PC'de arayüz programladım. (C++)
+- Desi ölçer bir cihazın denetimini sağlayan mikroservisi yazdım ve buna gereken web arayüzü hazırladım. (Golang)
+- STM32, MSP430, Raspberry Pi ve Arduino ile projeler yaptım. (C, Python)
