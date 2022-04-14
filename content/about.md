@@ -19,11 +19,9 @@ Bana Email ile ulaşabilirsiniz. [alidak583@gmail.com](mailto:alidak583@gmail.co
 - TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım.
 - Burp Suite
 - Linux ve komut satırı yetkinliği
-- Forensics / Kriptografi
 
 ### Neler Yapıyorum?
 - TryHackMe’de kendimi geliştiriyorum. ([https://tryhackme.com/p/0a1bc123](https://tryhackme.com/p/0a1bc123))
-- 22 Nisan'da gerçekleşecek olan Türk Telekom CTF Yarışması'na hazırlanıyorum.
 - Kali Linux’ta, Vulnhub’dan zaafiyetli makinaları sanal bilgisayara kurup sızmaya çalışıyorum.
 - S3328-TPEI Quidway Switch’i configure ederek; ağ trafiğini access pointer olan   Raspberry Pi’nin üzerinden yönlendirecek ve Pi’de çalışan packet tracer’la trafikteki paketlerin kodlarını çözecek bir proje yapıyorum.
 - CTFLearn’den challenge’lar çözüyorum. ([https://ctflearn.com/user/0a1bc123](https://ctflearn.com/user/0a1bc123))
@@ -37,4 +35,5 @@ Bana Email ile ulaşabilirsiniz. [alidak583@gmail.com](mailto:alidak583@gmail.co
 - OpenSSL kütüphanesi kullanarak bir Web Crawler yazdım. ([https://github.com/0xdak/query_google](https://github.com/0xdak/query_google)) (C)
 - TCP/IP, server-client uygulaması yazdım. ([https://github.com/0xdak/server-client](https://github.com/0xdak/server-client)) (C)
 - Spotify API'si kullanarak, pyqt ile aradığım şarkının hangi oynatma listelerimde bulunduğunu gösteren bir uygulama yazdım. ([https://github.com/0xdak/search-track-in-playlists](https://github.com/0xdak/search-track-in-playlists)) (Python)
+- Sezar şifreleme ve deşifrelemeyi gerçekleştiren bir yazılım yazdım. (Python)
 - STM32, MSP430, Raspberry Pi ve Arduino ile projeler yaptım. (C, Python)
