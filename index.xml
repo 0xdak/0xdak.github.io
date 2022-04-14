@@ -181,7 +181,7 @@ sağlamayabilir.&lt;/p>
 Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
 Bana Twitter ile ulaşabilirsiniz. 0xdak
 Bana Email ile ulaşabilirsiniz. alidak583@gmail.com
-Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım. Burp Suite Linux ve komut satırı yetkinliği Forensics / Kriptografi Neler Yapıyorum?</description><content>&lt;p>Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.&lt;/p>
+Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım. Burp Suite Linux ve komut satırı yetkinliği Neler Yapıyorum?</description><content>&lt;p>Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.&lt;/p>
 &lt;p>Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.&lt;/p>
 &lt;p>Bana Twitter ile ulaşabilirsiniz. &lt;a href="https://twitter.com/0x0dak">0xdak&lt;/a>&lt;/p>
 &lt;p>Bana Email ile ulaşabilirsiniz. &lt;a href="mailto:alidak583@gmail.com">alidak583@gmail.com&lt;/a>&lt;/p>
@@ -191,12 +191,10 @@ Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamalar�
 &lt;li>TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım.&lt;/li>
 &lt;li>Burp Suite&lt;/li>
 &lt;li>Linux ve komut satırı yetkinliği&lt;/li>
-&lt;li>Forensics / Kriptografi&lt;/li>
 &lt;/ul>
 &lt;h3 id="neler-yapıyorum">Neler Yapıyorum?&lt;/h3>
 &lt;ul>
 &lt;li>TryHackMe’de kendimi geliştiriyorum. (&lt;a href="https://tryhackme.com/p/0a1bc123">https://tryhackme.com/p/0a1bc123&lt;/a>)&lt;/li>
-&lt;li>22 Nisan&amp;rsquo;da gerçekleşecek olan Türk Telekom CTF Yarışması&amp;rsquo;na hazırlanıyorum.&lt;/li>
 &lt;li>Kali Linux’ta, Vulnhub’dan zaafiyetli makinaları sanal bilgisayara kurup sızmaya çalışıyorum.&lt;/li>
 &lt;li>S3328-TPEI Quidway Switch’i configure ederek; ağ trafiğini access pointer olan Raspberry Pi’nin üzerinden yönlendirecek ve Pi’de çalışan packet tracer’la trafikteki paketlerin kodlarını çözecek bir proje yapıyorum.&lt;/li>
 &lt;li>CTFLearn’den challenge’lar çözüyorum. (&lt;a href="https://ctflearn.com/user/0a1bc123">https://ctflearn.com/user/0a1bc123&lt;/a>)&lt;/li>
@@ -211,6 +209,7 @@ Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamalar�
 &lt;li>OpenSSL kütüphanesi kullanarak bir Web Crawler yazdım. (&lt;a href="https://github.com/0xdak/query_google">https://github.com/0xdak/query_google&lt;/a>) (C)&lt;/li>
 &lt;li>TCP/IP, server-client uygulaması yazdım. (&lt;a href="https://github.com/0xdak/server-client">https://github.com/0xdak/server-client&lt;/a>) (C)&lt;/li>
 &lt;li>Spotify API&amp;rsquo;si kullanarak, pyqt ile aradığım şarkının hangi oynatma listelerimde bulunduğunu gösteren bir uygulama yazdım. (&lt;a href="https://github.com/0xdak/search-track-in-playlists">https://github.com/0xdak/search-track-in-playlists&lt;/a>) (Python)&lt;/li>
+&lt;li>Sezar şifreleme ve deşifrelemeyi gerçekleştiren bir yazılım yazdım. (Python)&lt;/li>
 &lt;li>STM32, MSP430, Raspberry Pi ve Arduino ile projeler yaptım. (C, Python)&lt;/li>
 &lt;/ul></content></item><item><title>Terimler</title><link>/terms/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/terms/</guid><description>Blog yazılarını okurken anlamını bilmediğiniz terimler, İngilizce&amp;rsquo;den çevirmeyip aslını koyduğum kelimeler veya Türkçe&amp;rsquo;ye zorla benimsendirilmiş anlamı olmayan kelimelerle karşılaşırsanız, muhtemelen anlamlarını burda bulabilirsiniz.
 Tehdit Aktörü (Threat Agent) : Bir sistemin siber güvenliğini tehdit eden kişi, kurum, kuruluş veya grup.
