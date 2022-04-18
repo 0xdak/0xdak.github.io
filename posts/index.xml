@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 0xdak</title><link>/posts/</link><description>Recent content in Posts on 0xdak</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sun, 10 Apr 2022 16:10:00 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>TryHackMe | Pickle Rick Write-Up</title><link>/posts/tryhackme-32bed/</link><pubDate>Sun, 10 Apr 2022 16:10:00 +0300</pubDate><guid>/posts/tryhackme-32bed/</guid><description>Bu içerik TryHackMe platformundaki PickleRick CTF’inin çözümünü içerir. Çözmek isteyenler için: https://tryhackme.com/room/picklerick
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 0xdak</title><link>/posts/</link><description>Recent content in Posts on 0xdak</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Tue, 19 Apr 2022 00:09:00 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>TryHackMe | Wifi Hacking 101 Write-Up</title><link>/posts/wifi-hacki-3f29b/</link><pubDate>Tue, 19 Apr 2022 00:09:00 +0300</pubDate><guid>/posts/wifi-hacki-3f29b/</guid><description>Bu içerik TryHackMe platformunda Wifi Hacking 101 odasının, çoğu noktalarda çevirisini ve soruların cevaplarını içerir. Odanın linki için:
+https://tryhackme.com/room/wifihacking101
+Görev 1 | Temel Bilgiler - WPA’ya Giriş
+Anahtar kelimeler
+SSID: Bağlanmaya çalışırken gördüğünüz ağ adı ESSID: Birden fazla access point’e uygulanabilecek SSID. Örneğin normalden daha büyük bir ağ oluşturan şirket ofisi. Aircrack’ta bu, saldıracağınız ağdır. BSSID: Access Point MAC adresi WPA2-PSK: Herkesin aynı parolayla bağlandığı WiFi ağlarında bulunur. WPA2-EAP: RADIUS server’a gönderilen, kimlik doğrulama (authentication) işleminin kullanıcı adı ve parola kullanılarak yapıldığı WiFi ağlarında bulunur.</description><content>&lt;p>Bu içerik TryHackMe platformunda Wifi Hacking 101 odasının, çoğu noktalarda çevirisini ve soruların cevaplarını içerir. Odanın linki için:&lt;/p>
+&lt;p>&lt;a href="https://tryhackme.com/room/wifihacking101">https://tryhackme.com/room/wifihacking101&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Görev 1 | Temel Bilgiler - WPA’ya Giriş&lt;/strong>&lt;/p>
+&lt;p>Anahtar kelimeler&lt;/p>
+&lt;ul>
+&lt;li>SSID: Bağlanmaya çalışırken gördüğünüz ağ adı&lt;/li>
+&lt;li>ESSID: Birden fazla access point’e uygulanabilecek SSID. Örneğin normalden daha büyük bir ağ oluşturan şirket ofisi. Aircrack’ta bu, saldıracağınız ağdır.&lt;/li>
+&lt;li>BSSID: Access Point MAC adresi&lt;/li>
+&lt;li>WPA2-PSK: Herkesin aynı parolayla bağlandığı WiFi ağlarında bulunur.&lt;/li>
+&lt;li>WPA2-EAP: RADIUS server’a gönderilen, kimlik doğrulama (authentication) işleminin kullanıcı adı ve parola kullanılarak yapıldığı WiFi ağlarında bulunur.&lt;/li>
+&lt;li>RADIUS: Client’ların kimliklerini doğrulamak için varolan bir sunucu. (sadece wifi için değil)&lt;/li>
+&lt;/ul>
+&lt;p>WPA2 kimlik doğrulamasının esası &lt;strong>4 way handshake&lt;/strong>’dir.&lt;/p>
+&lt;p>Çoğu ev ve diğer WiFi ağları, WPA2-Personal kullanır. Bir WiFi ağına parolayla girmeye çalışıyorsanız ve bu WEP değilse, o zaman WPA2-Personal’dir. WPA2-EAP kimlik doğrulaması için RADIUS server’larını kullanır, yani bağlanmak için eğer kullanıcı adı ve şifre girmeniz gerekiyorsa, muhtemelen WPA2-EAP bulunur.&lt;/p>
+&lt;p>Önceden, WEP (Wired Equivalent Privacy) kullanılıyordu. Bu yöntemin güvensiz olduğu ve parolayı bazı istatistiksel yöntemlerle tahmin etmeye yetecek kadar paket yakalayarak kırılabileceği gösterildi.&lt;/p>
+&lt;p>4 Way Handshake, client ve access point’in, birbirlerine parolayı söylemeden, parolayı bildiklerini kanıtlamalarını sağlar. WPA ve WPA2 pratik olarak aynı kimlik doğrulama yöntemini kullanır, yani saldırılar ikisinde de aynıdır.&lt;/p>
+&lt;p>WPA anahtarları, ESSID’den ve ağın parolasından türetilir. ESSID, &lt;strong>dictionary attack&lt;/strong> saldırılarını daha zor hale getirir. Bu, verilen bir parola için , anahtarın her access point için hala değişeceği anlamına gelir. Bu demektir ki, sözlüğünüzü yalnızca bu access point/MAC adresi için önceden hesaplamadığınız sürece, doğru parolayı bulana kadar belki de bir sürü parola denemeniz gerekecektir.&lt;/p>
+&lt;p>&lt;strong>Sorular ve Cevapları&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>WPA2-Personal üzerindeki şifrelemeye ne tür bir saldırı gerçekleştirirsiniz?&lt;/em>&lt;/p>
+&lt;p>&lt;code>brute force&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Bu yöntem, WPA2-EAP handshake’lerinde saldırı için kullanılabilir mi?&lt;/em>&lt;/p>
+&lt;p>&lt;code>nay&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>“wifi code/password/passphrase” için kullanılan teknik terimin 3 harfli kısaltması nedir?&lt;/em>&lt;/p>
+&lt;p>&lt;code>PSK&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>WPA2 Kişisel parolasının minimum uzunluğu kaçtır?&lt;/em>&lt;/p>
+&lt;p>&lt;code>8&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Görev 2 | İzleniyorsunuz - Saldırmak İçin Paketleri Yakalamak&lt;/strong>&lt;/p>
+&lt;p>Aircrack-ng tool’unu kullanarak, ağ saldırılarına başlayabiliriz. Bu, monitor mode’a aldığınız bir NIC’a sahip olduğunuzu varsayarak, bir ağa kendiniz saldırmanızda size yol gösterecektir.&lt;/p>
+&lt;p>WPA ağlarına saldırmak için aircrack-ng, airodump-ng ve airmon-ng’yi kullanacağız.&lt;/p>
+&lt;p>4 way handshake yakalamanız için monitor moda alınmış bir NIC’a ihtiyacınız olacak.&lt;/p>
+&lt;p>&lt;strong>Sorular ve Cevapları&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>Airtrack toolları ile “wlan0” interface’ini monitor moda nasıl alırsınız?&lt;/em>&lt;/p>
+&lt;p>&lt;code>airmon-ng start wlan0&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Monitor moda geçtikten sonra karşınıza çıkan yeni interface’in ismi nedir?&lt;/em>&lt;/p>
+&lt;p>&lt;code>wlan0mon&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Eğer diğer process’ler de bu network adapter’i kullanmaya çalışıyorsa ne yaparsınız?&lt;/em>&lt;/p>
+&lt;p>&lt;code>airmon-ng check kill&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Aircrack-ng toollarından hangisi bir capture oluşturmak için kullanılır?&lt;/em>&lt;/p>
+&lt;p>&lt;code>airodump-ng&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>İzleme aşaması için, BSSID’yı ayarlamak için hangi flag’ı kullanırsınız?&lt;/em>&lt;/p>
+&lt;p>&lt;code>--bssid&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Ve channel ayarını ayarlamak için?&lt;/em>&lt;/p>
+&lt;p>&lt;code>--channel&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Yakalanan paketlerin bir dosyaya kaydedilmisini nasıl sağlarsınız?&lt;/em>&lt;/p>
+&lt;p>&lt;code>-w&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Görev 3 | Aircrack-ng - Hadi Kıralım&lt;/strong>&lt;/p>
+&lt;p>Kırma alıştırması yapmanız için size birkaç capture vereceğim. Eğer kırmanız 3 dakikadan fazla sürerse, anlayınki bir şeyler yanlış gitti.&lt;/p>
+&lt;p>Parola kırmak için, aircrack’in kendisini kullanabiliriz ya da GPU’nun hızından faydalanmak için hashcat’i kullanabiliriz.&lt;/p>
+&lt;p>Kullanışlı bilgiler&lt;/p>
+&lt;p>BSSID: 02:1A:11:FF:D9:BD&lt;/p>
+&lt;p>ESSID: &amp;lsquo;James Honor 8’&lt;/p>
+&lt;p>&lt;strong>Sorular ve Cevapları&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>Saldırılacak BSSID’yi belirlemek için hangi flag’i kullanırız?&lt;/em>&lt;/p>
+&lt;p>&lt;code>-b&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Wordlist’i belirlemek için hangi flag’i kullanırız?&lt;/em>&lt;/p>
+&lt;p>&lt;code>-w&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Hashcat kullanmak amacıyla, şifreyi kırmaya çalışırken oluşturduğumuz HCCAPX’i nasıl oluştururuz?&lt;/em>&lt;/p>
+&lt;p>&lt;code>-j&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Rockyou wordlist’ini kullanarak, verilen capture’daki parolayı kırın. Kırdığınız parola nedir?&lt;/em>&lt;/p>
+&lt;p>&lt;code>greeneggsandham&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;em>Parola kırma hangisinde daha hızlı gerçekleşir, CPU mu GPU mu?&lt;/em>&lt;/p>
+&lt;p>&lt;code>GPU&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>Yazdığım içeriği okuduğunuz için teşekkür ederim. İyi çalışmalar.&lt;/p></content></item><item><title>TryHackMe | Pickle Rick Write-Up</title><link>/posts/tryhackme-32bed/</link><pubDate>Sun, 10 Apr 2022 16:10:00 +0300</pubDate><guid>/posts/tryhackme-32bed/</guid><description>Bu içerik TryHackMe platformundaki PickleRick CTF’inin çözümünü içerir. Çözmek isteyenler için: https://tryhackme.com/room/picklerick
 Bu Rick and Morty temalı challenge, Rick’in kendini turşudan insana geri döndürmesi için yapılacak iksirin 3 malzemesini bir web sunucusunun zaafiyetlerinden yararlanarak elde etmeyi gerektirir.
 Daha önceden çözdüğüm başka bir keyifli Rick and Morty temalı CTF daha önereceğim:
 https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/
