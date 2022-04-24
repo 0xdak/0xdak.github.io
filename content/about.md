@@ -8,7 +8,7 @@ Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektro
 Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
 
 
-Bana Twitter ile ulaşabilirsiniz. [0xdak](https://twitter.com/0x0dak)
+Bana Linkedin ile ulaşabilirsiniz. [Ali Dak](https://www.linkedin.com/in/ali-dak-7257b1162/)
 
 Bana Email ile ulaşabilirsiniz. [alidak583@gmail.com](mailto:alidak583@gmail.com)
 
