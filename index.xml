@@ -302,7 +302,7 @@ açıkladığı Broken Authentication açığının Türkçe çevirisidir.&lt;/p
 Orijinal yazıyı okumak isteyenler için link:
 https://owasp.org/www-project-top-ten/2017/A1_2017-Injection
 Anlamını bilmediğiniz veya benim Türkçe&amp;rsquo;ye bilerek çevirmediğim terimlerin anlamı için, belki bulmak umuduyla, kendi dilimde açıkladığım terimler sayfasına gidebilirsiniz.
-Tehdit Aktörleri/ Saldırı Vektörleri Kırılabilirlik: 3
+Tehdit Aktörleri / Saldırı Vektörleri Kırılabilirlik: 3
 Hemen hemen herhangi bir veri kaynağı; bir injection vektörü, çevre değişkenleri, parametreler, private ve public web servisleri veya tüm kullanıcı türleri olabilir.</description><content>&lt;p>Bu içerik, OWASP topluluğunun 2017 senesinde en çok karşılaşılan açıkları bir puana göre sıraladığı ilk 10 listede 1. sırada gelen, OWASP&amp;rsquo;ın kendi sitesinde
 açıkladığı Injection açığının Türkçe çevirisidir.&lt;/p>
 &lt;p>Orijinal yazıyı okumak isteyenler için link:&lt;/p>
@@ -360,9 +360,9 @@ sağlamayabilir.&lt;/p>
 Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.
 Bana Linkedin ile ulaşabilirsiniz. Ali Dak
 Bana Email ile ulaşabilirsiniz. alidak583@gmail.com
-Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım. Burp Suite Linux ve komut satırı yetkinliği Neler Yapıyorum?</description><content>&lt;p>Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.&lt;/p>
+Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım. Burp Suite Linux ve komut satırı yetkinliği C ve Python orta-ileri derece yetkinliği Neler Yapıyorum?</description><content>&lt;p>Hoşgeldiniz. Ben Ali Dak. 21 yaşındayım. Kocaeli Üniversitesi’de, Elektronik ve Haberleşme Mühendisliği bölümünde okuyorum ve 3. sınıfım.&lt;/p>
 &lt;p>Geçmişimde daha çok yazılım ağırlıklı ilerlesem de siber güvenliğe olan merakım beni köşeye sıkıştırdı ve artık bir süredir siber güvenlikle daha çok ilgileniyorum.&lt;/p>
-&lt;p>Bana Linkedin ile ulaşabilirsiniz. &lt;a href="https://www.linkedin.com/in/ali-dak-7257b1162/">Ali Dak&lt;/a>&lt;/p>
+&lt;p>Bana Linkedin ile ulaşabilirsiniz. &lt;a href="https://www.linkedin.com/in/ali-dak">Ali Dak&lt;/a>&lt;/p>
 &lt;p>Bana Email ile ulaşabilirsiniz. &lt;a href="mailto:alidak583@gmail.com">alidak583@gmail.com&lt;/a>&lt;/p>
 &lt;h3 id="siber-güvenlikte-ne-konumdayım">Siber Güvenlikte Ne Konumdayım?&lt;/h3>
 &lt;ul>
@@ -370,16 +370,27 @@ Siber Güvenlikte Ne Konumdayım? OWASP Top 10 TCP/IP client-server uygulamalar�
 &lt;li>TCP/IP client-server uygulamaları ve OSI 2, 3 ve 7. katmanda çalıştım.&lt;/li>
 &lt;li>Burp Suite&lt;/li>
 &lt;li>Linux ve komut satırı yetkinliği&lt;/li>
+&lt;li>C ve Python orta-ileri derece yetkinliği&lt;/li>
 &lt;/ul>
 &lt;h3 id="neler-yapıyorum">Neler Yapıyorum?&lt;/h3>
 &lt;ul>
+&lt;li>Patika.dev ve Picus Security ortaklığında gerçekleşen Picus Cyber Talent Academy programında yer alıyorum.&lt;/li>
 &lt;li>TryHackMe’de kendimi geliştiriyorum. (&lt;a href="https://tryhackme.com/p/0a1bc123">https://tryhackme.com/p/0a1bc123&lt;/a>)&lt;/li>
 &lt;li>Kali Linux’ta, Vulnhub’dan zaafiyetli makinaları sanal bilgisayara kurup sızmaya çalışıyorum.&lt;/li>
 &lt;li>S3328-TPEI Quidway Switch’i configure ederek; ağ trafiğini access pointer olan Raspberry Pi’nin üzerinden yönlendirecek ve Pi’de çalışan packet tracer’la trafikteki paketlerin kodlarını çözecek bir proje yapıyorum.&lt;/li>
 &lt;li>CTFLearn’den challenge’lar çözüyorum. (&lt;a href="https://ctflearn.com/user/0a1bc123">https://ctflearn.com/user/0a1bc123&lt;/a>)&lt;/li>
 &lt;/ul>
+&lt;h3 id="katıldığım-kurslar">Katıldığım Kurslar&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.coursera.org/learn/cyber-threats-attack-vectors">Fundamentals of Modern Log Management Practices | Picus &amp;amp; Purple Academy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.coursera.org/learn/cyber-threats-attack-vectors">Real-Time Cyber Threat Detection and Mitigation | Picus &amp;amp; Purple Academy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.coursera.org/learn/cyber-threats-attack-vectors">Real-Time Cyber Threat Detection and Mitigation | NYU&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.coursera.org/learn/ibm-cyber-threat-intelligence">Cyber Threat Intelligence | IBM&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.coursera.org/learn/cyber-threats-attack-vectors">Cyber Threats and Attack Vectors | University of Colorado&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="neler-yaptım">Neler Yaptım?&lt;/h3>
 &lt;ul>
+&lt;li>Bilgi Teknolojileri ve İletişim Kurumu&amp;rsquo;nda gerçekleşen Hacktrick'22&amp;rsquo;ye katıldım.&lt;/li>
 &lt;li>PuanHarca adlı Android uygulamasında, Android Studio ile outsource olarak çalıştım. (Java)&lt;/li>
 &lt;li>Taxisst adlı henüz canlıya çıkmayan Android uygulamasında, freelancer olarak Android Studio ile Backend’i hazır olan uygulamanın Frontend’ini geliştirdim. (Kotlin)&lt;/li>
 &lt;li>Bionluk’ta bir süre freelancer olarak çalıştım. (&lt;a href="https://bionluk.com/0a1bc123">https://bionluk.com/0a1bc123&lt;/a>)&lt;/li>
