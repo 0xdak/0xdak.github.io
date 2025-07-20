@@ -1,0 +1,157 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://localhost:4000/</id>
+  <title>yuznumara</title>
+  <subtitle>Siber güvenlik, yazılım geliştirme, defi, blockchain security, web3, active directory, web&amp;mobile pentesting, red teaming</subtitle>
+  <updated>2025-07-20T16:57:46+03:00</updated>
+  <author>
+    <name>yuznumara</name>
+    <uri>http://localhost:4000/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="http://localhost:4000/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2025 yuznumara </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>Web Service Testing Made Easy: autowsdl</title>
+    <link href="http://localhost:4000/posts/web-service-testing-made-easy-autowsdl/" rel="alternate" type="text/html" title="Web Service Testing Made Easy: autowsdl" />
+    <published>2024-09-18T06:33:00+03:00</published>
+  
+    <updated>2024-09-18T06:33:00+03:00</updated>
+  
+    <id>http://localhost:4000/posts/web-service-testing-made-easy-autowsdl/</id>
+    <content type="text/html" src="http://localhost:4000/posts/web-service-testing-made-easy-autowsdl/" />
+    <author>
+      <name>yuznumara</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="Tools" />
+    
+    <category term="SOAP" />
+    
+    <category term="API Testing" />
+    
+  
+
+  <summary>Web service testing is a critical process in identifying vulnerabilities within service-oriented architectures (SOA) and ensuring their robustness against potential threats. Traditionally, manual testing involves a detailed methodology, which can be both time-consuming and error-prone. To streamline this process, we’ve adopted an approach that blends automation with manual oversight to effectiv...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Passing OSCP: A Strategic Certification or Just a Popular Badge?</title>
+    <link href="http://localhost:4000/posts/passing-oscp-a-strategic-certification-or-just-a-popular-badge-copy/" rel="alternate" type="text/html" title="Passing OSCP: A Strategic Certification or Just a Popular Badge?" />
+    <published>2024-09-16T06:33:00+03:00</published>
+  
+    <updated>2024-09-16T06:33:00+03:00</updated>
+  
+    <id>http://localhost:4000/posts/passing-oscp-a-strategic-certification-or-just-a-popular-badge-copy/</id>
+    <content type="text/html" src="http://localhost:4000/posts/passing-oscp-a-strategic-certification-or-just-a-popular-badge-copy/" />
+    <author>
+      <name>yuznumara</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="OSCP" />
+    
+  
+
+  <summary>In this article, I will try to explain why and how I took the OSCP, share my experiences, and provide some key insights. You will find the courage you need to pass here, as well as how to manage the 3-month process. You’ll also reflect on why you should or shouldn’t pursue this certification. Overall, I recommend evaluating exam day tips before taking the test. Let this be the last “how I passe...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Prep for OSCP — HTB [E] Pandora — Writeup</title>
+    <link href="http://localhost:4000/posts/htb-e-pandora-writeup/" rel="alternate" type="text/html" title="Prep for OSCP — HTB [E] Pandora — Writeup" />
+    <published>2024-07-01T06:33:00+03:00</published>
+  
+    <updated>2024-07-01T06:33:00+03:00</updated>
+  
+    <id>http://localhost:4000/posts/htb-e-pandora-writeup/</id>
+    <content type="text/html" src="http://localhost:4000/posts/htb-e-pandora-writeup/" />
+    <author>
+      <name>yuznumara</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="OSCP" />
+    
+  
+
+  <summary>You can read the article from the medium also.   Pandora is an easy rated Linux machine. SNMP port is discovered by an unconventional nmap scan. When the SNMP service is examined, clear-text credentials are revealed. After loginning SSH with these credentials, privileges are horizontally escalated by chaining SQL injection and RCE vulnerabilities in a web interface that is running locally but n...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Prep for OSCP — HTB [M] Cascade — Writeup</title>
+    <link href="http://localhost:4000/posts/htb-m-cascade-writeup/" rel="alternate" type="text/html" title="Prep for OSCP — HTB [M] Cascade — Writeup" />
+    <published>2024-05-03T06:33:00+03:00</published>
+  
+    <updated>2024-05-03T06:33:00+03:00</updated>
+  
+    <id>http://localhost:4000/posts/htb-m-cascade-writeup/</id>
+    <content type="text/html" src="http://localhost:4000/posts/htb-m-cascade-writeup/" />
+    <author>
+      <name>yuznumara</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="OSCP" />
+    
+  
+
+  <summary>You can read the article from the medium also.   Cascade is a medium difficulty Windows machine configured as a Domain Controller.  Information Gathering  Starting with nmap command.  nmap  └─$ nmap -sC -sV -vvv -oN enum/nmap -Pn 10.10.10.182 Nmap scan report for 10.10.10.182 Host is up, received user-set (0.089s latency). Scanned at 2024-05-01 10:20:03 EDT for 108s Not shown: 987 filtered tcp ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Prep for OSCP — HTB [M] Chatterbox — Writeup</title>
+    <link href="http://localhost:4000/posts/htb-m-chatterbox-writeup/" rel="alternate" type="text/html" title="Prep for OSCP — HTB [M] Chatterbox — Writeup" />
+    <published>2024-05-02T06:33:00+03:00</published>
+  
+    <updated>2024-05-02T06:33:00+03:00</updated>
+  
+    <id>http://localhost:4000/posts/htb-m-chatterbox-writeup/</id>
+    <content type="text/html" src="http://localhost:4000/posts/htb-m-chatterbox-writeup/" />
+    <author>
+      <name>yuznumara</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="OSCP" />
+    
+  
+
+  <summary>You can read the article from the medium also.   Information Gathering  Starting with nmap command.  └─$ nmap -sC -sV -p- --open -vvv -oN enum/nmap 10.10.10.74 Nmap scan report for 10.10.10.74 (10.10.10.74) Host is up, received conn-refused (0.12s latency). Scanned at 2024-04-29 14:07:42 EDT for 117s Not shown: 61256 closed tcp ports (conn-refused), 4268 filtered tcp ports (no-response) Some cl...</summary>
+
+  </entry>
+
+</feed>
+
+

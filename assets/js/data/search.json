@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Web Service Testing Made Easy: autowsdl",
+    "url": "/posts/web-service-testing-made-easy-autowsdl/",
+    "categories": "Blogging, Tools, SOAP, API Testing",
+    "tags": "pentesting, software",
+    "date": "2024-09-18 06:33:00 +0300",
+    "content": "Web service testing is a critical process in identifying vulnerabilities within service-oriented architectures (SOA) and ensuring their robustness against potential threats. Traditionally, manual t..."
+  },
+  {
+    "title": "Passing OSCP: A Strategic Certification or Just a Popular Badge?",
+    "url": "/posts/passing-oscp-a-strategic-certification-or-just-a-popular-badge-copy/",
+    "categories": "Blogging, OSCP",
+    "tags": "pentesting",
+    "date": "2024-09-16 06:33:00 +0300",
+    "content": "In this article, I will try to explain why and how I took the OSCP, share my experiences, and provide some key insights. You will find the courage you need to pass here, as well as how to manage th..."
+  },
+  {
+    "title": "Prep for OSCP — HTB [E] Pandora — Writeup",
+    "url": "/posts/htb-e-pandora-writeup/",
+    "categories": "Blogging, OSCP",
+    "tags": "pentesting, oscp, htb",
+    "date": "2024-07-01 06:33:00 +0300",
+    "content": "You can read the article from the medium also.   Pandora is an easy rated Linux machine. SNMP port is discovered by an unconventional nmap scan. When the SNMP service is examined, clear-text creden..."
+  },
+  {
+    "title": "Prep for OSCP — HTB [M] Cascade — Writeup",
+    "url": "/posts/htb-m-cascade-writeup/",
+    "categories": "Blogging, OSCP",
+    "tags": "pentesting, oscp, htb",
+    "date": "2024-05-03 06:33:00 +0300",
+    "content": "You can read the article from the medium also.   Cascade is a medium difficulty Windows machine configured as a Domain Controller.  Information Gathering  Starting with nmap command.  nmap  └─$ nma..."
+  },
+  {
+    "title": "Prep for OSCP — HTB [M] Chatterbox — Writeup",
+    "url": "/posts/htb-m-chatterbox-writeup/",
+    "categories": "Blogging, OSCP",
+    "tags": "pentesting, oscp, htb",
+    "date": "2024-05-02 06:33:00 +0300",
+    "content": "You can read the article from the medium also.   Information Gathering  Starting with nmap command.  └─$ nmap -sC -sV -p- --open -vvv -oN enum/nmap 10.10.10.74 Nmap scan report for 10.10.10.74 (10...."
+  },
+  {
+    "title": "Make Your Own BadUSB with Raspberry Pi",
+    "url": "/posts/make-your-own-badusb-with-raspberry-pi/",
+    "categories": "Blogging, OSCP",
+    "tags": "pentesting, oscp, htb",
+    "date": "2024-05-02 06:33:00 +0300",
+    "content": "You can read the full article from the medium site."
+  }
+  
+]
+
