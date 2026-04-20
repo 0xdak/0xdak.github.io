@@ -9,8 +9,10 @@
   <meta property="og:description" content="Building in public. Ex-security researcher turned indie hacker.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yuznumara.com">
+  <meta property="og:image" content="https://yuznumara.com/assets/img/avatar.jpg">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@_alidak">
+  <meta name="twitter:image" content="https://yuznumara.com/assets/img/avatar.jpg">
   <meta name="theme-color" content="#fafafa">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
@@ -21,6 +23,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K537JG6SWP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K537JG6SWP');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -67,7 +79,6 @@
 
     /* Expand/collapse */
     .expandable { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-    .expandable.open { max-height: 600px; }
   </style>
 </head>
 <body class="antialiased">
@@ -83,7 +94,7 @@
         <a href="https://twitter.com/_alidak" target="_blank" rel="noopener noreferrer"
            class="text-sm btn-brand text-white px-4 py-1.5 rounded-full font-medium">Follow</a>
       </div>
-      <button id="menu-btn" class="md:hidden text-neutral-500 hover:text-neutral-900" aria-label="Menu">
+      <button id="menu-btn" class="md:hidden text-neutral-500 hover:text-neutral-900" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -110,8 +121,8 @@
 
       <!-- Top: Brand + Identity -->
       <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
-        <img src="assets/img/avatar.jpg" alt="dak"
-             class="w-20 h-20 rounded-full avatar-ring object-cover flex-shrink-0" alt="Ali Dak">
+        <img src="assets/img/avatar.jpg" alt="Ali Dak"
+             class="w-20 h-20 rounded-full avatar-ring object-cover flex-shrink-0">
         <div class="text-center sm:text-left">
           <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold brand-text tracking-tighter leading-none">Ali Dak</h1>
           <p class="text-neutral-700 text-base mt-1">Building in public. Ex-security researcher turned indie hacker.</p>
@@ -209,7 +220,7 @@
       <div class="space-y-4">
         <!-- Building Challenge — toggle -->
         <div class="bg-white border border-neutral-200 rounded-lg overflow-hidden">
-          <button onclick="toggleSection('sec-build')" class="w-full p-5 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors">
+          <button onclick="toggleSection('sec-build')" aria-expanded="false" aria-controls="sec-build" class="w-full p-5 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors">
             <div class="flex items-center gap-3">
               <span class="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
               <div>
@@ -230,7 +241,7 @@
 
         <!-- OffSec Machines — toggle -->
         <div class="bg-white border border-neutral-200 rounded-lg overflow-hidden">
-          <button onclick="toggleSection('sec-offsec')" class="w-full p-5 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors">
+          <button onclick="toggleSection('sec-offsec')" aria-expanded="false" aria-controls="sec-offsec" class="w-full p-5 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors">
             <div class="flex items-center gap-3">
               <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#991B1B;"></span>
               <div>
@@ -351,34 +362,48 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const menuOverlay = document.getElementById('menu-overlay');
 
-    function openMenu() { mobileMenu.classList.add('open'); menuOverlay.classList.remove('hidden'); }
-    function closeMenu() { mobileMenu.classList.remove('open'); menuOverlay.classList.add('hidden'); }
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      menuOverlay.classList.remove('hidden');
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
 
     menuBtn.addEventListener('click', openMenu);
     menuClose.addEventListener('click', closeMenu);
     menuOverlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
 
-    // Toggle expandable sections
+    // Toggle expandable sections (dynamic height so content can grow freely)
     function toggleSection(id) {
       const el = document.getElementById(id);
       const icon = document.getElementById('icon-' + id);
-      el.classList.toggle('open');
-      if (icon) icon.style.transform = el.classList.contains('open') ? 'rotate(180deg)' : '';
+      const trigger = document.querySelector('[aria-controls="' + id + '"]');
+      const isOpen = el.classList.toggle('open');
+      el.style.maxHeight = isOpen ? el.scrollHeight + 'px' : '0';
+      if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : '';
+      if (trigger) trigger.setAttribute('aria-expanded', String(isOpen));
     }
-    // Make toggle global
     window.toggleSection = toggleSection;
 
-    const sections = document.querySelectorAll('section[id]');
+    // Active nav link on scroll (IntersectionObserver: cheaper + no per-frame work)
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.id; });
-      navLinks.forEach(l => {
-        l.classList.toggle('text-neutral-900', l.getAttribute('href') === '#' + current);
-        l.classList.toggle('text-neutral-500', l.getAttribute('href') !== '#' + current);
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach(l => {
+          const active = l.getAttribute('href') === '#' + id;
+          l.classList.toggle('text-neutral-900', active);
+          l.classList.toggle('text-neutral-500', !active);
+        });
       });
-    });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
   </script>
 </body>
 </html>
