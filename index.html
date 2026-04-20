@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Dak — builder, hacker, maker</title>
-  <meta name="description" content="Building in public. Ex-security researcher turned indie hacker. SaaS builder, OSCP certified.">
-  <meta property="og:title" content="Ali Dak — builder, hacker, maker">
-  <meta property="og:description" content="Building in public. Ex-security researcher turned indie hacker.">
+  <title>yuznumara — cybersecurity entrepreneur</title>
+  <meta name="description" content="Cybersecurity entrepreneur. OSCP-certified researcher. Author of five OffSec Proving Grounds machines. Building VulnTracker.io.">
+  <meta property="og:title" content="yuznumara — cybersecurity entrepreneur">
+  <meta property="og:description" content="Cybersecurity entrepreneur. OSCP-certified, OffSec machine author, founder.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yuznumara.com">
   <meta property="og:image" content="https://yuznumara.com/assets/img/avatar.jpg">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@_alidak">
+  <meta name="twitter:site" content="@yuznumara_">
   <meta name="twitter:image" content="https://yuznumara.com/assets/img/avatar.jpg">
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#f6f5f1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
@@ -22,7 +22,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Beehiiv subscribe embed -->
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K537JG6SWP"></script>
@@ -33,377 +36,1172 @@
     gtag('config', 'G-K537JG6SWP');
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-        }
-      }
-    }
-  </script>
   <style>
-    body { font-family: 'Inter', system-ui, sans-serif; background: #fafafa; color: #1a1a1a; }
-    ::selection { background: #991B1B22; color: #1a1a1a; }
+    /* ─────────────────────────────────────────────────────────────
+       Tokens
+       ───────────────────────────────────────────────────────────── */
+    :root {
+      --bg:        #f6f5f1;            /* warm paper */
+      --surface:   #fbfaf6;
+      --ink:       #141311;
+      --ink-2:     #3a3833;
+      --ink-3:     #78746b;
+      --ink-4:     #b5b0a4;
+      --rule:      #e5e1d6;
+      --rule-soft: #ece8dd;
 
-    /* Brand gradient: dark red → light red */
-    .brand-gradient { background: linear-gradient(135deg, #991B1B, #EF4444); }
-    .brand-text {
-      background: linear-gradient(135deg, #991B1B, #EF4444);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      --accent-h:  18;                 /* oxblood-brick */
+      --accent:    oklch(48% 0.14 var(--accent-h));
+      --accent-2:  oklch(62% 0.18 var(--accent-h));
+      --accent-wash: oklch(96% 0.02 var(--accent-h));
+
+      --radius:    4px;
+      --gutter:    clamp(20px, 4vw, 48px);
+      --maxw:      1240px;
+      --density:   1;                  /* tweak: 0.8 compact → 1.2 airy */
+
+      --grid-line: rgba(20,19,17,0.05);
     }
 
-    /* Navbar */
-    .nav-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(250,250,250,0.85); }
+    html[data-theme="dark"] {
+      --bg:        #0e0d0b;
+      --surface:   #16140f;
+      --ink:       #f3efe5;
+      --ink-2:     #c8c2b3;
+      --ink-3:     #8b8578;
+      --ink-4:     #55504a;
+      --rule:      #26231d;
+      --rule-soft: #1c1a15;
+      --accent:    oklch(72% 0.17 var(--accent-h));
+      --accent-2:  oklch(80% 0.2 var(--accent-h));
+      --accent-wash: oklch(22% 0.04 var(--accent-h));
+      --grid-line: rgba(243,239,229,0.045);
+    }
 
-    /* Avatar */
-    .avatar-ring { box-shadow: 0 0 0 3px #fafafa, 0 0 0 5px #EF444440; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    body {
+      margin: 0;
+      font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 1px 1px, var(--grid-line) 1px, transparent 0);
+      background-size: 28px 28px;
+      background-position: 0 0;
+    }
 
-    /* Card hover */
-    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
-    .card-hover:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(153,27,27,0.08); border-color: #EF444440; }
+    ::selection { background: var(--accent); color: var(--bg); }
 
-    /* Mobile menu */
-    .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
-    .mobile-menu.open { transform: translateX(0); }
+    .serif   { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; letter-spacing: -0.01em; }
+    .mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; font-feature-settings: "ss02" on, "cv11" on; }
+    .italic  { font-style: italic; }
 
-    /* Smooth scroll offset */
-    section[id] { scroll-margin-top: 80px; }
+    a { color: inherit; text-decoration: none; }
 
-    /* Gradient button */
-    .btn-brand { background: linear-gradient(135deg, #991B1B, #EF4444); transition: opacity 0.2s; }
-    .btn-brand:hover { opacity: 0.9; }
+    /* ─────────────────────────────────────────────────────────────
+       Grid scaffold (12-col editorial)
+       ───────────────────────────────────────────────────────────── */
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+    .grid12 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+      row-gap: 0;
+    }
+    @media (max-width: 720px) {
+      .grid12 { grid-template-columns: repeat(6, 1fr); column-gap: 16px; }
+    }
 
-    /* Expand/collapse */
-    .expandable { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    /* Column rules — hairline guides running through the page */
+    .rules {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 24px;
+    }
+    .rules > span {
+      border-left: 1px dashed var(--rule-soft);
+    }
+    .rules > span:first-child,
+    .rules > span:last-child { border-left: 1px solid var(--rule); }
+    @media (max-width: 720px) { .rules { display: none; } }
+
+    /* ─────────────────────────────────────────────────────────────
+       Top status bar
+       ───────────────────────────────────────────────────────────── */
+    .statusbar {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in oklab, var(--bg) 84%, transparent);
+      backdrop-filter: blur(14px) saturate(160%);
+      -webkit-backdrop-filter: blur(14px) saturate(160%);
+      border-bottom: 1px solid var(--rule);
+    }
+    .statusbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 44px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+    .statusbar-inner .right {
+      display: flex; align-items: center; gap: 18px;
+    }
+    .statusbar-nav {
+      display: flex; gap: 22px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .statusbar-nav a { color: var(--ink-3); transition: color .2s; }
+    .statusbar-nav a:hover, .statusbar-nav a.active { color: var(--ink); }
+    .theme-toggle, .menu-toggle {
+      background: none; border: 0; padding: 6px;
+      color: var(--ink-3); cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: color .2s;
+    }
+    .theme-toggle:hover, .menu-toggle:hover { color: var(--ink); }
+    .menu-toggle { display: none; }
+    .theme-toggle svg { width: 14px; height: 14px; }
+    .theme-toggle .moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .moon { display: inline; }
+
+    @media (max-width: 820px) {
+      .statusbar-nav { display: none; }
+      .statusbar-inner .right #clock { display: none; }
+      .menu-toggle { display: inline-flex; }
+    }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(280px, 80vw);
+      background: var(--surface);
+      border-left: 1px solid var(--rule);
+      transform: translateX(100%);
+      transition: transform .3s cubic-bezier(.22,.8,.3,1);
+      z-index: 60;
+      padding: 60px 28px 28px;
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .mobile-menu.open { transform: none; }
+    .mobile-menu a {
+      font-family: 'Instrument Serif', serif;
+      font-size: 26px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      transition: color .2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+    .mobile-menu .close {
+      position: absolute; top: 18px; right: 18px;
+      background: none; border: 0; color: var(--ink-3); cursor: pointer;
+      padding: 6px;
+    }
+    .menu-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.25);
+      z-index: 55; opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+    /* ─────────────────────────────────────────────────────────────
+       Section header (numbered + kicker)
+       ───────────────────────────────────────────────────────────── */
+    .section {
+      position: relative;
+      padding: calc(80px * var(--density)) 0;
+      border-top: 1px solid var(--rule);
+    }
+    .section:first-of-type { border-top: 0; }
+
+    .kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .kicker .no { color: var(--accent); }
+    .kicker .dash { width: 24px; height: 1px; background: var(--ink-4); }
+
+    .eyebrow-row {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 24px; margin-bottom: 28px;
+    }
+    .eyebrow-row .coord {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px; color: var(--ink-4);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       HERO
+       ───────────────────────────────────────────────────────────── */
+    .hero { padding-top: clamp(72px, 12vh, 140px); padding-bottom: clamp(72px, 10vh, 120px); }
+    .hero-grid { position: relative; z-index: 1; }
+
+    .hero-label {
+      grid-column: 1 / span 3;
+      display: flex; flex-direction: column; gap: 14px;
+      padding-top: 8px;
+    }
+    @media (max-width: 720px) { .hero-label { grid-column: 1 / -1; } }
+
+    .hero-main {
+      grid-column: 4 / span 9;
+    }
+    @media (max-width: 720px) { .hero-main { grid-column: 1 / -1; margin-top: 40px; } }
+
+    h1.display {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      font-size: clamp(44px, 7.2vw, 108px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--ink);
+    }
+    h1.display .muted { color: var(--ink-3); }
+    h1.display em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    h1.display .tilt {
+      display: inline-block;
+      transform: translateY(-0.04em);
+    }
+
+    .lede {
+      margin-top: 36px;
+      max-width: 56ch;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--ink-2);
+    }
+
+    /* Portrait block — uses initials + coordinates as placeholder;
+       avatar image layered on top if present */
+    .portrait {
+      width: 112px; aspect-ratio: 3 / 4;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: flex-start;
+      padding: 10px;
+    }
+    .portrait::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(135deg,
+          transparent 0 7px,
+          color-mix(in oklab, var(--ink) 4%, transparent) 7px 8px);
+      opacity: .9;
+    }
+    .portrait .mark {
+      position: relative;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 32px;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .portrait-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      filter: grayscale(0.15) contrast(1.02);
+    }
+    .portrait .crop {
+      position: absolute; top: 8px; right: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      color: var(--ink-3);
+      letter-spacing: 0.08em;
+    }
+
+    /* Identity card under portrait */
+    .idcard {
+      display: grid; grid-template-columns: auto 1fr; gap: 4px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-3);
+      margin-top: 4px;
+    }
+    .idcard dt { color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.08em; }
+    .idcard dd { margin: 0; color: var(--ink-2); }
+
+    /* Signal strip */
+    .signals {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    @media (max-width: 720px) { .signals { grid-template-columns: repeat(2, 1fr); } }
+    .signal {
+      padding: 22px 20px 20px;
+      border-right: 1px solid var(--rule);
+      position: relative;
+    }
+    .signal:last-child { border-right: 0; }
+    @media (max-width: 720px) {
+      .signal:nth-child(2n) { border-right: 0; }
+      .signal:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+    }
+    .signal .k {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-3);
+      display: flex; justify-content: space-between;
+    }
+    .signal .k .idx { color: var(--ink-4); }
+    .signal .v {
+      margin-top: 14px;
+      font-family: 'Instrument Serif', serif;
+      font-size: 34px;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .signal .v .unit {
+      font-family: 'Geist', sans-serif;
+      font-size: 13px;
+      color: var(--ink-3);
+      margin-left: 4px;
+      letter-spacing: 0;
+    }
+    .signal .caption {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--ink-2);
+      max-width: 22ch;
+    }
+
+    /* Contact strip */
+    .contact-row {
+      margin-top: 40px;
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px 8px 10px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--ink-2);
+      background: var(--surface);
+      transition: all .2s ease;
+    }
+    .chip:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+    .chip svg { width: 14px; height: 14px; flex: 0 0 14px; }
+    .chip .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       PRODUCTS / RESEARCH — shared editorial card
+       ───────────────────────────────────────────────────────────── */
+    .product-logo {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      padding: 6px;
+      flex: 0 0 44px;
+    }
+    .cve-card-retired {
+      border-left-color: var(--ink-4) !important;
+      opacity: 0.78;
+    }
+    .cve-card-retired .cve-id {
+      color: var(--ink-3);
+      text-decoration: line-through;
+      text-decoration-color: var(--ink-4);
+      text-decoration-thickness: 1px;
+    }
+    .cve-card-retired .cve-id em { color: var(--ink-4); }
+    .cve-card-retired .cve-body p { color: var(--ink-3); }
+    .cve-card-retired .cve-meta .tag {
+      color: var(--ink-4);
+      background: transparent;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESEARCH — CVE artifact + index table
+       ───────────────────────────────────────────────────────────── */
+    .cve-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 48px;
+      padding: 44px 48px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      margin-bottom: 56px;
+    }
+    @media (max-width: 820px) {
+      .cve-card { grid-template-columns: 1fr; padding: 32px; gap: 28px; }
+    }
+    .cve-id {
+      font-family: 'Instrument Serif', serif;
+      font-size: 56px;
+      line-height: 1;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .cve-id em { font-style: italic; color: var(--accent); }
+    .cve-meta {
+      margin-top: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+    }
+    .cve-meta .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      margin-right: 6px;
+      color: var(--accent);
+      background: var(--accent-wash);
+    }
+    .cve-body p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--ink-2);
+    }
+    .cve-body code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      padding: 1px 6px;
+      background: var(--accent-wash);
+      color: var(--accent);
+      border-radius: 3px;
+    }
+    .cve-body .links {
+      margin-top: 22px;
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: var(--ink-2);
+      background: var(--surface);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+    .btn-solid {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 500;
+      transition: background .2s, transform .2s;
+    }
+    .btn-solid:hover { background: var(--accent); transform: translateY(-1px); }
+
+    /* Machines index — like a journal table of contents */
+    .index-title {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-3);
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--ink-2);
+      margin-bottom: 0;
+    }
+    .machine {
+      display: grid;
+      grid-template-columns: 44px minmax(140px, 1.2fr) 2.5fr 120px 28px;
+      gap: 28px;
+      align-items: baseline;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background .2s;
+      position: relative;
+    }
+    .machine:hover { background: color-mix(in oklab, var(--accent-wash) 70%, transparent); }
+    .machine:hover .m-arr { transform: translate(4px, -4px); color: var(--accent); }
+    @media (max-width: 820px) {
+      .machine {
+        grid-template-columns: 36px 1fr 24px;
+        grid-template-areas:
+          "n name arr"
+          "n desc arr"
+          "n date arr";
+        row-gap: 6px;
+      }
+      .m-n { grid-area: n; }
+      .m-name { grid-area: name; }
+      .m-desc { grid-area: desc; }
+      .m-date { grid-area: date; }
+      .m-arr { grid-area: arr; }
+    }
+    .m-n {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-4);
+      letter-spacing: 0.08em;
+    }
+    .m-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .m-desc {
+      font-size: 14px;
+      color: var(--ink-2);
+      line-height: 1.5;
+    }
+    .m-desc code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+    }
+    .m-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+      text-align: right;
+    }
+    .m-arr {
+      color: var(--ink-4);
+      transition: transform .3s cubic-bezier(.2,.8,.2,1), color .2s;
+    }
+    .machine-pending { cursor: default; opacity: 0.82; }
+    .machine-pending:hover { background: transparent; }
+    .machine-pending:hover .m-arr { transform: none; color: var(--ink-4); }
+    .m-pending-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4) !important;
+      text-align: right;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       BIO — two-column prose
+       ───────────────────────────────────────────────────────────── */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+    }
+    @media (max-width: 820px) { .bio-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .bio-side {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+    .bio-side dl {
+      display: grid; grid-template-columns: auto 1fr; gap: 10px 16px;
+      margin: 0;
+    }
+    .bio-side dt { color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.08em; }
+    .bio-side dd { margin: 0; color: var(--ink-2); }
+    .bio-prose p {
+      font-family: 'Instrument Serif', serif;
+      font-size: 22px;
+      line-height: 1.45;
+      color: var(--ink-2);
+      margin: 0 0 18px;
+    }
+    .bio-prose p:first-child::first-letter {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 3.2em;
+      line-height: 0.85;
+      float: left;
+      padding: 6px 10px 0 0;
+      color: var(--accent);
+    }
+    .bio-prose a { color: var(--ink); border-bottom: 1px solid var(--ink-4); }
+    .bio-prose a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─────────────────────────────────────────────────────────────
+       NEWSLETTER
+       ───────────────────────────────────────────────────────────── */
+    .news {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 48px;
+      padding: 56px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 820px) {
+      .news { grid-template-columns: 1fr; padding: 36px; gap: 28px; }
+    }
+    .news::before {
+      content: "";
+      position: absolute; right: -80px; top: -80px;
+      width: 260px; height: 260px;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .news::after {
+      content: "";
+      position: absolute; right: -20px; top: -20px;
+      width: 140px; height: 140px;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .news h2 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin: 16px 0 0;
+    }
+    .news h2 em { font-style: italic; color: var(--accent); }
+    .news p {
+      margin: 18px 0 0;
+      font-size: 15px;
+      color: var(--ink-2);
+      max-width: 44ch;
+    }
+    .news-embed {
+      align-self: center;
+      position: relative; z-index: 1;
+      width: 100%;
+    }
+    .news-embed iframe {
+      width: 100%;
+      max-width: 100%;
+      min-height: 291px;
+      border: 0;
+      background: transparent;
+      display: block;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       FOOTER
+       ───────────────────────────────────────────────────────────── */
+    footer {
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--rule);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-3);
+      letter-spacing: 0.06em;
+    }
+    .footer-grid {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-grid .mark {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      text-transform: none;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ─────────────────────────────────────────────────────────────
+       Reveal animation
+       ───────────────────────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
   </style>
 </head>
-<body class="antialiased">
+<body>
 
-  <!-- Navigation -->
-  <nav class="nav-blur fixed top-0 w-full z-50 border-b border-neutral-200/60">
-    <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-      <a href="#hero" class="text-lg font-bold brand-text tracking-tight">Ali Dak</a>
-      <div class="hidden md:flex items-center gap-6">
-        <a href="#projects" class="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">Projects</a>
-        <a href="#journey" class="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">Journey</a>
-        <a href="#about" class="text-sm text-neutral-500 hover:text-neutral-900 transition-colors">About</a>
-        <a href="https://twitter.com/_alidak" target="_blank" rel="noopener noreferrer"
-           class="text-sm btn-brand text-white px-4 py-1.5 rounded-full font-medium">Follow</a>
+  <!-- Hairline column rules (editorial) -->
+  <div class="rules" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Status bar — sticky identity + live clock -->
+  <div class="statusbar">
+    <div class="wrap">
+      <div class="statusbar-inner">
+        <nav class="statusbar-nav" aria-label="Sections">
+          <a href="#products">Products</a>
+          <a href="#research">Research</a>
+          <a href="#bio">Bio</a>
+          <a href="#newsletter">Dispatch</a>
+        </nav>
+        <div class="right">
+          <span id="clock">--:--:-- UTC+3</span>
+          <button class="theme-toggle" id="theme-btn" aria-label="Toggle dark mode">
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="menu-toggle" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+          </button>
+        </div>
       </div>
-      <button id="menu-btn" class="md:hidden text-neutral-500 hover:text-neutral-900" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
     </div>
-  </nav>
+  </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white z-50 p-6 flex flex-col gap-6 border-l border-neutral-200 shadow-xl">
-    <button id="menu-close" class="self-end text-neutral-400 hover:text-neutral-900" aria-label="Close">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
+  <aside id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <button class="close" id="menu-close" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-    <a href="#projects" class="text-neutral-700 hover:text-neutral-900 transition-colors mobile-link">Projects</a>
-    <a href="#journey" class="text-neutral-700 hover:text-neutral-900 transition-colors mobile-link">Journey</a>
-    <a href="#about" class="text-neutral-700 hover:text-neutral-900 transition-colors mobile-link">About</a>
-  </div>
-  <div id="menu-overlay" class="fixed inset-0 bg-black/20 z-40 hidden"></div>
+    <a href="#products" class="mobile-link">Products</a>
+    <a href="#research" class="mobile-link">Research</a>
+    <a href="#bio" class="mobile-link">Bio</a>
+    <a href="#newsletter" class="mobile-link">Dispatch</a>
+  </aside>
+  <div id="menu-overlay" class="menu-overlay"></div>
 
-  <!-- Hero Section — everything visible in one screen -->
-  <section id="hero" class="min-h-screen flex flex-col justify-center px-6 pt-14">
-    <div class="max-w-4xl mx-auto w-full">
+  <main>
 
-      <!-- Top: Brand + Identity -->
-      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
-        <img src="assets/img/avatar.jpg" alt="Ali Dak"
-             class="w-20 h-20 rounded-full avatar-ring object-cover flex-shrink-0">
-        <div class="text-center sm:text-left">
-          <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold brand-text tracking-tighter leading-none">Ali Dak</h1>
-          <p class="text-neutral-700 text-base mt-1">Building in public. Ex-security researcher turned indie hacker.</p>
-        </div>
-      </div>
+    <!-- ─── HERO ──────────────────────────────────────────────── -->
+    <section class="section hero">
+      <div class="wrap">
+        <div class="grid12 hero-grid">
 
-      <!-- Social row -->
-      <div class="flex flex-wrap gap-2 mb-10 justify-center sm:justify-start">
-        <a href="https://twitter.com/_alidak" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-1.5 bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 px-3 py-1.5 rounded-lg text-xs font-medium transition-all">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          Twitter
-        </a>
-        <a href="https://github.com/0xdak" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-1.5 bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 px-3 py-1.5 rounded-lg text-xs font-medium transition-all">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/ali-dak" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-1.5 bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 px-3 py-1.5 rounded-lg text-xs font-medium transition-all">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="mailto:alidak583@gmail.com"
-           class="inline-flex items-center gap-1.5 bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 px-3 py-1.5 rounded-lg text-xs font-medium transition-all">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Email
-        </a>
-        <a href="https://alidak.beehiiv.com" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-1.5 bg-gradient-to-r from-red-800 to-red-500 text-white hover:opacity-90 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          Subscribe
-        </a>
-      </div>
-
-      <!-- Projects — compact grid in hero -->
-      <section id="projects">
-        <p class="text-xs font-semibold text-red-700 uppercase tracking-wider mb-3">Projects</p>
-        <div class="grid sm:grid-cols-3 gap-3 mb-10">
-          <a href="https://vulntracker.io" target="_blank" rel="noopener noreferrer"
-             class="card-hover group relative bg-white border border-neutral-200 rounded-lg p-4 overflow-hidden transition-all hover:border-red-300 hover:shadow-md hover:shadow-red-100/50">
-            <div class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-800 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="flex items-center gap-2.5 mb-2">
-              <img src="https://www.google.com/s2/favicons?domain=vulntracker.io&sz=32" alt="" class="w-5 h-5 rounded" loading="lazy">
-              <h3 class="text-neutral-900 font-semibold text-sm flex-1">VulnTracker.io</h3>
-              <svg class="w-3.5 h-3.5 text-neutral-300 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          <aside class="hero-label reveal">
+            <div class="portrait">
+              <span class="crop">01 · PORTRAIT</span>
+              <img class="portrait-img" src="assets/img/avatar.jpg" alt="yuznumara">
             </div>
-            <p class="text-neutral-500 text-xs leading-relaxed">Automated vulnerability tracking for companies.</p>
-            <span class="inline-block mt-2 text-[10px] font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded">SaaS</span>
-          </a>
-          <a href="https://landingvideo.com" target="_blank" rel="noopener noreferrer"
-             class="card-hover group relative bg-white border border-neutral-200 rounded-lg p-4 overflow-hidden transition-all hover:border-red-300 hover:shadow-md hover:shadow-red-100/50">
-            <div class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-800 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="flex items-center gap-2.5 mb-2">
-              <img src="https://www.google.com/s2/favicons?domain=landingvideo.com&sz=32" alt="" class="w-5 h-5 rounded" loading="lazy">
-              <h3 class="text-neutral-900 font-semibold text-sm flex-1">LandingVideo.com</h3>
-              <svg class="w-3.5 h-3.5 text-neutral-300 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            <dl class="idcard">
+              <dt>Name</dt><dd>yuznumara</dd>
+              <dt>Role</dt><dd>Researcher · Founder</dd>
+              <dt>Base</dt><dd>Istanbul, TR</dd>
+              <dt>Since</dt><dd>2021</dd>
+            </dl>
+          </aside>
+
+          <div class="hero-main reveal" style="transition-delay:80ms">
+            <div class="kicker">
+              <span class="no">00.0</span>
+              <span class="dash"></span>
+              <span>Security · Product · Index</span>
             </div>
-            <p class="text-neutral-500 text-xs leading-relaxed">Turn any landing page into a promo video in 30s.</p>
-            <span class="inline-block mt-2 text-[10px] font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded">SaaS</span>
-          </a>
-          <a href="https://github.com/0xdak/autowsdl" target="_blank" rel="noopener noreferrer"
-             class="card-hover group relative bg-white border border-neutral-200 rounded-lg p-4 overflow-hidden transition-all hover:border-neutral-300 hover:shadow-md hover:shadow-neutral-100/50">
-            <div class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-neutral-600 to-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="flex items-center gap-2.5 mb-2">
-              <svg class="w-5 h-5 text-neutral-700" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              <h3 class="text-neutral-900 font-semibold text-sm flex-1">autowsdl</h3>
-              <svg class="w-3.5 h-3.5 text-neutral-300 group-hover:text-neutral-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            </div>
-            <p class="text-neutral-500 text-xs leading-relaxed">Automates penetration testing of web services.</p>
-            <span class="inline-block mt-2 text-[10px] font-semibold text-neutral-600 bg-neutral-100 px-2 py-0.5 rounded">Open Source</span>
-          </a>
-        </div>
-      </section>
 
-      <!-- Credentials — inline pills -->
-      <div class="flex flex-wrap gap-2 mb-6">
-        <span class="text-xs bg-red-50 border border-red-200 text-red-700 px-3 py-1.5 rounded-lg font-semibold">OSCP Certified</span>
-        <span class="text-xs bg-white border border-neutral-200 text-neutral-700 px-3 py-1.5 rounded-lg font-medium">TSE Pentester</span>
-        <span class="text-xs bg-white border border-neutral-200 text-neutral-700 px-3 py-1.5 rounded-lg font-medium">3+ yrs Pentesting</span>
-        <span class="text-xs bg-white border border-neutral-200 text-neutral-700 px-3 py-1.5 rounded-lg font-medium">Web & Mobile AppSec</span>
-        <span class="text-xs bg-white border border-neutral-200 text-neutral-700 px-3 py-1.5 rounded-lg font-medium">Active Directory</span>
-        <span class="text-xs bg-white border border-neutral-200 text-neutral-700 px-3 py-1.5 rounded-lg font-medium">OffSec Machine Builder</span>
-        <span class="text-xs bg-white border border-neutral-200 text-neutral-700 px-3 py-1.5 rounded-lg font-medium">Indie Hacker</span>
-      </div>
+            <h1 class="display" style="margin-top:22px">
+              Cybersecurity<br>
+              <em class="italic">entrepreneur</em>.
+            </h1>
 
-    </div>
-  </section>
+            <p class="lede">
+              I've been writing code for 10 years and breaking into systems for the last 3.
+              OSCP certified, built vulnerable machines for
+              <a href="#research" style="color:var(--accent); border-bottom: 1px solid var(--accent);">OffSec Proving Grounds</a>.
+              Now I'm on the other side — building security products for companies that actually need them.
+            </p>
 
-  <!-- Journey Section — compact -->
-  <section id="journey" class="py-16 px-6 border-t border-neutral-200">
-    <div class="max-w-4xl mx-auto">
-      <p class="text-xs font-semibold text-red-700 uppercase tracking-wider mb-6">Journey</p>
-
-      <div class="space-y-4">
-        <!-- Building Challenge — toggle -->
-        <div class="bg-white border border-neutral-200 rounded-lg overflow-hidden">
-          <button onclick="toggleSection('sec-build')" aria-expanded="false" aria-controls="sec-build" class="w-full p-5 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span>
-              <div>
-                <span class="text-[10px] font-semibold text-red-600 uppercase tracking-wider">Building in Public</span>
-                <h3 class="text-neutral-900 font-semibold text-base">$2,281 in 7 Days</h3>
+            <!-- Signals -->
+            <div class="signals">
+              <div class="signal">
+                <div class="k"><span>Years pentesting</span><span class="idx">01</span></div>
+                <div class="v">3<span class="unit">+ yrs</span></div>
+                <div class="caption">web, mobile, AD, network assessments</div>
+              </div>
+              <div class="signal">
+                <div class="k"><span>Certification</span><span class="idx">02</span></div>
+                <div class="v">OSCP<span class="unit">/ OffSec</span></div>
+                <div class="caption">web · mobile · AD · network</div>
+              </div>
+              <div class="signal">
+                <div class="k"><span>OffSec machines</span><span class="idx">03</span></div>
+                <div class="v">5<span class="unit">/ PG</span></div>
+                <div class="caption">5 machines, 2 CVE-based scenarios</div>
+              </div>
+              <div class="signal">
+                <div class="k"><span>Products shipped</span><span class="idx">04</span></div>
+                <div class="v">2<span class="unit">/ 1 live</span></div>
+                <div class="caption">VulnTracker · landingvideo (retired)</div>
               </div>
             </div>
-            <svg class="w-4 h-4 text-neutral-400 transition-transform toggle-icon" id="icon-sec-build" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="sec-build" class="expandable">
-            <div class="px-5 pb-5 pt-0">
-              <p class="text-neutral-500 text-sm mb-3">Launching products, shipping fast, building revenue from scratch — all documented publicly.</p>
-              <a href="https://twitter.com/_alidak" target="_blank" rel="noopener noreferrer"
-                 class="text-red-500 hover:text-red-600 text-xs font-medium transition-colors">Follow the journey &rarr;</a>
+
+            <!-- Contact -->
+            <div class="contact-row">
+              <a class="chip" href="https://twitter.com/yuznumara_" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Twitter
+              </a>
+              <a class="chip" href="https://github.com/0xdak" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.25.8-.55v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.75.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.7.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.3.8 1 .8 2v3c0 .3.2.65.8.55 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.65 18.35.5 12 .5z"/></svg>
+                GitHub
+              </a>
+              <a class="chip" href="https://www.linkedin.com/in/ali-dak" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43c-1.14 0-2.07-.93-2.07-2.07s.93-2.06 2.07-2.06 2.06.92 2.06 2.06-.92 2.07-2.06 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                LinkedIn
+              </a>
+              <a class="chip" href="mailto:alidak583@gmail.com">
+                <span class="dot"></span>
+                Email
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRODUCTS ──────────────────────────────────────────── -->
+    <section class="section" id="products">
+      <div class="wrap">
+        <div class="eyebrow-row reveal">
+          <div>
+            <div class="kicker">
+              <span class="no">01</span>
+              <span class="dash"></span>
+              <span>Products</span>
+            </div>
+            <h2 class="serif" style="font-size:clamp(32px,4.5vw,56px); line-height:1.02; margin:16px 0 0;">
+              Things I <em class="italic" style="color:var(--accent)">shipped</em>.
+            </h2>
+          </div>
+          <div class="coord">§ 01 · 2 products</div>
+        </div>
+
+        <!-- VulnTracker.io -->
+        <div class="cve-card reveal" style="transition-delay:80ms;">
+          <div>
+            <div class="mono" style="font-size:10.5px; color:var(--accent); letter-spacing:0.14em; text-transform:uppercase;">
+              ▲ Flagship · Security SaaS
+            </div>
+            <div class="cve-id" style="margin-top:14px; display:flex; align-items:center; gap:14px;">
+              <img class="product-logo" src="https://www.google.com/s2/favicons?domain=vulntracker.io&sz=128" alt="" loading="lazy">
+              <span>VulnTracker<em>.io</em></span>
+            </div>
+            <div class="cve-meta">
+              <span class="tag">Live</span>
+              <span class="tag">2026</span>
+            </div>
+          </div>
+          <div class="cve-body">
+            <p>
+              Automated vulnerability tracking for security teams. Continuous visibility
+              across your stack — from disclosed CVEs to the patch landing in production.
+            </p>
+            <div class="links">
+              <a class="btn-solid" href="https://vulntracker.io" target="_blank" rel="noopener">
+                Visit <span>↗</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- OffSec Machines — toggle -->
-        <div class="bg-white border border-neutral-200 rounded-lg overflow-hidden">
-          <button onclick="toggleSection('sec-offsec')" aria-expanded="false" aria-controls="sec-offsec" class="w-full p-5 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors">
-            <div class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#991B1B;"></span>
-              <div>
-                <span class="text-[10px] font-semibold text-red-800 uppercase tracking-wider">OffSec</span>
-                <h3 class="text-neutral-900 font-semibold text-base">Vulnerable Machines I've Built</h3>
-              </div>
+        <!-- landingvideo.com (retired) -->
+        <div class="cve-card cve-card-retired reveal" style="transition-delay:160ms;">
+          <div>
+            <div class="mono" style="font-size:10.5px; color:var(--ink-4); letter-spacing:0.14em; text-transform:uppercase;">
+              ✕ Retired · Micro-SaaS
             </div>
-            <svg class="w-4 h-4 text-neutral-400 transition-transform toggle-icon" id="icon-sec-offsec" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="sec-offsec" class="expandable">
-            <div class="px-5 pb-5 pt-0 space-y-4">
-              <p class="text-neutral-500 text-sm">Vulnerable machines built for OffSec Proving Grounds:</p>
-
-              <!-- CVE-2024-53376 -->
-              <div class="border-l-2 border-red-400 pl-4">
-                <div class="flex items-center gap-2 mb-1">
-                  <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-53376" target="_blank" rel="noopener noreferrer"
-                     class="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors">CVE-2024-53376</a>
-                  <span class="text-[10px] text-neutral-400">Feb 2025</span>
-                </div>
-                <p class="text-neutral-500 text-xs leading-relaxed">Command injection in CyberPanel 2.3.7 — exploit the phpSelection field via intercepted HTTP requests to gain a root reverse shell.</p>
-                <a href="https://portal.offsec.com/machine/cve-2024-53376-192597/overview" target="_blank" rel="noopener noreferrer" class="text-[10px] text-red-500 hover:text-red-600 transition-colors">View on OffSec &rarr;</a>
-              </div>
-
-              <!-- Leyla -->
-              <div class="border-l-2 border-red-300 pl-4">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-sm font-semibold text-neutral-900">Leyla</span>
-                  <span class="text-[10px] text-neutral-400">Dec 2024</span>
-                </div>
-                <p class="text-neutral-500 text-xs leading-relaxed">SSTI exploitation + WordPress plugin flaw (CVE-2024-8352). Directory traversal in Social Web Suite plugin for privilege escalation to root.</p>
-                <a href="https://portal.offsec.com/machine/leyla-187309/overview" target="_blank" rel="noopener noreferrer" class="text-[10px] text-red-500 hover:text-red-600 transition-colors">View on OffSec &rarr;</a>
-              </div>
-
-              <!-- Jordak -->
-              <div class="border-l-2 border-red-300 pl-4">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-sm font-semibold text-neutral-900">Jordak</span>
-                  <span class="text-[10px] text-neutral-400">Sep 2024</span>
-                </div>
-                <p class="text-neutral-500 text-xs leading-relaxed">Exploiting CVE-2023-26469, privilege escalation via SUDO permission abuse for unauthorized access.</p>
-                <a href="https://portal.offsec.com/machine/jordak-185720/overview" target="_blank" rel="noopener noreferrer" class="text-[10px] text-red-500 hover:text-red-600 transition-colors">View on OffSec &rarr;</a>
-              </div>
-
-              <!-- Vmdak -->
-              <div class="border-l-2 border-red-300 pl-4">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-sm font-semibold text-neutral-900">Vmdak</span>
-                  <span class="text-[10px] text-neutral-400">Aug 2024</span>
-                </div>
-                <p class="text-neutral-500 text-xs leading-relaxed">Web enumeration & exploitation, MySQL enumeration, and privilege escalation techniques.</p>
-                <a href="https://portal.offsec.com/machine/vmdak-185278/overview" target="_blank" rel="noopener noreferrer" class="text-[10px] text-red-500 hover:text-red-600 transition-colors">View on OffSec &rarr;</a>
-              </div>
+            <div class="cve-id" style="margin-top:14px;">landingvideo<em>.com</em></div>
+            <div class="cve-meta">
+              <span class="tag">2026</span>
+              <span class="tag">Offline</span>
             </div>
+          </div>
+          <div class="cve-body">
+            <p>
+              Landing page → promo video in 30 seconds. Shipped in 2026, shut down shortly after —
+              lessons stayed, the domain didn't.
+            </p>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section — compact -->
-  <section id="about" class="py-16 px-6 border-t border-neutral-200">
-    <div class="max-w-4xl mx-auto">
-      <p class="text-xs font-semibold text-red-700 uppercase tracking-wider mb-6">About</p>
-      <div class="max-w-2xl space-y-4">
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          Security researcher with 3+ years in web & mobile pentesting, Active Directory exploitation, and network assessments. Electronics & telecom engineering background.
-        </p>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          OSCP certified. Built vulnerable machines for OffSec. Created automated security tools for professional engagements.
-        </p>
-        <p class="text-neutral-600 leading-relaxed text-sm">
-          Now building SaaS products as an indie hacker — shipping fast with vibe coding and learning in public.
-        </p>
+    <!-- ─── RESEARCH ─────────────────────────────────────────── -->
+    <section class="section" id="research">
+      <div class="wrap">
+        <div class="eyebrow-row reveal">
+          <div>
+            <div class="kicker">
+              <span class="no">02</span>
+              <span class="dash"></span>
+              <span>Research</span>
+            </div>
+            <h2 class="serif" style="font-size:clamp(32px,4.5vw,56px); line-height:1.02; margin:16px 0 0;">
+              Vulnerable machines I <em class="italic" style="color:var(--accent)">designed</em>.
+            </h2>
+            <p style="max-width:52ch; color:var(--ink-2); margin-top:14px; font-size:15px;">
+              Five vulnerable machines shipped to OffSec Proving Grounds — each a chained
+              exploit scenario, designed to teach the path from foothold to root.
+            </p>
+          </div>
+          <div class="coord">§ 02 · 5 machines</div>
+        </div>
+
+        <!-- Index table -->
+        <div class="reveal" style="transition-delay:80ms">
+          <div class="index-title">
+            <span>Index · OffSec Proving Grounds</span>
+            <span>N° · DATE</span>
+          </div>
+
+          <div class="machine machine-pending">
+            <span class="m-n">01</span>
+            <span class="m-name">CVE-2026-24848</span>
+            <span class="m-desc">Unauthenticated arbitrary file write in OpenEMR 7.0.3 <code>disposeDocument()</code> → webshell RCE, then tar wildcard injection in a root cron → root.</span>
+            <span class="m-date">Mar 2026</span>
+            <span class="m-arr m-pending-label">pending</span>
+          </div>
+
+          <a class="machine" href="https://portal.offsec.com/machine/cve-2024-53376-192597/overview" target="_blank" rel="noopener">
+            <span class="m-n">02</span>
+            <span class="m-name">CVE-2024-53376</span>
+            <span class="m-desc">Machine built around the CVE-2024-53376 disclosure — command injection via the <code>phpSelection</code> field in CyberPanel, unauthenticated request → root.</span>
+            <span class="m-date">Feb 2025</span>
+            <span class="m-arr">↗</span>
+          </a>
+
+          <a class="machine" href="https://portal.offsec.com/machine/leyla-187309/overview" target="_blank" rel="noopener">
+            <span class="m-n">03</span>
+            <span class="m-name">Leyla</span>
+            <span class="m-desc">SSTI chained with a WordPress plugin flaw <code>CVE-2024-8352</code> — directory traversal in the Social Web Suite plugin, then privesc to root.</span>
+            <span class="m-date">Dec 2024</span>
+            <span class="m-arr">↗</span>
+          </a>
+
+          <a class="machine" href="https://portal.offsec.com/machine/jordak-185720/overview" target="_blank" rel="noopener">
+            <span class="m-n">04</span>
+            <span class="m-name">Jordak</span>
+            <span class="m-desc">Exploitation of <code>CVE-2023-26469</code> on an exposed service, followed by privilege escalation via SUDO permission abuse.</span>
+            <span class="m-date">Sep 2024</span>
+            <span class="m-arr">↗</span>
+          </a>
+
+          <a class="machine" href="https://portal.offsec.com/machine/vmdak-185278/overview" target="_blank" rel="noopener">
+            <span class="m-n">05</span>
+            <span class="m-name">Vmdak</span>
+            <span class="m-desc">Web enumeration and exploitation, MySQL enumeration, and a chained local privilege escalation path.</span>
+            <span class="m-date">Aug 2024</span>
+            <span class="m-arr">↗</span>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Newsletter -->
-  <section class="py-16 px-6 border-t border-neutral-200">
-    <div class="max-w-xl mx-auto text-center">
-      <p class="text-xs font-semibold text-red-700 uppercase tracking-wider mb-3">Newsletter</p>
-      <h2 class="text-2xl font-bold text-neutral-900 mb-2">Stay in the loop</h2>
-      <p class="text-neutral-500 text-sm mb-6">Security research, indie hacking, and building in public — straight to your inbox.</p>
-      <a href="https://alidak.beehiiv.com" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 bg-gradient-to-r from-red-800 to-red-500 text-white font-semibold text-sm px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
-        Subscribe
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-  </section>
+    <!-- ─── BIO ──────────────────────────────────────────────── -->
+    <section class="section" id="bio">
+      <div class="wrap">
+        <div class="eyebrow-row reveal">
+          <div>
+            <div class="kicker">
+              <span class="no">03</span>
+              <span class="dash"></span>
+              <span>Bio</span>
+            </div>
+            <h2 class="serif" style="font-size:clamp(32px,4.5vw,56px); line-height:1.02; margin:16px 0 0;">
+              About.
+            </h2>
+          </div>
+          <div class="coord">§ 03 · essay</div>
+        </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-neutral-200 py-8 px-6">
-    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-neutral-400 text-xs">&copy; 2026 Ali Dak</p>
-      <div class="flex items-center gap-4">
-        <a href="https://twitter.com/_alidak" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-red-500 transition-colors" aria-label="Twitter">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://github.com/0xdak" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-red-500 transition-colors" aria-label="GitHub">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/ali-dak" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-red-500 transition-colors" aria-label="LinkedIn">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="mailto:alidak583@gmail.com" class="text-neutral-400 hover:text-red-500 transition-colors" aria-label="Email">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </a>
+        <div class="bio-grid reveal" style="transition-delay:80ms">
+          <aside class="bio-side">
+            <dl>
+              <dt>Cert</dt><dd>OSCP · OffSec</dd>
+              <dt>Focus</dt><dd>Web · Mobile · AD · Network</dd>
+              <dt>Field</dt><dd>Electronics &amp; Telecom Eng.</dd>
+              <dt>Writes</dt><dd>alidak.beehiiv.com</dd>
+              <dt>Builds</dt><dd>VulnTracker · landingvideo</dd>
+              <dt>Available</dt><dd style="color:var(--accent)">Advisory · limited</dd>
+            </dl>
+          </aside>
+          <div class="bio-prose">
+            <p>
+              Hey, I'm Ali. I'm a software developer and security researcher with 3+ years of experience
+              in web and mobile security, local network assessments, and Active Directory exploitation.
+              I worked at startups and a telecom company.
+            </p>
+            <p>
+              OSCP certified. I build vulnerable machines for
+              <a href="https://portal.offsec.com" target="_blank" rel="noopener">OffSec Proving Grounds</a>.
+            </p>
+            <p>
+              Now I'm turning my security work into products by building a cybersecurity company.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── NEWSLETTER ───────────────────────────────────────── -->
+    <section class="section" id="newsletter">
+      <div class="wrap">
+        <div class="news reveal">
+          <div>
+            <div class="kicker">
+              <span class="no">04</span>
+              <span class="dash"></span>
+              <span>Dispatch</span>
+            </div>
+            <h2>Build-in-<em>public</em>.</h2>
+            <p>
+              Notes from an indie founder. Occasional, when there's something worth saying.
+            </p>
+          </div>
+          <div class="news-embed">
+            <iframe src="https://subscribe-forms.beehiiv.com/d04bbbc2-52f3-4b38-8906-fa648e074bc2"
+                    class="beehiiv-embed"
+                    data-test-id="beehiiv-embed"
+                    frameborder="0" scrolling="no"
+                    title="Subscribe"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <span class="mark">yuznumara.</span>
+        <span>© 2026</span>
+        <div class="footer-links">
+          <a href="https://twitter.com/yuznumara_" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://github.com/0xdak" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/ali-dak" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:alidak583@gmail.com">Email</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <script>
+    /* ---------- Theme (dark mode) ---------- */
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = initial;
+    })();
+
+    document.getElementById('theme-btn').addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+
+    /* ---------- Mobile menu ---------- */
     const menuBtn = document.getElementById('menu-btn');
     const menuClose = document.getElementById('menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuOverlay = document.getElementById('menu-overlay');
-
     function openMenu() {
       mobileMenu.classList.add('open');
-      menuOverlay.classList.remove('hidden');
+      menuOverlay.classList.add('open');
       menuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
     }
     function closeMenu() {
       mobileMenu.classList.remove('open');
-      menuOverlay.classList.add('hidden');
+      menuOverlay.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
     }
-
     menuBtn.addEventListener('click', openMenu);
     menuClose.addEventListener('click', closeMenu);
     menuOverlay.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
 
-    // Toggle expandable sections (dynamic height so content can grow freely)
-    function toggleSection(id) {
-      const el = document.getElementById(id);
-      const icon = document.getElementById('icon-' + id);
-      const trigger = document.querySelector('[aria-controls="' + id + '"]');
-      const isOpen = el.classList.toggle('open');
-      el.style.maxHeight = isOpen ? el.scrollHeight + 'px' : '0';
-      if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : '';
-      if (trigger) trigger.setAttribute('aria-expanded', String(isOpen));
+    /* ---------- Live clock (UTC+3, Türkiye) ---------- */
+    function tickClock() {
+      const now = new Date();
+      const tr = new Date(now.getTime() + (now.getTimezoneOffset() + 180) * 60000);
+      const hh = String(tr.getHours()).padStart(2, '0');
+      const mm = String(tr.getMinutes()).padStart(2, '0');
+      const ss = String(tr.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hh}:${mm}:${ss} UTC+3`;
     }
-    window.toggleSection = toggleSection;
+    tickClock();
+    setInterval(tickClock, 1000);
 
-    // Active nav link on scroll (IntersectionObserver: cheaper + no per-frame work)
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    const sectionObserver = new IntersectionObserver((entries) => {
+    /* ---------- Active nav reflects current section ---------- */
+    const navLinks = document.querySelectorAll('.statusbar-nav a');
+    const so = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const id = entry.target.id;
-        navLinks.forEach(l => {
-          const active = l.getAttribute('href') === '#' + id;
-          l.classList.toggle('text-neutral-900', active);
-          l.classList.toggle('text-neutral-500', !active);
-        });
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
-    document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
+    document.querySelectorAll('section[id]').forEach(s => so.observe(s));
+    const heroEl = document.querySelector('.hero');
+    if (heroEl) {
+      const ho = new IntersectionObserver((es) => {
+        es.forEach(e => {
+          if (e.isIntersecting) navLinks.forEach(l => l.classList.remove('active'));
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      ho.observe(heroEl);
+    }
+
+    /* ---------- Reveal on scroll ---------- */
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   </script>
 </body>
 </html>
