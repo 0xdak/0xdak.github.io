@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>yuznumara — cybersecurity entrepreneur</title>
-  <meta name="description" content="Cybersecurity entrepreneur. OSCP-certified researcher. Author of five OffSec Proving Grounds machines. Building VulnTracker.io.">
+  <meta name="description" content="Cybersecurity entrepreneur. OSCP-certified researcher. Author of seven OffSec Proving Grounds machines. Building VulnTracker.io.">
   <meta property="og:title" content="yuznumara — cybersecurity entrepreneur">
   <meta property="og:description" content="Cybersecurity entrepreneur. OSCP-certified, OffSec machine author, founder.">
   <meta property="og:type" content="website">
@@ -916,8 +916,8 @@
               </div>
               <div class="signal">
                 <div class="k"><span>OffSec machines</span><span class="idx">03</span></div>
-                <div class="v">5<span class="unit">/ PG</span></div>
-                <div class="caption">5 machines, 2 CVE-based scenarios</div>
+                <div class="v">7<span class="unit">/ PG</span></div>
+                <div class="caption">7 machines, 4 CVE-based scenarios</div>
               </div>
               <div class="signal">
                 <div class="k"><span>Products shipped</span><span class="idx">04</span></div>
@@ -1033,11 +1033,11 @@
               Vulnerable machines I <em class="italic" style="color:var(--accent)">designed</em>.
             </h2>
             <p style="max-width:52ch; color:var(--ink-2); margin-top:14px; font-size:15px;">
-              Five vulnerable machines shipped to OffSec Proving Grounds — each a chained
+              Seven vulnerable machines shipped to OffSec Proving Grounds — each a chained
               exploit scenario, designed to teach the path from foothold to root.
             </p>
           </div>
-          <div class="coord">§ 02 · 5 machines</div>
+          <div class="coord">§ 02 · 7 machines</div>
         </div>
 
         <!-- Index table -->
@@ -1049,6 +1049,22 @@
 
           <div class="machine machine-pending">
             <span class="m-n">01</span>
+            <span class="m-name">CVE-2026-32136</span>
+            <span class="m-desc">Unauthenticated h2c upgrade smuggling in AdGuard Home (&lt; 0.107.73) — HTTP/2 streams after the upgrade skip the auth middleware. Exfiltrate SSH creds from custom filtering rules, then GTFOBin <code>wget --use-askpass</code> NOPASSWD → root.</span>
+            <span class="m-date">Apr 2026</span>
+            <span class="m-arr m-pending-label">pending</span>
+          </div>
+
+          <div class="machine machine-pending">
+            <span class="m-n">02</span>
+            <span class="m-name">CVE-2026-27734</span>
+            <span class="m-desc">Authenticated path traversal in Beszel hub-to-agent proxy (&lt; 0.18.4) — read-only any-role attacker queries the local Docker Engine API through unvalidated <code>container</code> param. Leak SSH creds from container labels, privesc via docker group <code>-v /:/host</code> chroot → root.</span>
+            <span class="m-date">Apr 2026</span>
+            <span class="m-arr m-pending-label">pending</span>
+          </div>
+
+          <div class="machine machine-pending">
+            <span class="m-n">03</span>
             <span class="m-name">CVE-2026-24848</span>
             <span class="m-desc">Unauthenticated arbitrary file write in OpenEMR 7.0.3 <code>disposeDocument()</code> → webshell RCE, then tar wildcard injection in a root cron → root.</span>
             <span class="m-date">Mar 2026</span>
@@ -1056,7 +1072,7 @@
           </div>
 
           <a class="machine" href="https://portal.offsec.com/machine/cve-2024-53376-192597/overview" target="_blank" rel="noopener">
-            <span class="m-n">02</span>
+            <span class="m-n">04</span>
             <span class="m-name">CVE-2024-53376</span>
             <span class="m-desc">Machine built around the CVE-2024-53376 disclosure — command injection via the <code>phpSelection</code> field in CyberPanel, unauthenticated request → root.</span>
             <span class="m-date">Feb 2025</span>
@@ -1064,7 +1080,7 @@
           </a>
 
           <a class="machine" href="https://portal.offsec.com/machine/leyla-187309/overview" target="_blank" rel="noopener">
-            <span class="m-n">03</span>
+            <span class="m-n">05</span>
             <span class="m-name">Leyla</span>
             <span class="m-desc">SSTI chained with a WordPress plugin flaw <code>CVE-2024-8352</code> — directory traversal in the Social Web Suite plugin, then privesc to root.</span>
             <span class="m-date">Dec 2024</span>
@@ -1072,7 +1088,7 @@
           </a>
 
           <a class="machine" href="https://portal.offsec.com/machine/jordak-185720/overview" target="_blank" rel="noopener">
-            <span class="m-n">04</span>
+            <span class="m-n">06</span>
             <span class="m-name">Jordak</span>
             <span class="m-desc">Exploitation of <code>CVE-2023-26469</code> on an exposed service, followed by privilege escalation via SUDO permission abuse.</span>
             <span class="m-date">Sep 2024</span>
@@ -1080,7 +1096,7 @@
           </a>
 
           <a class="machine" href="https://portal.offsec.com/machine/vmdak-185278/overview" target="_blank" rel="noopener">
-            <span class="m-n">05</span>
+            <span class="m-n">07</span>
             <span class="m-name">Vmdak</span>
             <span class="m-desc">Web enumeration and exploitation, MySQL enumeration, and a chained local privilege escalation path.</span>
             <span class="m-date">Aug 2024</span>
