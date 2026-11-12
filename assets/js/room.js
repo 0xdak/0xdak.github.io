@@ -491,7 +491,7 @@ window.Room = { mount: function (container, opts) {
   function ease(k) { k = k < 0 ? 0 : k > 1 ? 1 : k; return k * k * (3 - 2 * k); }
   function lerp(a, b, k) { return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k]; }
 
-  var wantCine = false, cine = null, CINE = 5.6, CZ = 2.4, CAM = [168, 110], level = .2, pourT = null, sipT = null, nextSip = 26, pourFrom = .2, sipFrom = 1, autoPour = 1.2;
+  var slurped = false, AC = null, wantCine = false, cine = null, CINE = 5.6, CZ = 2.4, CAM = [168, 110], level = .2, pourT = null, sipT = null, nextSip = 26, pourFrom = .2, sipFrom = 1, autoPour = 1.2;
   var GRIP = [101, 124], KEYL = [PX - 36, 135], MOUTH = [PX - 13, 105], CMOUTH = [PX - 20, 117];
   function demlik(o, a) {
     var c = Math.cos(a), s = Math.sin(a);
@@ -636,9 +636,10 @@ window.Room = { mount: function (container, opts) {
     if (!RM.matches) {
       if (autoPour && t > autoPour && pourT == null && sipT == null) { autoPour = 0; pourT = t; pourFrom = level; }
       if (wantCine && sipT == null && pourT == null) {
-        if (level > .3) { wantCine = false; cine = t; sipT = t + .8; sipFrom = level; nextSip = t + 30 + Math.random() * 12; }
+        if (level > .3) { wantCine = false; slurped = false; cine = t; sipT = t + .8; sipFrom = level; nextSip = t + 30 + Math.random() * 12; }
         else { pourT = t; pourFrom = level; autoPour = 0; }
       }
+      if (cine != null && sipT != null && !slurped && t - sipT >= 1.95) { slurped = true; slurp(); }
       if (cine != null && t - cine >= CINE) { cine = null; scene.classList.remove('cine'); }
       if (sipT == null && pourT == null && t > nextSip && level > .3) { sipT = t; sipFrom = level; nextSip = t + 28 + Math.random() * 12; }
     }
@@ -712,12 +713,35 @@ window.Room = { mount: function (container, opts) {
   window.addEventListener('resize', fit);
   if (mq && mq.addEventListener) mq.addEventListener('change', fit);
 
+  /* "hüüp": synthesized tea slurp (WebAudio, no files). Browsers only allow sound after a user gesture. */
+  function audio() {
+    try { if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (C) AC = new C(); } if (AC && AC.state === 'suspended') AC.resume(); } catch (e) {}
+    return AC;
+  }
+  function slurp() {
+    var a = audio(); if (!a || a.state !== 'running') return;
+    try {
+      var t0 = a.currentTime + .02, dur = .62, n = Math.floor(a.sampleRate * dur), buf = a.createBuffer(1, n, a.sampleRate), d = buf.getChannelData(0);
+      for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+      var src = a.createBufferSource(); src.buffer = buf;
+      var bp = a.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 7;
+      bp.frequency.setValueAtTime(700, t0); bp.frequency.exponentialRampToValueAtTime(2300, t0 + .28); bp.frequency.exponentialRampToValueAtTime(1300, t0 + dur);
+      var g = a.createGain(); g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(.55, t0 + .06); g.gain.setValueAtTime(.5, t0 + .4); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      var trem = a.createGain(); trem.gain.value = .65;
+      var lfo = a.createOscillator(); lfo.frequency.value = 22; var lg = a.createGain(); lg.gain.value = .35; lfo.connect(lg); lg.connect(trem.gain);
+      src.connect(bp); bp.connect(trem); trem.connect(g); g.connect(a.destination);
+      src.start(t0); src.stop(t0 + dur); lfo.start(t0); lfo.stop(t0 + dur);
+    } catch (e) {}
+  }
+
   hotEls.tea.addEventListener('click', function () {
+    audio();
     if (RM.matches) { level = 1; paint(); return; }
     if (wantCine || cine != null) return;
     wantCine = true; hov = null; scene.classList.add('cine');
   });
 
+  if (opts && opts.intro && !RM.matches) { wantCine = true; scene.classList.add('cine'); }
   fit(); draw(RM.matches ? STILL : 0);
   start();
   return api;

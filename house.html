@@ -130,7 +130,7 @@ footer { margin-top: 4rem; border-top: 1px solid var(--line); padding: 1.5rem 0 
     H.dataset.theme = t;
     try { localStorage.setItem('yn-theme', t); } catch (e) {}
   });
-  Room.mount(document.getElementById('stage'));
+  Room.mount(document.getElementById('stage'), { intro: true });
 })();
 </script>
 </body>
