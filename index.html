@@ -25,9 +25,9 @@
 <meta property="og:image" content="https://yuznumara.com/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@0xdak_">
-<meta name="twitter:image" content="https://yuznumara.com/assets/img/favicons/android-chrome-512x512.png">
+<meta name="twitter:image" content="https://yuznumara.com/assets/img/og.png">
 <meta name="theme-color" content="#141011" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F6F1EC" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
@@ -62,7 +62,7 @@
 </script>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Ali Dak","alternateName":"yuznumara","url":"https://yuznumara.com","jobTitle":"Security researcher, founder","worksFor":{"@type":"Organization","name":"DAKCYBER","url":"https://dakcyber.com"},"founder":[{"@type":"Organization","name":"DAKCYBER","url":"https://dakcyber.com"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"OSCP (Offensive Security Certified Professional)","url":"https://credentials.offsec.com/21070920-f49d-4e30-a9d0-e420e69a5f6c","recognizedBy":{"@type":"Organization","name":"OffSec"}},"knowsAbout":["Penetration testing","Vulnerability research","Web application security","Active Directory security","Exploit development"],"address":{"@type":"PostalAddress","addressLocality":"Istanbul","addressCountry":"TR"},"sameAs":["https://x.com/0xdak_","https://github.com/0xdak","https://www.linkedin.com/in/ali-dak"]}
+{"@context":"https://schema.org","@type":"Person","name":"Ali Dak","image":"https://yuznumara.com/assets/img/avatar.jpg","alternateName":"yuznumara","url":"https://yuznumara.com","jobTitle":"Security researcher, founder","worksFor":{"@type":"Organization","name":"DAKCYBER","url":"https://dakcyber.com"},"founder":[{"@type":"Organization","name":"DAKCYBER","url":"https://dakcyber.com"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"OSCP (Offensive Security Certified Professional)","url":"https://credentials.offsec.com/21070920-f49d-4e30-a9d0-e420e69a5f6c","recognizedBy":{"@type":"Organization","name":"OffSec"}},"knowsAbout":["Penetration testing","Vulnerability research","Web application security","Active Directory security","Exploit development"],"address":{"@type":"PostalAddress","addressLocality":"Istanbul","addressCountry":"TR"},"sameAs":["https://x.com/0xdak_","https://github.com/0xdak","https://www.linkedin.com/in/ali-dak"]}
 </script>
 
 <style>
@@ -368,6 +368,10 @@ dialog iframe { display: block; width: 100%; height: min(640px, 75vh); border: 0
   .name.glitch .glyphs::before, .name.glitch .glyphs::after { display: none; }
   .tea .steam path { stroke-dasharray: none; }
 }
+.idrow { margin: 0 0 1.1rem; display: flex; align-items: center; gap: 1rem; }
+.avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; border: 1px solid var(--line2); box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--fill); }
+.idrow .name { margin: 0; min-width: 0; }
+@media (max-width: 520px) { .avatar { width: 52px; height: 52px; } }
 </style>
 </head>
 <body>
@@ -431,7 +435,8 @@ dialog iframe { display: block; width: 100%; height: min(640px, 75vh); border: 0
       </button>
 
       <p class="cmd" aria-hidden="true"><span class="ps">guest@yuznumara:~$</span> whoami</p>
-      <h1 class="name" id="name"><span class="glyphs" data-text="yuznumara" aria-hidden="true">yuznumara</span><span class="caret" aria-hidden="true"></span><span class="sr-only">yuznumara</span></h1>
+      <div class="idrow"><img class="avatar" src="/assets/img/avatar-96.jpg" srcset="/assets/img/avatar.jpg 2x" width="64" height="64" alt="Profile picture: a cartoon duck" decoding="async">
+      <h1 class="name" id="name"><span class="glyphs" data-text="yuznumara" aria-hidden="true">yuznumara</span><span class="caret" aria-hidden="true"></span><span class="sr-only">yuznumara</span></h1></div>
       <p class="role"><b>Ali Dak</b><span class="sep">/</span>Security researcher &amp; founder<span class="sep">/</span>Istanbul</p>
       <p class="pitch">I break into web apps, APIs, mobile apps, Active Directory and internal networks, then build products from what I learn.</p>
       <ul class="proof" aria-label="Track record">
