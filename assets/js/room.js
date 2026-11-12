@@ -754,7 +754,7 @@ window.Room = { mount: function (container, opts) {
     var a = AC; if (!a) return false;
     if (!CLIP[k] || a.state !== 'running') { want[k] = Date.now(); return false; }
     want[k] = 0;
-    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = CLIP[k]; g.gain.value = .85; src.connect(g); g.connect(a.destination); src.start(); return true; } catch (e) { return false; }
+    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = CLIP[k]; g.gain.value = .3; src.connect(g); g.connect(a.destination); src.start(); return true; } catch (e) { return false; }
   }
   function pourSound() { play('pour'); }
   function noise(a, dur) {
@@ -766,7 +766,7 @@ window.Room = { mount: function (container, opts) {
     if (CLIP.sip && play('sip')) return;
     var a = audio(); if (!a || a.state !== 'running') return;
     try {
-      var t0 = a.currentTime + .03, dur = 1.05, out = a.createGain(); out.gain.value = .9; out.connect(a.destination);
+      var t0 = a.currentTime + .03, dur = 1.05, out = a.createGain(); out.gain.value = .3; out.connect(a.destination);
       /* "hüüü": airy inhale through hot tea, pitch rising, with a bubbly flutter */
       var src = noise(a, dur);
       var bp = a.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 5;
