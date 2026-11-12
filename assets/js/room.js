@@ -6,6 +6,7 @@ window.Room = { mount: function (container, opts) {
   opts = opts || {};
   var api = { repaint: function () {} };
   var HOTS = [
+    { id: 'oscp', href: 'https://credentials.offsec.com/21070920-f49d-4e30-a9d0-e420e69a5f6c', tag: 'OSCP credential ↗', cls: 'below', blank: true },
     { id: 'm4', href: 'https://dakcyber.com', tag: 'nmap · DAKCYBER pentest ↗', cls: 'below' },
     { id: 'm1', href: 'https://dakcyber.com/hizmetler/icerik-uretimi', tag: 'OffSec labs · 53 machines ↗' },
     { id: 'm2', href: 'https://github.com/0xdak?tab=repositories&q=CVE', tag: '16 CVE exploits · GitHub ↗' },
@@ -13,7 +14,7 @@ window.Room = { mount: function (container, opts) {
     { id: 'm5', href: 'https://getbowerbird.app', tag: 'Bowerbird ↗', end: true },
     { id: 'tea', tea: true, tag: 'çay iç' }
   ];
-  var LABEL = 'Pixel art of a room in Istanbul. Seen from behind, a person in a hoodie and headphones sits at a desk with four monitors and a laptop. A Turkish double teapot and a glass of tea steam on the desk, a cat sleeps on the windowsill, and the window looks out on Galata Tower, the Bosphorus bridge and a mosque on the far shore.';
+  var LABEL = 'Pixel art of a room in Istanbul. Seen from behind, a person in a hoodie and headphones sits at a desk with four monitors and a laptop. A Turkish double teapot and a glass of tea steam on the desk, a cat sleeps on the windowsill, a portrait of Mustafa Kemal Atatürk hangs beside a framed OSCP certificate and a TSE certificate, and the window looks out on Galata Tower, the Bosphorus bridge and a mosque on the far shore.';
   var d = document, H = d.documentElement;
   var RM = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
   var DARK = window.matchMedia ? matchMedia('(prefers-color-scheme: dark)') : { matches: true };
@@ -94,7 +95,7 @@ window.Room = { mount: function (container, opts) {
   /* ---------- layout ---------- */
   var PX = 206;
   var MON = { m1: [122, 50, 42, 66], m2: [168, 62, 88, 52], m3: [260, 66, 64, 46], m4: [190, 12, 80, 44], m5: [330, 98, 42, 28] };
-  var HOT = { m1: MON.m1, m2: MON.m2, m3: MON.m3, m4: MON.m4, m5: [330, 98, 42, 34], tea: [62, 94, 52, 42] };
+  var HOT = { m1: MON.m1, m2: MON.m2, m3: MON.m3, m4: MON.m4, m5: [330, 98, 42, 34], tea: [62, 94, 52, 42], oscp: [124, 15, 39, 29] };
   var BULBS = [];
   (function () { for (var k = 0; k < 16; k++) { var x = 16 + k * 6, mid = x < 61 ? 37.5 : 84.5, half = 23.5; BULBS.push([x, Math.round(8 + 4 * (1 - Math.pow((x - mid) / half, 2)))]); } })();
 
@@ -117,7 +118,7 @@ window.Room = { mount: function (container, opts) {
       }
       BULBS.forEach(function (b) { addRect(b[0], b[1], 1, 1, 8, .5); });
       addRect(13, 13, 96, 80, 34, .8);
-      addRect(284, 22, 16, 7, 20, 1.3);
+      addRect(285, 6, 24, 34, 6, 2); addRect(291, 4, 12, 1, 8, .8);
       addRect(302, 162, 1, 34, 14, .9);
     } else {
       addRect(13, 13, 96, 80, 70, .9);
@@ -196,6 +197,60 @@ window.Room = { mount: function (container, opts) {
     ln(130, 38, 133, 36, function (a, b) { p(a, b, DARK5, 3); }); ln(133, 36, 137, 38, function (a, b) { p(a, b, DARK5, 3); }); ln(137, 38, 141, 36, function (a, b) { p(a, b, DARK5, 3); });
     ell(AMB, 153.5, 36.5, 2.6, 2.6, function (u, w) { return u + w < -.4 ? 4 : 3; }, 2); p(152, 39, HOOD, 3); p(155, 39, HOOD, 3); p(152, 40, HOOD, 2); p(155, 40, HOOD, 2);
     for (k = 0; k < 6; k++) p(128 + k * 5, 19 + k * 4, PAP, 5);
+
+    // TSE certificate
+    shape(WOOD, 166, 15, 188, 43, function (px, py) { return (px < 168 || px > 186 || py < 17 || py > 41) ? (py < 17 || px < 168 ? 3 : 2) : 2; }, 1);
+    rect(168, 17, 19, 25, PAP, 5); rect(169, 18, 17, 23, PAP, 4.6);
+    ell(HOOD, 177.5, 26, 8, 8, function (u, w) { var q = u * u + w * w; return q > .78 ? 2.6 : 3.4; }, 2);
+    tx('TSE', 172, 24, 5, PAP);
+    rect(171, 37, 13, 1, PAP, 2.6); rect(173, 39, 9, 1, PAP, 3); p(170, 37, HOOD, 3.4); p(184, 37, HOOD, 3.4);
+
+    // portrait of Mustafa Kemal Atatürk: gilt frame, black-and-white studio photograph, brass picture light
+    shape(AMB, 284, 5, 309, 41, function (px, py) {
+      var r = Math.min(px - 284, 309 - px, py - 5, 41 - py);
+      if (r === 1) return (px === 285 || py === 6) ? ((px === 285 && py === 6) ? 4.4 : 3.6) : 2.4;
+      return r === 2 ? 1.6 : 2;
+    }, 1);
+    [[285, 6], [308, 6], [285, 40], [308, 40]].forEach(function (c) { p(c[0], c[1], AMB, 4.4); });
+    var ATA = [
+      '....................',
+      '........hhhh........',
+      '......hhHhhhhh......',
+      '.....hhHhhHhhhh.....',
+      '....hhHhhHhhHhhh....',
+      '....hhLLffffhhhh....',
+      '....hLLLffffffFh....',
+      '.....fLLfffffFF.....',
+      '.....eeeLfffeee.....',
+      '.....fFofffFoFF.....',
+      '.....LfffLnfffF.....',
+      '.....LfffnnfffF.....',
+      '.....LffffffffF.....',
+      '.....fffmmmmfFF.....',
+      '......fffffffF......',
+      '.......ffffFF.......',
+      '........sFFs........',
+      '...kkkkccFFcckkkk...',
+      '..kkkkKttwwttKkkkk..',
+      '..kkkkKttttttKkkkk..',
+      '..kkkkKttwwttKkkkk..',
+      '.kkkkkkKwwwwKkkkkk..',
+      'kkkkkkkkKwwKkkkkkkkk',
+      'kkkkkkkkkKKkkkkkkkkk',
+      'kkkkkkkkkkKkkkkkkkkk',
+      'kkkkkkkkkbKkkkkkkkkk',
+      'kkkkkkkkkkKkkkkkkkkk',
+      'kkkkkkkkkkKkkkkkkkkk',
+      'kkkkkkkkkbKkkkkkkkkk',
+      'kkkkkkkkkkKkkkkkkkkk',
+      'kkkkkkkkkkKkkkkkkkkk'
+    ], ASH = { h: 1, H: 1.8, L: 4.8, f: 4, F: 3, s: 2, e: .6, o: .4, n: 3, m: 2.6, c: 5, w: 4.6, t: .3, k: 1, K: 1.8, b: 2.6 };
+    for (y = 0; y < 31; y++) for (x = 0; x < 20; x++) {
+      var ch = ATA[y].charAt(x), dxp = (x - 9.5) / 10, dyp = (y - 12) / 16;
+      p(287 + x, 8 + y, STEEL, ch === '.' ? 2.4 - .6 * (dxp * dxp + dyp * dyp) : ASH[ch]);
+    }
+    rect(290, 2, 14, 2, AMB, 3); rect(290, 2, 14, 1, AMB, 4); rect(296, 4, 2, 1, DARK5, 2.5);
+    if (night) for (x = 291; x < 303; x++) if (x < 296 || x > 297) p(x, 4, 0, x % 2 ? 25 : 24);
 
 
     // shelf, books, duck, pot
@@ -437,7 +492,7 @@ window.Room = { mount: function (container, opts) {
     for (k = 0; k < 5; k++) er(Math.round(X + 2 + k * 7 + (k === 4 ? sl : 0)), Y + 16, 5, 5, B[k]);
     er(X + 1, Y + 22, 36, 1, 10);
     CL = null;
-    if (hov && MON[hov]) { var r = MON[hov]; er(r[0] - 1, r[1] - 1, r[2] + 2, 1, 15); er(r[0] - 1, r[1] + r[3], r[2] + 2, 1, 15); er(r[0] - 1, r[1], 1, r[3], 15); er(r[0] + r[2], r[1], 1, r[3], 15); }
+    var r = hov && (MON[hov] || (hov === 'oscp' ? HOT.oscp : null)); if (r) { er(r[0] - 1, r[1] - 1, r[2] + 2, 1, 15); er(r[0] - 1, r[1] + r[3], r[2] + 2, 1, 15); er(r[0] - 1, r[1], 1, r[3], 15); er(r[0] + r[2], r[1], 1, r[3], 15); }
   }
 
   /* ---------- live bits: lights, cat, plant, tea, person ---------- */
@@ -684,7 +739,7 @@ window.Room = { mount: function (container, opts) {
   HOTS.forEach(function (h) {
     var el = d.createElement(h.tea ? 'button' : 'a');
     el.className = 'hot' + (h.cls ? ' ' + h.cls : ''); el.id = 'h-' + h.id;
-    if (h.tea) { el.type = 'button'; el.setAttribute('aria-label', 'Have a sip of tea'); } else el.href = h.href;
+    if (h.tea) { el.type = 'button'; el.setAttribute('aria-label', 'Have a sip of tea'); } else { el.href = h.href; if (h.blank) { el.target = '_blank'; el.rel = 'noopener'; } }
     var tg = d.createElement('span'); tg.className = 'tag'; tg.textContent = h.tag; if (h.tea) tg.setAttribute('aria-hidden', 'true');
     el.appendChild(tg); scene.appendChild(el); hotEls[h.id] = el;
     function on() { if (scene.classList.contains('cine')) return; hov = h.id; paint(); } function off() { if (hov === h.id) hov = null; paint(); }
