@@ -228,6 +228,7 @@ h3.sub::before { content: "## "; color: var(--acc); }
 .shot .bar i { width: .5rem; height: .5rem; border-radius: 50%; background: var(--line2); }
 .shot .bar i:first-child { background: var(--acc); }
 .shot .bar span { margin-left: .5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.shot .ph { display: block; width: 100%; height: auto; }
 .shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
 .shot a { display: block; }
 .shot a:hover img { opacity: .92; }
@@ -517,10 +518,38 @@ dialog iframe { display: block; width: 100%; height: min(640px, 75vh); border: 0
           </div>
         </article>
 
+        <article class="case" id="agent-center">
+          <figure class="shot">
+            <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>agent command center · working title</span></div>
+            <svg class="ph" viewBox="0 0 1200 750" role="img" aria-label="Illustration: a list of AI coding-agent sessions, each with a status dot and progress bar.">
+              <rect width="1200" height="750" fill="var(--bg2)"/>
+              <rect x="0" y="0" width="300" height="750" fill="var(--bg3)"/>
+              <g fill="var(--line2)"><rect x="40" y="60" width="180" height="16" rx="4"/><rect x="40" y="120" width="140" height="12" rx="4"/><rect x="40" y="160" width="160" height="12" rx="4"/><rect x="40" y="200" width="120" height="12" rx="4"/></g>
+              <g>
+                <g transform="translate(360,80)"><circle cx="12" cy="20" r="9" fill="var(--acc)"/><rect x="40" y="10" width="300" height="18" rx="4" fill="var(--line2)"/><rect x="40" y="44" width="720" height="10" rx="5" fill="var(--line)"/><rect x="40" y="44" width="430" height="10" rx="5" fill="var(--acc)" opacity=".6"/></g>
+                <g transform="translate(360,210)"><circle cx="12" cy="20" r="9" fill="var(--muted)"/><rect x="40" y="10" width="240" height="18" rx="4" fill="var(--line2)"/><rect x="40" y="44" width="720" height="10" rx="5" fill="var(--line)"/><rect x="40" y="44" width="610" height="10" rx="5" fill="var(--muted)" opacity=".5"/></g>
+                <g transform="translate(360,340)"><circle cx="12" cy="20" r="9" fill="var(--acc)"/><rect x="40" y="10" width="340" height="18" rx="4" fill="var(--line2)"/><rect x="40" y="44" width="720" height="10" rx="5" fill="var(--line)"/><rect x="40" y="44" width="180" height="10" rx="5" fill="var(--acc)" opacity=".6"/><rect x="80" y="80" width="260" height="12" rx="4" fill="var(--line)"/><rect x="80" y="108" width="200" height="12" rx="4" fill="var(--line)"/></g>
+                <g transform="translate(360,520)"><circle cx="12" cy="20" r="9" fill="var(--muted)"/><rect x="40" y="10" width="200" height="18" rx="4" fill="var(--line2)"/><rect x="40" y="44" width="720" height="10" rx="5" fill="var(--line)"/><rect x="40" y="44" width="720" height="10" rx="5" fill="var(--muted)" opacity=".5"/></g>
+              </g>
+            </svg>
+          </figure>
+          <div>
+            <div class="kick"><span class="st soon">In development</span><span>Mac app · by DAKCYBER</span></div>
+            <h3>Agent command center <span class="mut" style="font-weight:400;font-size:.55em;letter-spacing:0">(working title)</span></h3>
+            <p>A native macOS command center that finds every AI coding-agent session on your Mac and shows what each is doing, its subagents and tasks, and what needs you. All local.</p>
+            <dl class="meta">
+              <dt>Role</dt><dd>Built at DAKCYBER</dd>
+              <dt>Sees</dt><dd>Sessions, subagents, tasks and anything waiting on you</dd>
+              <dt>Data</dt><dd>Stays on your Mac</dd>
+            </dl>
+            <span class="mut" style="font-size:.875rem">not public yet</span>
+          </div>
+        </article>
+
         <article class="case" id="dakcyber">
           <figure class="shot">
             <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>https://dakcyber.com</span></div>
-            <a href="https://dakcyber.com" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/img/work/dakcyber.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="DAKCYBER home page: Siber güvenlik ve güvenli yazılım, tek çatı altında."></a>
+            <a href="https://dakcyber.com" target="_blank" rel="noopener" tabindex="-1"><img src="/assets/img/work/dakcyber.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="DAKCYBER home page: Cyber security and secure software, under one roof."></a>
           </figure>
           <div>
             <div class="kick"><span class="st live">Live</span><span>Company · Teknopark İstanbul</span></div>
@@ -748,7 +777,7 @@ dialog iframe { display: block; width: 100%; height: min(640px, 75vh); border: 0
     try { sessionStorage.setItem('yn-boot', '1'); } catch (e) {}
     var boot = $('#boot'), pre = $('#boot-out'), timers = [], ended = false;
     function pad(s, n) { s = String(s); while (s.length < n) s += ' '; return s; }
-    var rows = [['80/tcp', 'work', 'VulnTracker, Bowerbird, Warden, DAKCYBER'], ['443/tcp', 'labs', '53 OffSec PG machines'], ['8443/tcp', 'exploits', '16 public CVE PoCs'], ['25/tcp', 'contact', 'x.com/0xdak_']];
+    var rows = [['80/tcp', 'work', 'VulnTracker, Bowerbird, Warden, agent center, DAKCYBER'], ['443/tcp', 'labs', '53 OffSec PG machines'], ['8443/tcp', 'exploits', '16 public CVE PoCs'], ['25/tcp', 'contact', 'x.com/0xdak_']];
     var lines = ['<span class="mut">' + pad('PORT', 10) + pad('STATE', 7) + 'SERVICE</span>'];
     rows.forEach(function (p) { lines.push(pad(p[0], 10) + '<span class="ok">' + pad('open', 7) + '</span>' + pad(p[1], 10) + '<span class="mut">' + p[2] + '</span>'); });
     var cmd = 'nmap -sV yuznumara.com', head = '<span class="ok">$</span> ';
