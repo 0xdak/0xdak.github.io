@@ -126,10 +126,10 @@ footer { margin-top: 4rem; border-top: 1px solid var(--line); padding: 1.5rem 0 
       <a class="hot" id="h-m2" href="https://github.com/0xdak?tab=repositories&amp;q=CVE" style="left:43.75%;top:28.704%;width:22.917%;height:24.074%"><span class="tag">16 CVE exploits · GitHub ↗</span></a>
       <a class="hot" id="h-m3" href="https://vulntracker.io" style="left:67.708%;top:30.556%;width:16.667%;height:21.296%"><span class="tag">VulnTracker ↗</span></a>
       <a class="hot end" id="h-m5" href="https://getbowerbird.app" style="left:85.938%;top:45.37%;width:10.938%;height:15.741%"><span class="tag">Bowerbird ↗</span></a>
-      <button type="button" class="hot" id="h-tea" style="left:16.146%;top:43.519%;width:13.542%;height:19.444%" aria-label="Pour another glass of tea"><span class="tag" aria-hidden="true">çay? ↻</span></button>
+      <button type="button" class="hot" id="h-tea" style="left:16.146%;top:43.519%;width:13.542%;height:19.444%" aria-label="Have a sip of tea"><span class="tag" aria-hidden="true">çay iç</span></button>
     </div>
   </div>
-  <p class="hint">Hover or tap a screen. Click the teapot for a refill.</p>
+  <p class="hint">Hover or tap a screen. Click the tea to take a sip.</p>
 
   <ul class="screens" aria-label="What is on the screens">
     <li><a href="https://github.com/0xdak?tab=repositories&amp;q=CVE">Center · exploit runs</a><span>16 public CVE exploits on GitHub</span></li>
@@ -327,11 +327,6 @@ footer { margin-top: 4rem; border-top: 1px solid var(--line); padding: 1.5rem 0 
     ell(AMB, 153.5, 36.5, 2.6, 2.6, function (u, w) { return u + w < -.4 ? 4 : 3; }, 2); p(152, 39, HOOD, 3); p(155, 39, HOOD, 3); p(152, 40, HOOD, 2); p(155, 40, HOOD, 2);
     for (k = 0; k < 6; k++) p(128 + k * 5, 19 + k * 4, PAP, 5);
 
-    // neon "cay"
-    for (y = 0; y < NEON.length; y++) for (x = 0; x < 16; x++) if (NEON[y].charAt(x) === 'o') {
-      if (night) { [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(function (o) { var nx = 284 + x + o[0], ny = 22 + y + o[1], i = ny * W + nx; if (M[i] !== 0) p(nx, ny, 0, 13); }); }
-    }
-    for (y = 0; y < NEON.length; y++) for (x = 0; x < 16; x++) if (NEON[y].charAt(x) === 'o') { if (night) p(284 + x, 22 + y, 0, 15); else p(284 + x, 22 + y, HOOD, 3); }
 
     // shelf, books, duck, pot
     rect(328, 38, 56, 3, WOOD, 4); rect(328, 38, 56, 1, WOOD, 5); rect(328, 40, 56, 1, WOOD, 2.5); rect(328, 41, 56, 1, WALL, 3);
@@ -626,7 +621,7 @@ footer { margin-top: 4rem; border-top: 1px solid var(--line); padding: 1.5rem 0 
   function ease(k) { k = k < 0 ? 0 : k > 1 ? 1 : k; return k * k * (3 - 2 * k); }
   function lerp(a, b, k) { return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k]; }
 
-  var level = .2, pourT = null, sipT = null, nextSip = 26, pourFrom = .2, sipFrom = 1, autoPour = 1.2;
+  var wantSip = false, level = .2, pourT = null, sipT = null, nextSip = 26, pourFrom = .2, sipFrom = 1, autoPour = 1.2;
   var GRIP = [101, 124], KEYL = [PX - 36, 135], MOUTH = [PX - 13, 105];
   function demlik(o, a) {
     var c = Math.cos(a), s = Math.sin(a);
@@ -750,6 +745,7 @@ footer { margin-top: 4rem; border-top: 1px solid var(--line); padding: 1.5rem 0 
     if (night !== curNight) { curNight = night; build(night); }
     if (!RM.matches) {
       if (autoPour && t > autoPour && pourT == null && sipT == null) { autoPour = 0; pourT = t; pourFrom = level; }
+      if (wantSip && sipT == null && pourT == null && level > .3) { wantSip = false; sipT = t; sipFrom = level; nextSip = t + 28 + Math.random() * 12; }
       if (sipT == null && pourT == null && t > nextSip && level > .3) { sipT = t; sipFrom = level; nextSip = t + 28 + Math.random() * 12; }
     }
     M.set(M0); V.set(V0); K.set(K0);
@@ -789,7 +785,9 @@ footer { margin-top: 4rem; border-top: 1px solid var(--line); padding: 1.5rem 0 
   });
   d.getElementById('h-tea').addEventListener('click', function () {
     if (RM.matches) { level = 1; paint(); return; }
-    if (pourT == null && sipT == null) { pourT = tNow; pourFrom = level; }
+    if (pourT != null || sipT != null) { wantSip = true; return; }
+    if (level > .3) { sipT = tNow; sipFrom = level; nextSip = tNow + 28 + Math.random() * 12; }
+    else { pourT = tNow; pourFrom = level; wantSip = true; }
   });
 
   draw(RM.matches ? STILL : 0);
