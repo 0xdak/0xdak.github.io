@@ -18,3 +18,9 @@ html:not(.js) .scene canvas { display: none; }
 .scene.cine .hot { pointer-events: none; }
 .scene.cine .hot .tag { opacity: 0 !important; }
 button.hot { background: none; border: 0; padding: 0; cursor: pointer; -webkit-appearance: none; appearance: none; }
+.stage { position: relative; }
+.gate { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem; width: 100%; border: 0; border-radius: inherit; background: rgb(14 10 11 / .5); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); color: #FAFAF8; font: inherit; cursor: pointer; transition: opacity .45s ease; }
+.gate-b { font: 800 clamp(1.4rem, 4.5vw, 2.6rem)/1 var(--mono, monospace); letter-spacing: -.02em; padding: .55em 1.1em; border-radius: 999px; background: var(--fill, #9B2D43); box-shadow: 4px 4px 0 rgb(0 0 0 / .35); transition: transform .15s; }
+.gate:hover .gate-b, .gate:focus-visible .gate-b { transform: translateY(-2px) scale(1.03); }
+.gate-s { font: 500 .75rem/1 var(--mono, monospace); letter-spacing: .06em; opacity: .85; }
+.gate.out { opacity: 0; pointer-events: none; }

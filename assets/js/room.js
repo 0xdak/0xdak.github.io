@@ -8,7 +8,7 @@ window.Room = { mount: function (container, opts) {
   var HOTS = [
     { id: 'oscp', href: 'https://credentials.offsec.com/21070920-f49d-4e30-a9d0-e420e69a5f6c', tag: 'OSCP credential ↗', cls: 'below' },
     { id: 'm4', href: 'https://dakcyber.com', tag: 'nmap · DAKCYBER pentest ↗', cls: 'below' },
-    { id: 'm1', href: 'https://dakcyber.com/hizmetler/icerik-uretimi', tag: 'OffSec labs · 53 machines ↗' },
+    { id: 'm1', href: 'https://dakcyber.com/hizmetler/icerik-uretimi', tag: 'Labs · 53 machines ↗' },
     { id: 'm2', href: 'https://github.com/0xdak?tab=repositories&q=CVE', tag: '16 CVE exploits · GitHub ↗' },
     { id: 'm3', href: 'https://vulntracker.io', tag: 'VulnTracker ↗' },
     { id: 'm5', href: 'https://getbowerbird.app', tag: 'Bowerbird ↗', end: true },
@@ -399,9 +399,9 @@ window.Room = { mount: function (container, opts) {
 
   function screens(t, hov) {
     var X, Y, k, y;
-    // m1 portrait: OffSec machine list
+    // m1 portrait: lab machine list
     X = 124; Y = 52; CL = [X, Y, X + 38, Y + 62]; er(X, Y, 38, 62, hov === 'm1' ? 2 : 1);
-    er(X, Y, 38, 7, 12); tx('OFFSEC', X + 2, Y + 1, 15); tx('53', X + 29, Y + 1, 7);
+    er(X, Y, 38, 7, 12); tx('LABS', X + 2, Y + 1, 15); tx('53', X + 29, Y + 1, 7);
     tx('39 LIVE', X + 2, Y + 9, 31); er(X + 2, Y + 15, 34, 1, 3); er(X + 2, Y + 15, 25, 1, 31);
     CL = [X, Y + 18, X + 38, Y + 62];
     var n = MACH.length, off = (t * 4) % (n * 6), sel = Math.floor(t / 1.6) % n;
@@ -794,7 +794,7 @@ window.Room = { mount: function (container, opts) {
   function unlock(e) {
     if (unlocked) return; unlocked = true;
     document.removeEventListener('pointerdown', unlock, true); document.removeEventListener('keydown', unlock, true);
-    audio(); loadClips(); introAt = 0;
+    audio(); loadClips(); introAt = 0; openGate();
     if (e && e.target && e.target.closest && e.target.closest('a')) return;
     if (!RM.matches && !wantCine && cine == null && !(hotEls.tea.contains(e && e.target))) { wantCine = true; hov = null; scene.classList.add('cine'); }
   }
@@ -809,7 +809,16 @@ window.Room = { mount: function (container, opts) {
   });
 
   /* intro waits for the first click/tap/key so its pour and sip can be heard; plays silently after 8 s if nobody interacts */
-  if (opts && opts.intro && !RM.matches) { autoPour = 0; introAt = 8; }
+  /* intro waits behind a "çaylan" gate: the click that opens it is the gesture browsers require for sound */
+  var gate = null;
+  if (opts && opts.intro && !RM.matches) {
+    autoPour = 0;
+    gate = d.createElement('button'); gate.type = 'button'; gate.className = 'gate';
+    gate.setAttribute('aria-label', 'Come in and pour the tea (sound on)');
+    gate.innerHTML = '<span class="gate-b">çaylan <span aria-hidden="true">🔊</span></span><span class="gate-s">tap to come in · sound on</span>';
+    stage.appendChild(gate);
+  }
+  function openGate() { if (!gate) return; var g = gate; gate = null; g.classList.add('out'); setTimeout(function () { if (g.parentNode) g.parentNode.removeChild(g); }, 450); }
   fit(); draw(RM.matches ? STILL : 0);
   start();
   return api;
