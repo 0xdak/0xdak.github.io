@@ -748,7 +748,7 @@ window.Room = { mount: function (container, opts) {
     var a = audio(); if (!a || !window.fetch) return;
     ['pour', 'sip'].forEach(function (k) {
       if (CLIP[k] !== undefined) return; CLIP[k] = null;
-      fetch('/assets/audio/tea-' + k + '.mp3?v=3').then(function (r) { return r.arrayBuffer(); })
+      fetch('/assets/audio/tea-' + k + '.mp3?v=4').then(function (r) { return r.arrayBuffer(); })
         .then(function (b) { return new Promise(function (ok, no) { a.decodeAudioData(b, ok, no); }); })
         .then(function (buf) { CLIP[k] = buf; if (want[k] && Date.now() - want[k] < 1500) play(k); want[k] = 0; }, function () { delete CLIP[k]; });
     });
@@ -757,7 +757,7 @@ window.Room = { mount: function (container, opts) {
     var a = AC; if (!a) return false;
     if (!CLIP[k] || a.state !== 'running') { want[k] = Date.now(); return false; }
     want[k] = 0;
-    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = CLIP[k]; g.gain.value = .6; src.connect(g); g.connect(a.destination); src.start(); return true; } catch (e) { return false; }
+    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = CLIP[k]; g.gain.value = k === 'sip' ? .95 : .6; src.connect(g); g.connect(a.destination); src.start(); return true; } catch (e) { return false; }
   }
   function pourSound() { play('pour'); }
   function noise(a, dur) {
