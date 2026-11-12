@@ -739,21 +739,44 @@ window.Room = { mount: function (container, opts) {
     try { if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (C) AC = new C(); } if (AC && AC.state === 'suspended') AC.resume(); } catch (e) {}
     return AC;
   }
+  function noise(a, dur) {
+    var n = Math.floor(a.sampleRate * dur), buf = a.createBuffer(1, n, a.sampleRate), d = buf.getChannelData(0);
+    for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+    var s = a.createBufferSource(); s.buffer = buf; return s;
+  }
   function slurp() {
     var a = audio(); if (!a || a.state !== 'running') return;
     try {
-      var t0 = a.currentTime + .02, dur = .62, n = Math.floor(a.sampleRate * dur), buf = a.createBuffer(1, n, a.sampleRate), d = buf.getChannelData(0);
-      for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
-      var src = a.createBufferSource(); src.buffer = buf;
-      var bp = a.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 7;
-      bp.frequency.setValueAtTime(700, t0); bp.frequency.exponentialRampToValueAtTime(2300, t0 + .28); bp.frequency.exponentialRampToValueAtTime(1300, t0 + dur);
-      var g = a.createGain(); g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(.55, t0 + .06); g.gain.setValueAtTime(.5, t0 + .4); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
-      var trem = a.createGain(); trem.gain.value = .65;
-      var lfo = a.createOscillator(); lfo.frequency.value = 22; var lg = a.createGain(); lg.gain.value = .35; lfo.connect(lg); lg.connect(trem.gain);
-      src.connect(bp); bp.connect(trem); trem.connect(g); g.connect(a.destination);
+      var t0 = a.currentTime + .03, dur = 1.05, out = a.createGain(); out.gain.value = .9; out.connect(a.destination);
+      /* "hüüü": airy inhale through hot tea, pitch rising, with a bubbly flutter */
+      var src = noise(a, dur);
+      var bp = a.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 5;
+      bp.frequency.setValueAtTime(450, t0); bp.frequency.exponentialRampToValueAtTime(1500, t0 + .55); bp.frequency.exponentialRampToValueAtTime(2600, t0 + dur - .1);
+      var hp = a.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 300;
+      var trem = a.createGain(); trem.gain.value = .6;
+      var lfo = a.createOscillator(); lfo.frequency.setValueAtTime(14, t0); lfo.frequency.linearRampToValueAtTime(30, t0 + dur);
+      var lg = a.createGain(); lg.gain.value = .4; lfo.connect(lg); lg.connect(trem.gain);
+      var g = a.createGain(); g.gain.setValueAtTime(.0001, t0); g.gain.exponentialRampToValueAtTime(.35, t0 + .12); g.gain.linearRampToValueAtTime(.6, t0 + dur - .15); g.gain.exponentialRampToValueAtTime(.0001, t0 + dur - .02);
+      src.connect(hp); hp.connect(bp); bp.connect(trem); trem.connect(g); g.connect(out);
       src.start(t0); src.stop(t0 + dur); lfo.start(t0); lfo.stop(t0 + dur);
+      /* "p": lips close — a short low pop at the end */
+      var tp = t0 + dur - .03, o = a.createOscillator(); o.type = 'sine';
+      o.frequency.setValueAtTime(180, tp); o.frequency.exponentialRampToValueAtTime(70, tp + .07);
+      var pg = a.createGain(); pg.gain.setValueAtTime(.0001, tp); pg.gain.exponentialRampToValueAtTime(.7, tp + .006); pg.gain.exponentialRampToValueAtTime(.0001, tp + .09);
+      o.connect(pg); pg.connect(out); o.start(tp); o.stop(tp + .1);
     } catch (e) {}
   }
+
+  /* first interaction anywhere unlocks sound and plays one sip, so the "hüüp" is actually heard */
+  var unlocked = false;
+  function unlock(e) {
+    if (unlocked) return; unlocked = true;
+    document.removeEventListener('pointerdown', unlock, true); document.removeEventListener('keydown', unlock, true);
+    audio();
+    if (e && e.target && e.target.closest && e.target.closest('a')) return;
+    if (!RM.matches && !wantCine && cine == null && !(hotEls.tea.contains(e && e.target))) { wantCine = true; hov = null; scene.classList.add('cine'); }
+  }
+  document.addEventListener('pointerdown', unlock, true); document.addEventListener('keydown', unlock, true);
 
   hotEls.tea.addEventListener('click', function () {
     audio();
