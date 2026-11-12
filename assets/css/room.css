@@ -1,0 +1,19 @@
+/* stage: a 384x216 pixel canvas, scaled by whole numbers where it fits */
+.stage { width: min(var(--stage-max, 1152px), calc(100vw - 2rem)); margin-left: 50%; transform: translateX(-50%); background: var(--room); border-radius: 4px; box-shadow: 0 0 0 1px var(--line2); }
+.scene { position: relative; margin: 0 auto; width: 100%; line-height: 0; }
+.scene canvas, .scene img { display: block; width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; border-radius: 4px; }
+html:not(.js) .scene canvas { display: none; }
+.hot { position: absolute; display: block; border-radius: 2px; text-decoration: none; line-height: 1; }
+.hot .tag { position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translate(-50%, 4px); white-space: nowrap; font: 500 .6875rem/1 var(--mono); color: var(--on-fill); background: var(--fill); padding: .4rem .55rem; border-radius: 2px; opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s; box-shadow: 3px 3px 0 rgb(0 0 0 / .35); }
+.hot.below .tag { bottom: auto; top: calc(100% + 6px); }
+.hot.end .tag { left: auto; right: 0; transform: translate(0, 4px); }
+.hot:hover .tag, .hot:focus-visible .tag { opacity: 1; transform: translate(-50%, 0); }
+.hot.end:hover .tag, .hot.end:focus-visible .tag { transform: none; }
+.hot.beg .tag { left: 0; transform: translate(0, 4px); }
+.hot.beg:hover .tag, .hot.beg:focus-visible .tag { transform: none; }
+.stage noscript img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+@media (max-width: 40rem) { .hot .tag { font-size: .625rem; padding: .3rem .4rem; } }
+@media (prefers-reduced-motion: reduce) { .hot .tag { transition: none; } }
+.scene { overflow: hidden; border-radius: 4px; }
+.scene.cine .hot { pointer-events: none; }
+.scene.cine .hot .tag { opacity: 0 !important; }
