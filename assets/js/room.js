@@ -512,7 +512,7 @@ window.Room = { mount: function (container, opts) {
   function ease(k) { k = k < 0 ? 0 : k > 1 ? 1 : k; return k * k * (3 - 2 * k); }
   function lerp(a, b, k) { return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k]; }
 
-  var slurped = false, AC = null, wantCine = false, cine = null, CINE = 5.6, CZ = 2.4, CAM = [168, 110], level = .2, pourT = null, sipT = null, nextSip = 26, pourFrom = .2, sipFrom = 1, autoPour = 1.2;
+  var slurped = false, AC = null, wantCine = false, cine = null, CINE = 5.6, CZ = 2.4, CAM = [168, 110], level = .2, pourT = null, sipT = null, nextSip = 26, pourFrom = .2, sipFrom = 1, autoPour = 1.2, pourSndAt = null, introAt = 0;
   var GRIP = [101, 124], KEYL = [PX - 36, 135], MOUTH = [PX - 13, 105], CMOUTH = [PX - 20, 117];
   function demlik(o, a) {
     var c = Math.cos(a), s = Math.sin(a);
@@ -655,12 +655,15 @@ window.Room = { mount: function (container, opts) {
     var night = isNight();
     if (night !== curNight) { curNight = night; build(night); }
     if (!RM.matches) {
-      if (autoPour && t > autoPour && pourT == null && sipT == null) { autoPour = 0; pourT = t; pourFrom = level; pourSound(); }
+      if (autoPour && t > autoPour && pourT == null && sipT == null) { autoPour = 0; pourT = t; pourFrom = level; }
       if (wantCine && sipT == null && pourT == null) {
         if (level > .95) { wantCine = false; slurped = false; cine = t; sipT = t + .8; sipFrom = level; nextSip = t + 30 + Math.random() * 12; }
-        else { pourT = t; pourFrom = level; autoPour = 0; pourSound(); }
+        else { pourT = t; pourFrom = level; autoPour = 0; }
       }
-      if (cine != null && sipT != null && !slurped && t - sipT >= 1.6) { slurped = true; slurp(); }
+      if (introAt && t > introAt) { introAt = 0; if (!wantCine && cine == null) { wantCine = true; scene.classList.add('cine'); } }
+      /* sounds follow the animation: pour clip covers the visible stream (s .3-.74 of 4.5 s), slurp covers glass-at-lips (s .3-.86 of 4 s) */
+      if (pourT != null && pourSndAt !== pourT && (t - pourT) / 4.5 >= .3) { pourSndAt = pourT; pourSound(); }
+      if (cine != null && sipT != null && !slurped && t - sipT >= 1.2) { slurped = true; slurp(); }
       if (cine != null && t - cine >= CINE) { cine = null; scene.classList.remove('cine'); }
       if (sipT == null && pourT == null && t > nextSip && level > .3) { sipT = t; sipFrom = level; nextSip = t + 28 + Math.random() * 12; }
     }
@@ -745,7 +748,7 @@ window.Room = { mount: function (container, opts) {
     var a = audio(); if (!a || !window.fetch) return;
     ['pour', 'sip'].forEach(function (k) {
       if (CLIP[k] !== undefined) return; CLIP[k] = null;
-      fetch('/assets/audio/tea-' + k + '.mp3').then(function (r) { return r.arrayBuffer(); })
+      fetch('/assets/audio/tea-' + k + '.mp3?v=3').then(function (r) { return r.arrayBuffer(); })
         .then(function (b) { return new Promise(function (ok, no) { a.decodeAudioData(b, ok, no); }); })
         .then(function (buf) { CLIP[k] = buf; if (want[k] && Date.now() - want[k] < 1500) play(k); want[k] = 0; }, function () { delete CLIP[k]; });
     });
@@ -754,7 +757,7 @@ window.Room = { mount: function (container, opts) {
     var a = AC; if (!a) return false;
     if (!CLIP[k] || a.state !== 'running') { want[k] = Date.now(); return false; }
     want[k] = 0;
-    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = CLIP[k]; g.gain.value = .3; src.connect(g); g.connect(a.destination); src.start(); return true; } catch (e) { return false; }
+    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = CLIP[k]; g.gain.value = .6; src.connect(g); g.connect(a.destination); src.start(); return true; } catch (e) { return false; }
   }
   function pourSound() { play('pour'); }
   function noise(a, dur) {
@@ -766,7 +769,7 @@ window.Room = { mount: function (container, opts) {
     if (CLIP.sip && play('sip')) return;
     var a = audio(); if (!a || a.state !== 'running') return;
     try {
-      var t0 = a.currentTime + .03, dur = 1.05, out = a.createGain(); out.gain.value = .3; out.connect(a.destination);
+      var t0 = a.currentTime + .03, dur = 1.05, out = a.createGain(); out.gain.value = .5; out.connect(a.destination);
       /* "hüüü": airy inhale through hot tea, pitch rising, with a bubbly flutter */
       var src = noise(a, dur);
       var bp = a.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 5;
@@ -791,10 +794,11 @@ window.Room = { mount: function (container, opts) {
   function unlock(e) {
     if (unlocked) return; unlocked = true;
     document.removeEventListener('pointerdown', unlock, true); document.removeEventListener('keydown', unlock, true);
-    audio(); loadClips();
+    audio(); loadClips(); introAt = 0;
     if (e && e.target && e.target.closest && e.target.closest('a')) return;
     if (!RM.matches && !wantCine && cine == null && !(hotEls.tea.contains(e && e.target))) { wantCine = true; hov = null; scene.classList.add('cine'); }
   }
+  document.addEventListener('touchend', function () { audio(); }, { capture: true, passive: true });
   document.addEventListener('pointerdown', unlock, true); document.addEventListener('keydown', unlock, true);
 
   hotEls.tea.addEventListener('click', function () {
@@ -804,7 +808,8 @@ window.Room = { mount: function (container, opts) {
     wantCine = true; hov = null; scene.classList.add('cine');
   });
 
-  if (opts && opts.intro && !RM.matches) { wantCine = true; scene.classList.add('cine'); }
+  /* intro waits for the first click/tap/key so its pour and sip can be heard; plays silently after 8 s if nobody interacts */
+  if (opts && opts.intro && !RM.matches) { autoPour = 0; introAt = 8; }
   fit(); draw(RM.matches ? STILL : 0);
   start();
   return api;
