@@ -17,3 +17,4 @@ html:not(.js) .scene canvas { display: none; }
 .scene { overflow: hidden; border-radius: 4px; }
 .scene.cine .hot { pointer-events: none; }
 .scene.cine .hot .tag { opacity: 0 !important; }
+button.hot { background: none; border: 0; padding: 0; cursor: pointer; -webkit-appearance: none; appearance: none; }
