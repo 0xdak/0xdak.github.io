@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>yuznumara — cybersecurity entrepreneur</title>
-  <meta name="description" content="Cybersecurity entrepreneur. OSCP-certified researcher. Author of nine OffSec Proving Grounds machines. Building VulnTracker.io.">
+  <meta name="description" content="Cybersecurity entrepreneur. OSCP-certified researcher. Author of 53 OffSec Proving Grounds machines. Building VulnTracker.io.">
   <meta property="og:title" content="yuznumara — cybersecurity entrepreneur">
   <meta property="og:description" content="Cybersecurity entrepreneur. OSCP-certified, OffSec machine author, founder.">
   <meta property="og:type" content="website">
@@ -897,7 +897,7 @@
 
             <p class="lede">
               I've been writing code for 10 years and breaking into systems for the last 3.
-              OSCP certified, built vulnerable machines for
+              OSCP certified, built 53 vulnerable machines for
               <a href="#research" style="color:var(--accent); border-bottom: 1px solid var(--accent);">OffSec Proving Grounds</a>.
               Now I'm on the other side — building security products for companies that actually need them.
             </p>
@@ -916,8 +916,8 @@
               </div>
               <div class="signal">
                 <div class="k"><span>OffSec machines</span><span class="idx">03</span></div>
-                <div class="v">9<span class="unit">/ PG</span></div>
-                <div class="caption">9 machines · attack + defend scenarios</div>
+                <div class="v">53<span class="unit">/ PG</span></div>
+                <div class="caption">39 live · 14 in review</div>
               </div>
               <div class="signal">
                 <div class="k"><span>Products shipped</span><span class="idx">04</span></div>
@@ -1083,11 +1083,11 @@
               Vulnerable machines I <em class="italic" style="color:var(--accent)">designed</em>.
             </h2>
             <p style="max-width:52ch; color:var(--ink-2); margin-top:14px; font-size:15px;">
-              Nine vulnerable machines shipped to OffSec Proving Grounds — attack scenarios
+              53 vulnerable machines built for OffSec Proving Grounds (39 live, 14 in review) — attack scenarios
               that chain foothold to root, plus defend variants that teach the patch.
             </p>
           </div>
-          <div class="coord">§ 02 · 9 machines</div>
+          <div class="coord">§ 02 · 53 machines</div>
         </div>
 
         <!-- Index table -->
@@ -1097,77 +1097,91 @@
             <span>N° · DATE</span>
           </div>
 
-          <a class="machine" href="https://portal.offsec.com/machine/cve-2026-32136-240521/overview" target="_blank" rel="noopener">
+          <a class="machine" href="https://portal.offsec.com/machine/defend-cve-2026-72603-253534/overview" target="_blank" rel="noopener">
             <span class="m-n">01</span>
-            <span class="m-name">CVE-2026-32136</span>
-            <span class="m-desc">Unauthenticated h2c upgrade smuggling in AdGuard Home (&lt; 0.107.73) — HTTP/2 streams after the upgrade skip the auth middleware. Exfiltrate SSH creds from custom filtering rules, then GTFOBin <code>wget --use-askpass</code> NOPASSWD → root.</span>
-            <span class="m-date">Apr 2026</span>
+            <span class="m-name">CVE-2026-72603 · Defend</span>
+            <span class="m-desc">Harden a vulnerable WireGuard VPN tunnel against an arbitrary command execution flaw (CVE-2026-72603).</span>
+            <span class="m-date">Aug 2026</span>
+            <span class="m-arr">↗</span>
+          </a>
+
+          <a class="machine" href="https://portal.offsec.com/machine/defend-cve-2026-72875-256221/overview" target="_blank" rel="noopener">
+            <span class="m-n">02</span>
+            <span class="m-name">CVE-2026-72875 · Defend</span>
+            <span class="m-desc">Harden a vulnerable Dokploy self-hosted deployment platform against an arbitrary command execution flaw (CVE-2026-72875).</span>
+            <span class="m-date">Aug 2026</span>
             <span class="m-arr">↗</span>
           </a>
 
           <div class="machine machine-pending">
-            <span class="m-n">02</span>
-            <span class="m-name">CVE-2026-32136 · Defend</span>
-            <span class="m-desc">Patching exercise — move the auth middleware inside <code>h2c.NewHandler</code> in <code>internal/home/web.go</code> (upstream v0.107.73 patch), rebuild &amp; redeploy AdGuard Home to block the h2c smuggling chain.</span>
-            <span class="m-date">Apr 2026</span>
+            <span class="m-n">03</span>
+            <span class="m-name">CVE-2026-72864 / 72875 / 72876</span>
+            <span class="m-desc">New CVE attack scenario — coming soon to OffSec Proving Grounds.</span>
+            <span class="m-date">Aug 2026</span>
             <span class="m-arr m-pending-label">pending</span>
           </div>
-
-          <a class="machine" href="https://portal.offsec.com/machine/cve-2026-27734-240525/overview" target="_blank" rel="noopener">
-            <span class="m-n">03</span>
-            <span class="m-name">CVE-2026-27734</span>
-            <span class="m-desc">Authenticated path traversal in Beszel hub-to-agent proxy (&lt; 0.18.4) — read-only any-role attacker queries the local Docker Engine API through unvalidated <code>container</code> param. Leak SSH creds from container labels, privesc via docker group <code>-v /:/host</code> chroot → root.</span>
-            <span class="m-date">Apr 2026</span>
-            <span class="m-arr">↗</span>
-          </a>
 
           <div class="machine machine-pending">
             <span class="m-n">04</span>
-            <span class="m-name">CVE-2026-27734 · Defend</span>
-            <span class="m-desc">Patching exercise — apply the upstream v0.18.4 patch to the Beszel agent's Docker proxy (regex check + <code>url.PathEscape</code> on the container ID), rebuild &amp; restart to reject the path-traversal payload.</span>
-            <span class="m-date">Apr 2026</span>
+            <span class="m-name">CVE-2026-15734 · Grimoire</span>
+            <span class="m-desc">New Grimoire content — coming soon to OffSec Proving Grounds.</span>
+            <span class="m-date">Aug 2026</span>
             <span class="m-arr m-pending-label">pending</span>
           </div>
 
-          <a class="machine" href="https://portal.offsec.com/machine/cve-2026-24848-240541/overview" target="_blank" rel="noopener">
+          <a class="machine" href="https://portal.offsec.com/machine/defend-cve-2026-69083-252396/overview" target="_blank" rel="noopener">
             <span class="m-n">05</span>
-            <span class="m-name">CVE-2026-24848</span>
-            <span class="m-desc">Unauthenticated arbitrary file write in OpenEMR 7.0.3 <code>disposeDocument()</code> → webshell RCE, then tar wildcard injection in a root cron → root.</span>
-            <span class="m-date">Mar 2026</span>
+            <span class="m-name">CVE-2026-69083 · Defend</span>
+            <span class="m-desc">Harden a vulnerable SiYuan knowledge platform against an arbitrary SQL execution flaw (CVE-2026-69083).</span>
+            <span class="m-date">Aug 2026</span>
             <span class="m-arr">↗</span>
           </a>
 
-          <a class="machine" href="https://portal.offsec.com/machine/cve-2024-53376-192597/overview" target="_blank" rel="noopener">
+          <div class="machine machine-pending">
             <span class="m-n">06</span>
-            <span class="m-name">CVE-2024-53376</span>
-            <span class="m-desc">Machine built around the CVE-2024-53376 disclosure — command injection via the <code>phpSelection</code> field in CyberPanel, unauthenticated request → root.</span>
-            <span class="m-date">Feb 2025</span>
-            <span class="m-arr">↗</span>
-          </a>
+            <span class="m-name">CVE-2026-7818 · Defend</span>
+            <span class="m-desc">New Defend (patching) scenario — coming soon to OffSec Proving Grounds.</span>
+            <span class="m-date">Aug 2026</span>
+            <span class="m-arr m-pending-label">pending</span>
+          </div>
 
-          <a class="machine" href="https://portal.offsec.com/machine/leyla-187309/overview" target="_blank" rel="noopener">
+          <a class="machine" href="https://portal.offsec.com/machine/defend-cve-2026-68771-250110/overview" target="_blank" rel="noopener">
             <span class="m-n">07</span>
-            <span class="m-name">Leyla</span>
-            <span class="m-desc">SSTI chained with a WordPress plugin flaw <code>CVE-2024-8352</code> — directory traversal in the Social Web Suite plugin, then privesc to root.</span>
-            <span class="m-date">Dec 2024</span>
+            <span class="m-name">CVE-2026-68771 · Defend</span>
+            <span class="m-desc">Harden a vulnerable ComfyUI against an arbitrary command execution flaw (CVE-2026-68771).</span>
+            <span class="m-date">Aug 2026</span>
             <span class="m-arr">↗</span>
           </a>
 
-          <a class="machine" href="https://portal.offsec.com/machine/jordak-185720/overview" target="_blank" rel="noopener">
+          <a class="machine" href="https://portal.offsec.com/machine/defend-cve-2026-41167-248996/overview" target="_blank" rel="noopener">
             <span class="m-n">08</span>
-            <span class="m-name">Jordak</span>
-            <span class="m-desc">Exploitation of <code>CVE-2023-26469</code> on an exposed service, followed by privilege escalation via SUDO permission abuse.</span>
-            <span class="m-date">Sep 2024</span>
+            <span class="m-name">CVE-2026-41167 · Defend</span>
+            <span class="m-desc">Harden a vulnerable JellyStat against a SQL injection flaw (CVE-2026-41167) that lets attackers run arbitrary queries on the SQL server.</span>
+            <span class="m-date">Aug 2026</span>
             <span class="m-arr">↗</span>
           </a>
 
-          <a class="machine" href="https://portal.offsec.com/machine/vmdak-185278/overview" target="_blank" rel="noopener">
+          <a class="machine" href="https://portal.offsec.com/machine/defend-cve-2026-52680-250111/overview" target="_blank" rel="noopener">
             <span class="m-n">09</span>
-            <span class="m-name">Vmdak</span>
-            <span class="m-desc">Web enumeration and exploitation, MySQL enumeration, and a chained local privilege escalation path.</span>
-            <span class="m-date">Aug 2024</span>
+            <span class="m-name">CVE-2026-52680 · Defend</span>
+            <span class="m-desc">Harden a vulnerable Apache Kyuubi SQL gateway against an arbitrary file write flaw (CVE-2026-52680).</span>
+            <span class="m-date">Aug 2026</span>
             <span class="m-arr">↗</span>
           </a>
+
+          <div class="machine machine-pending">
+            <span class="m-n">10</span>
+            <span class="m-name">CVE-2026-59243 · Defend</span>
+            <span class="m-desc">New Defend (patching) scenario — coming soon to OffSec Proving Grounds.</span>
+            <span class="m-date">Aug 2026</span>
+            <span class="m-arr m-pending-label">pending</span>
+          </div>
+
+          <div style="margin-top:28px;">
+            <a class="btn-ghost" href="https://dakcyber.com/hizmetler/icerik-uretimi" target="_blank" rel="noopener">
+              View all 53 machines <span>→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1207,7 +1221,7 @@
               I worked at startups and a telecom company.
             </p>
             <p>
-              OSCP certified. I build vulnerable machines for
+              OSCP certified. I've built 53 vulnerable machines for
               <a href="https://portal.offsec.com" target="_blank" rel="noopener">OffSec Proving Grounds</a>.
             </p>
             <p>
