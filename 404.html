@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 — yuznumara</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#141011">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#141011" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F6F1EC" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark light">
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicons/favicon.svg">
   <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,9 +22,12 @@
     gtag('js', new Date());
     gtag('config', 'G-K537JG6SWP');
   </script>
+  <script>try{var t=localStorage.getItem("yn-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}</script>
   <style>
     :root { --bg:#141011; --bg2:#1B1515; --line:rgb(250 250 248 / .12); --line2:rgb(250 250 248 / .2); --fg:#FAFAF8; --soft:#d6cfca; --muted:#8A817C; --acc:#E0556B; --fill:#9B2D43; --fill-2:#6E1423; --on-fill:#FAFAF8; --err:#f7b2bc;
       --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) { --bg:#F6F1EC; --bg2:#FFFFFF; --bg3:#EFE6E2; --line:#E6DBD4; --line2:#d3c3ba; --fg:#1C1416; --soft:#46393A; --muted:#5C5550; --acc:#9B2D43; --err:#9B2D43; color-scheme:light; } }
+    :root[data-theme="light"] { --bg:#F6F1EC; --bg2:#FFFFFF; --bg3:#EFE6E2; --line:#E6DBD4; --line2:#d3c3ba; --fg:#1C1416; --soft:#46393A; --muted:#5C5550; --acc:#9B2D43; --err:#9B2D43; color-scheme:light; }
     *, *::before, *::after { box-sizing:border-box; }
     html { background:var(--bg); }
     body { margin:0; background:var(--bg); color:var(--fg); font:400 .9375rem/1.7 var(--mono); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
