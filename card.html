@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ali Dak — Digital Card</title>
   <meta name="description" content="Ali Dak · Cybersecurity entrepreneur. Save to contacts.">
-  <meta name="theme-color" content="#0d0c0a">
+  <meta name="theme-color" content="#141011">
   <meta name="color-scheme" content="dark">
   <meta name="robots" content="noindex">
 
@@ -29,13 +29,13 @@
   </script>
 
   <style>
-    :root { --bg:#0d0c0a; --bg2:#13110e; --line:#2a261f; --line2:#3b352b; --fg:#ece6d7; --muted:#a59d8c; --acc:#ffb547; --ink:#140e04;
+    :root { --bg:#141011; --bg2:#1B1515; --line:rgb(250 250 248 / .12); --line2:rgb(250 250 248 / .2); --fg:#FAFAF8; --soft:#d6cfca; --muted:#8A817C; --acc:#E0556B; --fill:#9B2D43; --fill-2:#6E1423; --on-fill:#FAFAF8;
       --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
     *, *::before, *::after { box-sizing: border-box; }
     html { background:var(--bg); }
     body { margin:0; background:var(--bg); color:var(--fg); font:400 .9375rem/1.6 var(--mono); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
     body::after { content:""; position:fixed; inset:0; pointer-events:none; background:repeating-linear-gradient(to bottom, transparent 0 2px, rgb(0 0 0 / .2) 2px 3px); opacity:.2; }
-    ::selection { background:var(--acc); color:var(--ink); }
+    ::selection { background:var(--fill); color:var(--on-fill); }
     html[data-lang="en"] .lang-tr, html[data-lang="tr"] .lang-en { display:none; }
     .card { max-width:27rem; margin:0 auto; padding:2.5rem 1.25rem 3rem; }
     .toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:2.5rem; font-size:.75rem; color:var(--muted); }
@@ -51,14 +51,14 @@
     .links { margin:2.25rem 0; border:1px solid var(--line); background:var(--bg2); border-radius:3px; }
     .link-row { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; padding:.95rem 1rem; border-bottom:1px solid var(--line); color:inherit; text-decoration:none; transition:background .15s; }
     .link-row:last-child { border-bottom:0; }
-    .link-row:hover { background:#1a1713; }
-    .link-row .label { font-size:.75rem; color:var(--muted); flex:none; }
+    .link-row:hover { background:#221A1A; }
+    .link-row .label { font-size:.75rem; color:var(--soft); flex:none; }
     .link-row .label::before { content:"$ "; color:var(--acc); }
     .link-row .value { text-align:right; overflow-wrap:anywhere; }
     .link-row:hover .value { color:var(--acc); }
     a:focus-visible, button:focus-visible { outline:2px solid var(--acc); outline-offset:2px; border-radius:2px; }
-    .save-btn { width:100%; font:700 .9375rem/1 var(--mono); color:var(--ink); background:var(--acc); border:1px solid var(--acc); border-radius:2px; padding:1.05rem; cursor:pointer; transition:background .15s, color .15s; }
-    .save-btn:hover { background:transparent; color:var(--acc); }
+    .save-btn { width:100%; font:700 .9375rem/1 var(--mono); color:var(--on-fill); background:var(--fill); border:1px solid var(--fill); border-radius:2px; padding:1.05rem; cursor:pointer; transition:background .15s, color .15s; }
+    .save-btn:hover { background:var(--fill-2); border-color:var(--acc); }
     .foot { margin-top:1.5rem; font-size:.75rem; color:var(--muted); text-align:center; }
     .foot a { color:inherit; }
     .foot a:hover { color:var(--acc); }
