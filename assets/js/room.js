@@ -655,10 +655,10 @@ window.Room = { mount: function (container, opts) {
     var night = isNight();
     if (night !== curNight) { curNight = night; build(night); }
     if (!RM.matches) {
-      if (autoPour && t > autoPour && pourT == null && sipT == null) { autoPour = 0; pourT = t; pourFrom = level; }
+      if (autoPour && t > autoPour && pourT == null && sipT == null) { autoPour = 0; pourT = t; pourFrom = level; pourSound(); }
       if (wantCine && sipT == null && pourT == null) {
-        if (level > .3) { wantCine = false; slurped = false; cine = t; sipT = t + .8; sipFrom = level; nextSip = t + 30 + Math.random() * 12; }
-        else { pourT = t; pourFrom = level; autoPour = 0; }
+        if (level > .95) { wantCine = false; slurped = false; cine = t; sipT = t + .8; sipFrom = level; nextSip = t + 30 + Math.random() * 12; }
+        else { pourT = t; pourFrom = level; autoPour = 0; pourSound(); }
       }
       if (cine != null && sipT != null && !slurped && t - sipT >= 1.95) { slurped = true; slurp(); }
       if (cine != null && t - cine >= CINE) { cine = null; scene.classList.remove('cine'); }
@@ -739,6 +739,18 @@ window.Room = { mount: function (container, opts) {
     try { if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (C) AC = new C(); } if (AC && AC.state === 'suspended') AC.resume(); } catch (e) {}
     return AC;
   }
+  /* tea pouring: recorded clip (Pixabay, freesound_community "tea"), ~4.4 s to match the 4.5 s pour */
+  var POUR = null, pourLoading = false, pourWant = 0;
+  function loadPour() {
+    var a = audio(); if (!a || POUR || pourLoading || !window.fetch) return; pourLoading = true;
+    fetch('/assets/audio/tea-pour.mp3').then(function (r) { return r.arrayBuffer(); })
+      .then(function (b) { return new Promise(function (ok, no) { a.decodeAudioData(b, ok, no); }); })
+      .then(function (buf) { POUR = buf; if (pourWant && Date.now() - pourWant < 1500) pourSound(); pourWant = 0; }, function () { pourLoading = false; });
+  }
+  function pourSound() {
+    var a = AC; if (!a) return; if (!POUR || a.state !== 'running') { pourWant = Date.now(); return; } pourWant = 0;
+    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = POUR; g.gain.value = .8; src.connect(g); g.connect(a.destination); src.start(); } catch (e) {}
+  }
   function noise(a, dur) {
     var n = Math.floor(a.sampleRate * dur), buf = a.createBuffer(1, n, a.sampleRate), d = buf.getChannelData(0);
     for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
@@ -772,7 +784,7 @@ window.Room = { mount: function (container, opts) {
   function unlock(e) {
     if (unlocked) return; unlocked = true;
     document.removeEventListener('pointerdown', unlock, true); document.removeEventListener('keydown', unlock, true);
-    audio();
+    audio(); loadPour();
     if (e && e.target && e.target.closest && e.target.closest('a')) return;
     if (!RM.matches && !wantCine && cine == null && !(hotEls.tea.contains(e && e.target))) { wantCine = true; hov = null; scene.classList.add('cine'); }
   }
