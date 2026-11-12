@@ -660,7 +660,7 @@ window.Room = { mount: function (container, opts) {
         if (level > .95) { wantCine = false; slurped = false; cine = t; sipT = t + .8; sipFrom = level; nextSip = t + 30 + Math.random() * 12; }
         else { pourT = t; pourFrom = level; autoPour = 0; pourSound(); }
       }
-      if (cine != null && sipT != null && !slurped && t - sipT >= 1.95) { slurped = true; slurp(); }
+      if (cine != null && sipT != null && !slurped && t - sipT >= 1.6) { slurped = true; slurp(); }
       if (cine != null && t - cine >= CINE) { cine = null; scene.classList.remove('cine'); }
       if (sipT == null && pourT == null && t > nextSip && level > .3) { sipT = t; sipFrom = level; nextSip = t + 28 + Math.random() * 12; }
     }
@@ -739,24 +739,31 @@ window.Room = { mount: function (container, opts) {
     try { if (!AC) { var C = window.AudioContext || window.webkitAudioContext; if (C) AC = new C(); } if (AC && AC.state === 'suspended') AC.resume(); } catch (e) {}
     return AC;
   }
-  /* tea pouring: recorded clip (Pixabay, freesound_community "tea"), ~4.4 s to match the 4.5 s pour */
-  var POUR = null, pourLoading = false, pourWant = 0;
-  function loadPour() {
-    var a = audio(); if (!a || POUR || pourLoading || !window.fetch) return; pourLoading = true;
-    fetch('/assets/audio/tea-pour.mp3').then(function (r) { return r.arrayBuffer(); })
-      .then(function (b) { return new Promise(function (ok, no) { a.decodeAudioData(b, ok, no); }); })
-      .then(function (buf) { POUR = buf; if (pourWant && Date.now() - pourWant < 1500) pourSound(); pourWant = 0; }, function () { pourLoading = false; });
+  /* recorded clips: pour = Pixabay (freesound_community "tea"), sip = Freesound #447388 by florianreichelt (CC0) */
+  var CLIP = {}, want = {};
+  function loadClips() {
+    var a = audio(); if (!a || !window.fetch) return;
+    ['pour', 'sip'].forEach(function (k) {
+      if (CLIP[k] !== undefined) return; CLIP[k] = null;
+      fetch('/assets/audio/tea-' + k + '.mp3').then(function (r) { return r.arrayBuffer(); })
+        .then(function (b) { return new Promise(function (ok, no) { a.decodeAudioData(b, ok, no); }); })
+        .then(function (buf) { CLIP[k] = buf; if (want[k] && Date.now() - want[k] < 1500) play(k); want[k] = 0; }, function () { delete CLIP[k]; });
+    });
   }
-  function pourSound() {
-    var a = AC; if (!a) return; if (!POUR || a.state !== 'running') { pourWant = Date.now(); return; } pourWant = 0;
-    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = POUR; g.gain.value = .8; src.connect(g); g.connect(a.destination); src.start(); } catch (e) {}
+  function play(k) {
+    var a = AC; if (!a) return false;
+    if (!CLIP[k] || a.state !== 'running') { want[k] = Date.now(); return false; }
+    want[k] = 0;
+    try { var src = a.createBufferSource(), g = a.createGain(); src.buffer = CLIP[k]; g.gain.value = .85; src.connect(g); g.connect(a.destination); src.start(); return true; } catch (e) { return false; }
   }
+  function pourSound() { play('pour'); }
   function noise(a, dur) {
     var n = Math.floor(a.sampleRate * dur), buf = a.createBuffer(1, n, a.sampleRate), d = buf.getChannelData(0);
     for (var i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
     var s = a.createBufferSource(); s.buffer = buf; return s;
   }
   function slurp() {
+    if (CLIP.sip && play('sip')) return;
     var a = audio(); if (!a || a.state !== 'running') return;
     try {
       var t0 = a.currentTime + .03, dur = 1.05, out = a.createGain(); out.gain.value = .9; out.connect(a.destination);
@@ -784,7 +791,7 @@ window.Room = { mount: function (container, opts) {
   function unlock(e) {
     if (unlocked) return; unlocked = true;
     document.removeEventListener('pointerdown', unlock, true); document.removeEventListener('keydown', unlock, true);
-    audio(); loadPour();
+    audio(); loadClips();
     if (e && e.target && e.target.closest && e.target.closest('a')) return;
     if (!RM.matches && !wantCine && cine == null && !(hotEls.tea.contains(e && e.target))) { wantCine = true; hov = null; scene.classList.add('cine'); }
   }
