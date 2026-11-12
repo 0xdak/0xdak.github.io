@@ -6,7 +6,7 @@ window.Room = { mount: function (container, opts) {
   opts = opts || {};
   var api = { repaint: function () {} };
   var HOTS = [
-    { id: 'oscp', href: 'https://credentials.offsec.com/21070920-f49d-4e30-a9d0-e420e69a5f6c', tag: 'OSCP credential ↗', cls: 'below', blank: true },
+    { id: 'oscp', href: 'https://credentials.offsec.com/21070920-f49d-4e30-a9d0-e420e69a5f6c', tag: 'OSCP credential ↗', cls: 'below' },
     { id: 'm4', href: 'https://dakcyber.com', tag: 'nmap · DAKCYBER pentest ↗', cls: 'below' },
     { id: 'm1', href: 'https://dakcyber.com/hizmetler/icerik-uretimi', tag: 'OffSec labs · 53 machines ↗' },
     { id: 'm2', href: 'https://github.com/0xdak?tab=repositories&q=CVE', tag: '16 CVE exploits · GitHub ↗' },
@@ -705,7 +705,7 @@ window.Room = { mount: function (container, opts) {
   HOTS.forEach(function (h) {
     var el = d.createElement(h.tea ? 'button' : 'a');
     el.className = 'hot' + (h.cls ? ' ' + h.cls : ''); el.id = 'h-' + h.id;
-    if (h.tea) { el.type = 'button'; el.setAttribute('aria-label', 'Have a sip of tea'); } else { el.href = h.href; if (h.blank) { el.target = '_blank'; el.rel = 'noopener'; } }
+    if (h.tea) { el.type = 'button'; el.setAttribute('aria-label', 'Have a sip of tea'); } else { el.href = h.href; el.target = '_blank'; el.rel = 'noopener'; }
     var tg = d.createElement('span'); tg.className = 'tag'; tg.textContent = h.tag; if (h.tea) tg.setAttribute('aria-hidden', 'true');
     el.appendChild(tg); scene.appendChild(el); hotEls[h.id] = el;
     function on() { if (scene.classList.contains('cine')) return; hov = h.id; paint(); } function off() { if (hov === h.id) hov = null; paint(); }
