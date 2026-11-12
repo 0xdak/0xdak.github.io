@@ -286,7 +286,12 @@ h3.sub::before { content: "## "; color: var(--acc); }
 /* ---------- house teaser ---------- */
 .house { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; align-items: center; border: 1px solid var(--line); background: var(--bg2); padding: clamp(1.25rem, 4vw, 2rem); border-radius: 3px; text-decoration: none; transition: border-color .2s; }
 .house:hover { border-color: rgb(var(--acc-rgb) / .6); color: inherit; }
-.house svg { width: 100%; height: auto; display: block; }
+.house-pic { display: block; border-radius: 2px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+.house-pic img { width: 100%; height: auto; display: block; image-rendering: pixelated; }
+.house-pic .hp-d { display: none; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .house-pic .hp-d { display: block; } :root:not([data-theme="dark"]) .house-pic .hp-n { display: none; } }
+:root[data-theme="light"] .house-pic .hp-d { display: block; }
+:root[data-theme="light"] .house-pic .hp-n { display: none; }
 .house h3 { font-size: 1.375rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .5rem; }
 .house p { color: var(--soft); margin-bottom: .75rem; font-size: .875rem; }
 .house .go { text-decoration: underline; }
@@ -599,20 +604,7 @@ dialog iframe { display: block; width: 100%; height: min(640px, 75vh); border: 0
 
     <section class="blk" id="house-teaser" aria-labelledby="house-h">
       <a class="house" href="/house.html">
-        <svg viewBox="0 0 240 120" aria-hidden="true">
-          <rect x="0" y="0" width="240" height="120" fill="var(--bg3)"/>
-          <rect x="14" y="12" width="62" height="48" fill="var(--bg)" stroke="var(--line2)"/>
-          <path d="M14 50 L26 46 L32 34 L34 46 L48 44 Q56 34 64 44 L76 46 V60 H14Z" fill="var(--muted)" opacity=".5"/>
-          <rect x="0" y="92" width="240" height="28" fill="var(--bg2)"/>
-          <rect x="70" y="34" width="22" height="40" rx="1" fill="var(--bg)" stroke="var(--soft)"/>
-          <rect x="98" y="38" width="56" height="34" rx="1" fill="var(--bg)" stroke="var(--soft)"/>
-          <rect x="160" y="42" width="44" height="28" rx="1" fill="var(--bg)" stroke="var(--soft)"/>
-          <g stroke="var(--acc)" stroke-width="1.2" opacity=".8"><path d="M103 46h30M103 52h40M103 58h22M165 49h20M165 55h30M74 42h12M74 48h14M74 54h10"/></g>
-          <path d="M60 92 h170" stroke="var(--line2)"/>
-          <circle cx="126" cy="80" r="10" fill="var(--fg)" opacity=".85"/>
-          <path d="M104 120 C104 98 112 90 126 90 C140 90 148 98 148 120Z" fill="var(--fg)" opacity=".85"/>
-          <path d="M36 92 v-10 h10 v10 M54 92 c-1-6 1-10 4-10 c3 0 5 4 4 10z" fill="none" stroke="var(--soft)"/>
-        </svg>
+        <span class="house-pic"><img class="hp-n" src="/assets/img/house-night.png" width="384" height="216" alt="" loading="lazy"><img class="hp-d" src="/assets/img/house-day.png" width="384" height="216" alt="" loading="lazy"></span>
         <div>
           <p class="cmd" aria-hidden="true"><span class="ps">$</span> ssh guest@home</p>
           <h3 id="house-h">Come to my house</h3>
